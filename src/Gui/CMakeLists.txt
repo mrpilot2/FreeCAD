@@ -39,7 +39,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/Quarter
     ${CMAKE_CURRENT_BINARY_DIR}/DAGView
     ${Boost_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${3DCONNEXION_INCLUDE_DIR}
@@ -1348,6 +1347,7 @@ target_link_libraries(FreeCADGui
     PUBLIC
         ${FreeCADGui_LIBS}
     PRIVATE
+        Eigen3::Eigen
         XercesC::XercesC
         ZLIB::ZLIB
 )

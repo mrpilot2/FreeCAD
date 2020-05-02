@@ -20,7 +20,6 @@ include_directories(
     ${PYTHON_INCLUDE_DIRS}
     ${SMESH_INCLUDE_DIR}
     ${VTK_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
 )
 
 
@@ -61,7 +60,11 @@ set(MeshPart_Scripts
 )
 
 add_library(MeshPart SHARED ${MeshPart_SRCS} ${MeshPart_Scripts})
-target_link_libraries(MeshPart ${MeshPart_LIBS})
+target_link_libraries(MeshPart
+    PUBLIC
+        ${MeshPart_LIBS}
+        Eigen3::Eigen
+)
 
 
 fc_target_copy_resource_flat(MeshPart

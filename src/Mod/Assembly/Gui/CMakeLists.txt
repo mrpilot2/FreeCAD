@@ -14,7 +14,6 @@ include_directories(
     ${QT_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
 )
 
 link_directories(${OCC_LIBRARY_DIR})

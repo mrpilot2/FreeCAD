@@ -12,7 +12,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
-    ${EIGEN3_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
 link_directories(${OCC_LIBRARY_DIR})
@@ -121,7 +120,11 @@ SOURCE_GROUP("Python" FILES ${Python_SRCS})
 SOURCE_GROUP("Module" FILES ${Mod_SRCS})
 
 add_library(Robot SHARED ${Robot_SRCS})
-target_link_libraries(Robot ${Robot_LIBS})
+target_link_libraries(Robot
+    PUBLIC
+        ${Robot_LIBS}
+        Eigen3::Eigen
+)
 
 SET_BIN_DIR(Robot Robot /Mod/Robot)
 SET_PYTHON_PREFIX_SUFFIX(Robot)

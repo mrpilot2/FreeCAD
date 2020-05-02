@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/3rdParty/libkdtree
     ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
 )
 
 set(Mesh_LIBS
@@ -375,7 +374,11 @@ if(FREECAD_USE_PCH)
 endif(FREECAD_USE_PCH)
 
 add_library(Mesh SHARED ${Core_SRCS} ${WildMagic4_SRCS} ${Mesh_SRCS})
-target_link_libraries(Mesh ${Mesh_LIBS})
+target_link_libraries(Mesh
+    PUBLIC
+        ${Mesh_LIBS}
+        Eigen3::Eigen
+)
 
 
 SET_BIN_DIR(Mesh Mesh /Mod/Mesh)

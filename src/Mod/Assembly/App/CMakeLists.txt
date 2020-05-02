@@ -15,8 +15,6 @@ include_directories(
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     #${ODE_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
-
 )
 
 link_directories(${OCC_LIBRARY_DIR})
@@ -109,7 +107,12 @@ add_library(Assembly SHARED ${Assembly_SRCS} ${Assembly_Scripts})
 if(CMAKE_COMPILER_IS_GNUCXX)
     set_target_properties(Assembly PROPERTIES COMPILE_FLAGS "-fext-numeric-literals")
 endif()
-target_link_libraries(Assembly ${Assembly_LIBS} ${log_LIB})
+target_link_libraries(Assembly
+	PUBLIC
+		${Assembly_LIBS}
+		${log_LIB}
+	    Eigen3::Eigen
+)
 
 
 fc_target_copy_resource_flat(Assembly

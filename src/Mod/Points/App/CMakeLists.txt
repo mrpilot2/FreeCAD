@@ -6,7 +6,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
 
@@ -58,7 +57,11 @@ set(Points_Scripts
 
 add_library(Points SHARED ${Points_SRCS} ${Points_Scripts})
 
-target_link_libraries(Points ${Points_LIBS})
+target_link_libraries(Points
+    PUBLIC
+        ${Points_LIBS}
+        Eigen3::Eigen
+)
 
 
 fc_target_copy_resource_flat(Points

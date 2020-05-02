@@ -23,7 +23,6 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
-    ${EIGEN3_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})
 
@@ -129,7 +128,11 @@ SET(Sketcher_PCH_SRCS
 )
 
 add_library(Sketcher SHARED ${Sketcher_SRCS})
-target_link_libraries(Sketcher ${Sketcher_LIBS})
+target_link_libraries(Sketcher
+    PUBLIC
+        ${Sketcher_LIBS}
+        Eigen3::Eigen
+)
 
 if(FREECAD_USE_PCH)
     add_definitions(-D_PreComp_)
