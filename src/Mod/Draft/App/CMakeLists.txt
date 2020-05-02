@@ -14,7 +14,6 @@ include_directories(
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${QT_QTCORE_INCLUDE_DIR}
-    ${ZLIB_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})
 

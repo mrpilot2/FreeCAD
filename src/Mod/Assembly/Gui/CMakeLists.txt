@@ -10,7 +10,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${Boost_INCLUDE_DIRS}
     ${COIN_INCLUDE_DIR}
-    ${ZLIB_INCLUDE_DIR}
     ${OCC_INCLUDE_DIR}
     ${QT_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}

@@ -13,7 +13,6 @@ include_directories(
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
-    ${ZLIB_INCLUDE_DIR}
 )
 
 if(BUILD_QT5)

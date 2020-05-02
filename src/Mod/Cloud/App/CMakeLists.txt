@@ -3,7 +3,6 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
-    ${ZLIB_INCLUDE_DIR}
     ${OPENSSL_INCLUDE_DIR}
     ${CURL_INCLUDE_DIR}
 )
@@ -13,7 +12,6 @@ set(Cloud_LIBS
     ${OPENSSL_LIBRARIES}
     ${CURL_LIBRARIES}
     ${Boost_LIBRARIES}
-    ${ZLIB_LIBRARIES}
 )
 
 SET(Cloud_SRCS

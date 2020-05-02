@@ -9,14 +9,12 @@ if(BUILD_GUI)
     include_directories(
         ${Boost_INCLUDE_DIRS}
         ${COIN3D_INCLUDE_DIRS}
-        ${ZLIB_INCLUDE_DIR}
         ${QT_INCLUDE_DIR}
         ${PYTHON_INCLUDE_DIRS}
     )
 else(BUILD_GUI)
     include_directories(
         ${Boost_INCLUDE_DIRS}
-        ${ZLIB_INCLUDE_DIR}
         ${QT_INCLUDE_DIR}
         ${PYTHON_INCLUDE_DIRS}
     )

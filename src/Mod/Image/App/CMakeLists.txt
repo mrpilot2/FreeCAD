@@ -10,7 +10,6 @@ include_directories(
     ${OPENCV_INCLUDE2_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${Boost_INCLUDE_DIRS}
-    ${ZLIB_INCLUDE_DIR}
 )
 
 set(Image_LIBS

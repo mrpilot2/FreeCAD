@@ -12,7 +12,6 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${QT_INCLUDE_DIR}
     ${OCC_INCLUDE_DIR}
-    ${ZLIB_INCLUDE_DIR}
     ${PYTHON_INCLUDE_PATH}
     ${UMFPACK_INCLUDE_DIR}
     ${SMSH_INCLUDE_DIR}
