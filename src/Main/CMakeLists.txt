@@ -12,7 +12,6 @@ if(BUILD_GUI)
         ${ZLIB_INCLUDE_DIR}
         ${QT_INCLUDE_DIR}
         ${PYTHON_INCLUDE_DIRS}
-        ${XercesC_INCLUDE_DIRS}
     )
 else(BUILD_GUI)
     include_directories(
@@ -20,7 +19,6 @@ else(BUILD_GUI)
         ${ZLIB_INCLUDE_DIR}
         ${QT_INCLUDE_DIR}
         ${PYTHON_INCLUDE_DIRS}
-        ${XercesC_INCLUDE_DIRS}
     )
 endif(BUILD_GUI)
 

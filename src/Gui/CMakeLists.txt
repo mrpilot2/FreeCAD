@@ -42,7 +42,6 @@ include_directories(
     ${EIGEN3_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
-    ${XercesC_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
     ${3DCONNEXION_INCLUDE_DIR}
 )
@@ -1346,7 +1345,11 @@ if (FREECAD_USE_QT_FILEDIALOG)
 endif()
 
 add_library(FreeCADGui SHARED ${FreeCADGui_SRCS})
-target_link_libraries(FreeCADGui ${FreeCADGui_LIBS})
+target_link_libraries(FreeCADGui
+    PUBLIC
+    ${FreeCADGui_LIBS}
+    PRIVATE
+    XercesC::XercesC)
 
 SET_BIN_DIR(FreeCADGui FreeCADGui)
 

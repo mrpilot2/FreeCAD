@@ -13,7 +13,6 @@ include_directories(
     ${PYTHON_INCLUDE_PATH}
     ${QT_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
-    ${XERCESC_INCLUDE_DIR}
     ${SMSH_INCLUDE_DIR}
     ${SMESH_INCLUDE_DIR}
 )
