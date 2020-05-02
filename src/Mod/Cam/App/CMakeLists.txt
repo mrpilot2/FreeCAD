@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/3rdParty
     ${CMAKE_SOURCE_DIR}/src/3rdParty/ANN/include
     #${CMAKE_SOURCE_DIR}/src/3rdParty/OCCAdaptMesh/Include
-    ${Boost_INCLUDE_DIRS}
     ${QT_INCLUDE_DIR}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_PATH}
@@ -85,7 +84,9 @@ SET(Cam_SRCS
 )
 
 add_library(Cam SHARED ${Cam_SRCS})
-target_link_libraries(Cam ${Cam_LIBS})
+target_link_libraries(Cam ${Cam_LIBS}
+    PRIVATE
+        Boost::boost)
 
 fc_target_copy_resource(Cam 
     ${CMAKE_SOURCE_DIR}/src/Mod/Cam

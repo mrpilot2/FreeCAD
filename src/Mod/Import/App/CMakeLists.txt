@@ -8,7 +8,6 @@ endif(MSVC)
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -73,7 +72,13 @@ SOURCE_GROUP("SCL" FILES ${SCL_Resources})
 generate_from_xml(StepShapePy)
 
 add_library(Import SHARED ${Import_SRCS})
-target_link_libraries(Import ${Import_LIBS})
+target_link_libraries(Import
+    PUBLIC
+        ${Import_LIBS}
+        Boost::boost
+        Boost::regex
+)
+
 
 ADD_CUSTOM_TARGET(ImportPy ALL
     SOURCES ${SCL_Resources}

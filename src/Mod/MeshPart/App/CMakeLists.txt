@@ -15,7 +15,6 @@ endif(BUILD_FEM_NETGEN)
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${SMESH_INCLUDE_DIR}
@@ -95,7 +94,7 @@ if (BUILD_FLAT_MESH)
 
         add_library(flatmesh SHARED ${FLATMESH_SRCS})
         SET_PYTHON_PREFIX_SUFFIX(flatmesh)
-        target_link_libraries(flatmesh ${PYTHON_LIBRARIES} ${MeshPart_LIBS})
+        target_link_libraries(flatmesh PRIVATE ${PYTHON_LIBRARIES} ${MeshPart_LIBS})
 
         SET_BIN_DIR(flatmesh flatmesh /Mod/MeshPart)
         install(TARGETS flatmesh DESTINATION ${CMAKE_INSTALL_LIBDIR})
@@ -115,7 +114,6 @@ if (BUILD_FLAT_MESH)
             endif()
 
             if(Boost_FOUND)
-                include_directories(${Boost_INCLUDE_DIRS})
                 SET(FLATMESH_SRCS
                     MeshFlattening.cpp
                     MeshFlattening.h
@@ -131,10 +129,15 @@ if (BUILD_FLAT_MESH)
                 SET_PYTHON_PREFIX_SUFFIX(flatmesh)
 
                 if (BUILD_DYNAMIC_LINK_PYTHON)
-                    target_link_libraries(flatmesh ${PYTHON_LIBRARIES})
+                    target_link_libraries(flatmesh PRIVATE ${PYTHON_LIBRARIES})
                 endif(BUILD_DYNAMIC_LINK_PYTHON)
 
-                target_link_libraries(flatmesh ${MeshPart_LIBS} ${Boost_LIBRARIES})
+                target_link_libraries(flatmesh
+                    PUBLIC
+                        ${MeshPart_LIBS}
+                    PRIVATE
+                        ${Boost_LIBRARIES}
+                    )
 
                 SET_BIN_DIR(flatmesh flatmesh /Mod/MeshPart)
                 install(TARGETS flatmesh DESTINATION ${CMAKE_INSTALL_LIBDIR})

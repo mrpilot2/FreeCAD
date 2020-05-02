@@ -43,7 +43,6 @@
 #include <App/OriginFeature.h>
 #include <App/Part.h>
 #include <App/ObjectIdentifier.h>
-#include <App/PropertyExpressionEngine.h>
 #include <Gui/Application.h>
 #include <Gui/Document.h>
 #include <Gui/BitmapFactory.h>

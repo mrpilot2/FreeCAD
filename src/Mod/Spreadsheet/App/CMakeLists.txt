@@ -6,7 +6,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${PYTHON_INCLUDE_DIRS}
-    ${Boost_INCLUDE_DIRS}
 )
 
 set(Spreadsheet_LIBS
@@ -48,7 +47,13 @@ generate_from_xml(PropertyColumnWidthsPy)
 generate_from_xml(PropertyRowHeightsPy)
 
 add_library(Spreadsheet SHARED ${Spreadsheet_SRCS})
-target_link_libraries(Spreadsheet ${Spreadsheet_LIBS})
+target_link_libraries(Spreadsheet
+    PUBLIC
+        ${Spreadsheet_LIBS}
+    PRIVATE
+        Boost::boost
+        Boost::regex
+)
 
 
 SET_BIN_DIR(Spreadsheet Spreadsheet /Mod/Spreadsheet)

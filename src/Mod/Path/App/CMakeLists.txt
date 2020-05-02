@@ -13,7 +13,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -116,7 +115,11 @@ SOURCE_GROUP("Module" FILES ${Mod_SRCS})
 #endif(WIN32)
 
 add_library(Path SHARED ${Path_SRCS})
-target_link_libraries(Path ${Path_LIBS})
+target_link_libraries(Path
+    PUBLIC
+        ${Path_LIBS}
+        Boost::boost
+)
 
 if(FREECAD_USE_PCH)
     add_definitions(-D_PreComp_)

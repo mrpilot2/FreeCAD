@@ -1,6 +1,5 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}/Inventor/annex
     ${PYTHON_INCLUDE_DIRS}
@@ -13,7 +12,6 @@ if(MSVC)
 endif(MSVC)
 
 set(MeshGui_LIBS
-    ${Boost_LIBRARIES}
     ${OPENGL_glu_LIBRARY}
     Mesh
     FreeCADGui
@@ -169,7 +167,13 @@ SET(MeshGuiIcon_SVG
 )
 
 add_library(MeshGui SHARED ${MeshGui_SRCS} ${MeshGuiIcon_SVG})
-target_link_libraries(MeshGui ${MeshGui_LIBS})
+target_link_libraries(MeshGui
+    PUBLIC
+        ${MeshGui_LIBS}
+    PRIVATE
+        Boost::boost
+        Boost::signals
+)
 
 
 SET_BIN_DIR(MeshGui MeshGui /Mod/Mesh)

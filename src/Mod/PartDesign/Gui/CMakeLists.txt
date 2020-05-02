@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
@@ -283,7 +282,12 @@ SET(PartDesignGuiIcon_SVG
 )
 
 add_library(PartDesignGui SHARED ${PartDesignGui_SRCS} ${PartDesignGuiIcon_SVG})
-target_link_libraries(PartDesignGui ${PartDesignGui_LIBS})
+target_link_libraries(PartDesignGui
+    PUBLIC
+        ${PartDesignGui_LIBS}
+        Boost::boost
+        Boost::signals
+)
 
 SET_BIN_DIR(PartDesignGui PartDesignGui /Mod/PartDesign)
 SET_PYTHON_PREFIX_SUFFIX(PartDesignGui)

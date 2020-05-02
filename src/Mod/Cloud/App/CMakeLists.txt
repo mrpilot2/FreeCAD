@@ -1,6 +1,5 @@
 
 include_directories(
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${OPENSSL_INCLUDE_DIR}
@@ -11,7 +10,6 @@ set(Cloud_LIBS
     FreeCADApp
     ${OPENSSL_LIBRARIES}
     ${CURL_LIBRARIES}
-    ${Boost_LIBRARIES}
 )
 
 SET(Cloud_SRCS

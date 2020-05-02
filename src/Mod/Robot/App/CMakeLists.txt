@@ -10,7 +10,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -124,6 +123,8 @@ target_link_libraries(Robot
     PUBLIC
         ${Robot_LIBS}
         Eigen3::Eigen
+    PRIVATE
+        Boost::boost
 )
 
 SET_BIN_DIR(Robot Robot /Mod/Robot)

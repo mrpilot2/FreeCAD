@@ -10,14 +10,12 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${PYCXX_INCLUDE_DIR}
 )
 
 if(MSVC)
     set(FreeCADBase_LIBS
-        ${Boost_LIBRARIES}
         debug MSVCRTD.LIB
         debug MSVCPRTD.LIB
         optimized MSVCRT.LIB
@@ -39,12 +37,10 @@ if(MSVC)
     endif()
 elseif(MINGW)
     set(FreeCADBase_LIBS
-        ${Boost_LIBRARIES}
         Rpcrt4.lib
     )
 else(MSVC)
     set(FreeCADBase_LIBS
-        ${Boost_LIBRARIES}
     )
 endif(MSVC)
 
@@ -395,8 +391,14 @@ add_library(FreeCADBase SHARED ${FreeCADBase_SRCS})
 target_link_libraries(FreeCADBase
     PUBLIC
         ${FreeCADBase_LIBS}
+        Boost::signals
         XercesC::XercesC
         ZLIB::ZLIB
+    PRIVATE
+        Boost::boost
+        Boost::regex
+#        Boost::iostreams
+        Boost::system
 )
 
 SET_BIN_DIR(FreeCADBase FreeCADBase)

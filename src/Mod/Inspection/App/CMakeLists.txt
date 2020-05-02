@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -35,7 +34,12 @@ set(Inspection_Scripts
 )
 
 add_library(Inspection SHARED ${Inspection_SRCS} ${Inspection_Scripts})
-target_link_libraries(Inspection ${Inspection_LIBS})
+target_link_libraries(Inspection
+    PUBLIC
+        ${Inspection_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 
 fc_target_copy_resource_flat(Inspection

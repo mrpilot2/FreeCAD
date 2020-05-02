@@ -38,7 +38,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/TaskView
     ${CMAKE_CURRENT_BINARY_DIR}/Quarter
     ${CMAKE_CURRENT_BINARY_DIR}/DAGView
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${3DCONNEXION_INCLUDE_DIR}
@@ -67,7 +66,6 @@ else(MSVC)
     set(FreeCADGui_LIBS
         FreeCADApp
         ${COIN3D_LIBRARIES}
-        ${Boost_LIBRARIES}
         ${OPENGL_gl_LIBRARY}
         ${3DCONNEXION_LINKFLAGS}
     )
@@ -1346,7 +1344,10 @@ add_library(FreeCADGui SHARED ${FreeCADGui_SRCS})
 target_link_libraries(FreeCADGui
     PUBLIC
         ${FreeCADGui_LIBS}
+        Boost::boost
+        Boost::signals
     PRIVATE
+        Boost::regex
         Eigen3::Eigen
         XercesC::XercesC
         ZLIB::ZLIB

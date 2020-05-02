@@ -1,6 +1,5 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -68,7 +67,12 @@ SET(PointsGuiIcon_SVG
 )
 
 add_library(PointsGui SHARED ${PointsGui_SRCS} ${PointsGui_Scripts} ${PointsGuiIcon_SVG})
-target_link_libraries(PointsGui ${PointsGui_LIBS})
+target_link_libraries(PointsGui
+    PUBLIC
+        ${PointsGui_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 
 fc_target_copy_resource_flat(PointsGui

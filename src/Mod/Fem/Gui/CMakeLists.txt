@@ -25,7 +25,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -390,7 +389,13 @@ SET(FemGuiIcon_SVG
 )
 
 add_library(FemGui SHARED ${FemGui_SRCS} ${FemGuiIcon_SVG})
-target_link_libraries(FemGui ${FemGui_LIBS} ${VTK_LIBRARIES})
+target_link_libraries(FemGui
+    PUBLIC
+        ${FemGui_LIBS}
+        ${VTK_LIBRARIES}
+        Boost::boost
+        Boost::signals
+)
 
 
 fc_copy_sources(FemGui "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}/Mod/Fem" ${FemGuiIcon_SVG})

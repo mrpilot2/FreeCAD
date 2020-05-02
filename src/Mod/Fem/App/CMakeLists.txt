@@ -26,7 +26,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${SMESH_INCLUDE_DIR}
@@ -194,7 +193,12 @@ if(FREECAD_USE_PCH)
 endif(FREECAD_USE_PCH)
 
 add_library(Fem SHARED ${Fem_SRCS})
-target_link_libraries(Fem ${Fem_LIBS} ${VTK_LIBRARIES})
+target_link_libraries(Fem
+    PUBLIC
+        ${Fem_LIBS}
+        ${VTK_LIBRARIES}
+        Boost::boost
+)
 
 
 SET_BIN_DIR(Fem Fem /Mod/Fem)

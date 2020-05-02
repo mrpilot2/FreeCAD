@@ -53,13 +53,11 @@ include_directories(
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
 
 set(FreeCADApp_LIBS
     FreeCADBase
-    ${Boost_LIBRARIES}
 )
 
 if (BUILD_QT5)
@@ -292,7 +290,15 @@ endif(FREECAD_USE_PCH)
 
 add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
 
-target_link_libraries(FreeCADApp ${FreeCADApp_LIBS})
+target_link_libraries(FreeCADApp
+    PUBLIC
+        ${FreeCADApp_LIBS}
+        Boost::filesystem
+        Boost::signals
+    PRIVATE
+        Boost::program_options
+        Boost::regex
+)
 
 add_dependencies(FreeCADApp fc_version)
 

@@ -39,8 +39,6 @@
 #include <Base/Sequencer.h>
 #include <Base/Matrix.h>
 #include <App/ComplexGeoData.h>
-#include <boost/regex.hpp>
-
 
 #include "PovTools.h"
 #include "LuxTools.h"

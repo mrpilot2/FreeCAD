@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${QT_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -139,7 +138,12 @@ SET(PartDesign_SRCS
 )
 
 add_library(PartDesign SHARED ${PartDesign_SRCS})
-target_link_libraries(PartDesign ${PartDesign_LIBS})
+target_link_libraries(PartDesign
+    PUBLIC
+        ${PartDesign_LIBS}
+        Boost::boost
+        Boost::signals
+)
 
 if(FREECAD_USE_PCH)
     add_definitions(-D_PreComp_)

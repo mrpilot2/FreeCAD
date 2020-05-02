@@ -28,15 +28,12 @@ if(NOT FREECAD_USE_PYBIND11)
         endif()
 
         if(Boost_FOUND)
-            include_directories(${Boost_INCLUDE_DIRS})
             MESSAGE(STATUS "found Boost: " ${Boost_LIB_VERSION})
             MESSAGE(STATUS "boost-incude dirs are: " ${Boost_INCLUDE_DIRS})
             MESSAGE(STATUS "boost-python lib is: " ${Boost_PYTHON_LIBRARY})
             MESSAGE(STATUS "boost_LIBRARY_DIRS is: " ${Boost_LIBRARY_DIRS})
             MESSAGE(STATUS "Boost_LIBRARIES is: " ${Boost_LIBRARIES})
         endif()
-    else()
-        include_directories(${Boost_INCLUDE_DIRS})
     endif()
 else()
     include_directories(${pybind11_INCLUDE_DIR})
@@ -122,7 +119,6 @@ if(MSVC)
     endif()
 
     set(area_LIBS
-        ${Boost_LIBRARIES}
         ${area_native_LIBS}
     )
     if(BUILD_DYNAMIC_LINK_PYTHON)
@@ -133,7 +129,6 @@ elseif(MINGW)
         Rpcrt4.lib
     )
     set(area_LIBS
-        ${Boost_LIBRARIES}
         ${area_native_LIBS}
     )
     if(BUILD_DYNAMIC_LINK_PYTHON)
@@ -153,7 +148,14 @@ endif(MSVC)
 target_link_libraries(area-native ${area_native_LIBS})
 SET_BIN_DIR(area-native area-native /Mod/Path)
 
-target_link_libraries(area area-native ${area_LIBS} ${area_native_LIBS})
+target_link_libraries(area
+    PUBLIC
+        area-native
+        ${area_LIBS}
+        ${area_native_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 # TODO why CMAKE_SHARED_LINKER_FLAGS is not used here?
 # This is a dirty workaround!

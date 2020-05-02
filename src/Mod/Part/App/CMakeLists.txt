@@ -14,7 +14,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${FREETYPE_INCLUDE_DIRS}
@@ -396,7 +395,11 @@ if(FREECAD_USE_PCH)
 endif(FREECAD_USE_PCH)
 
 add_library(Part SHARED ${Part_SRCS})
-target_link_libraries(Part ${Part_LIBS})
+target_link_libraries(Part
+    PUBLIC
+        ${Part_LIBS}
+        Boost::boost
+)
 
 
 SET_BIN_DIR(Part Part /Mod/Part)

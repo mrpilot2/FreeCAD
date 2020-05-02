@@ -30,7 +30,6 @@ set(FREECAD_LIBPACK_DIR ${CMAKE_SOURCE_DIR} CACHE PATH  "Directory of the FreeCA
 add_definitions(-DBOOST_ALL_DYN_LINK)
 
 include_directories(
-    ${Boost_INCLUDE_DIRS}
     #${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${Qt5Core_INCLUDE_DIRS}
@@ -50,7 +49,6 @@ set(MyPlugin_SRCS
 )
 
 set(MyPlugin_LIBS
-    ${Boost_LIBRARIES}
     #${COIN3D_LIBRARIES}
     ${PYTHON_LIBRARIES}
     ${Qt5Core_LIBRARIES}
@@ -68,7 +66,6 @@ set(FreeCADPlugin_SRCS
 )
 
 set(FreeCADPlugin_LIBS
-    ${Boost_LIBRARIES}
     #${COIN3D_LIBRARIES}
     ${PYTHON_LIBRARIES}
     ${Qt5Core_LIBRARIES}

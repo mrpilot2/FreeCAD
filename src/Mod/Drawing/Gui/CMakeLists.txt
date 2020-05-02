@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
@@ -87,7 +86,12 @@ SET(DrawingGuiIcon_SVG
 
 add_library(DrawingGui SHARED ${DrawingGui_SRCS} ${DrawingGuiView_SRCS}
                               ${DrawingGuiViewProvider_SRCS} ${DrawingGuiIcon_SVG})
-target_link_libraries(DrawingGui ${DrawingGui_LIBS})
+target_link_libraries(DrawingGui
+    PUBLIC
+        ${DrawingGui_LIBS}
+    PRIVATE
+        Boost::signals
+)
 
 
 SET_BIN_DIR(DrawingGui DrawingGui /Mod/Drawing)

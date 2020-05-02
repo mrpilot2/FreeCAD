@@ -6,7 +6,6 @@ endif(MSVC)
 
 include_directories(
     ${CMAKE_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -58,7 +57,12 @@ SOURCE_GROUP("Features" FILES ${Features_SRCS})
 SOURCE_GROUP("Algorithms" FILES ${DrawingAlgos_SRCS})
 
 add_library(Drawing SHARED ${Drawing_SRCS} ${Features_SRCS} ${DrawingAlgos_SRCS})
-target_link_libraries(Drawing ${Drawing_LIBS})
+target_link_libraries(Drawing
+    PUBLIC
+        ${Drawing_LIBS}
+    PRIVATE
+        Boost::regex
+)
 
 SET_BIN_DIR(Drawing Drawing /Mod/Drawing)
 SET_PYTHON_PREFIX_SUFFIX(Drawing)

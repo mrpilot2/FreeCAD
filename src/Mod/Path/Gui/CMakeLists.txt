@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -102,7 +101,12 @@ SET(PathGuiIcon_SVG
 )
 
 add_library(PathGui SHARED ${PathGui_SRCS} ${PathGuiIcon_SVG})
-target_link_libraries(PathGui ${PathGui_LIBS})
+target_link_libraries(PathGui
+    PUBLIC
+        ${PathGui_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 SET_BIN_DIR(PathGui PathGui /Mod/Path)
 SET_PYTHON_PREFIX_SUFFIX(PathGui)

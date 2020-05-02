@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
@@ -151,7 +150,12 @@ SET(SketcherGuiIcon_SVG
 )
 
 add_library(SketcherGui SHARED ${SketcherGui_SRCS} ${SketcherGuiIcon_SVG})
-target_link_libraries(SketcherGui ${SketcherGui_LIBS})
+target_link_libraries(SketcherGui
+    PUBLIC
+        ${SketcherGui_LIBS}
+        Boost::boost
+        Boost::signals
+)
 
 
 SET_BIN_DIR(SketcherGui SketcherGui /Mod/Sketcher)

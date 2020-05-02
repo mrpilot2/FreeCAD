@@ -5,7 +5,6 @@ endif(WIN32)
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
 
@@ -42,7 +41,11 @@ set (Sandbox_Scripts
 )
 
 add_library(Sandbox SHARED ${Sandbox_SRCS} ${Sandbox_Scripts})
-target_link_libraries(Sandbox ${Sandbox_LIBS})
+target_link_libraries(Sandbox
+    PUBLIC
+        ${Sandbox_LIBS}
+        Boost::boost
+)
 
 
 fc_target_copy_resource_flat(Sandbox

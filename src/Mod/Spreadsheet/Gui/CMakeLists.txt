@@ -1,7 +1,6 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -93,7 +92,12 @@ SET(SpreadsheetGuiIcon_SVG
 )
 
 add_library(SpreadsheetGui SHARED ${SpreadsheetGui_SRCS} ${SpreadsheetGuiIcon_SVG})
-target_link_libraries(SpreadsheetGui ${SpreadsheetGui_LIBS})
+target_link_libraries(SpreadsheetGui
+    PUBLIC
+        ${SpreadsheetGui_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 SET_BIN_DIR(SpreadsheetGui SpreadsheetGui /Mod/Spreadsheet)
 SET_PYTHON_PREFIX_SUFFIX(SpreadsheetGui)

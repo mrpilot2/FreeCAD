@@ -7,7 +7,6 @@ endif(MSVC)
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src/Gui
-    ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -69,7 +68,13 @@ set (SandboxGui_Scripts
 )
 
 add_library(SandboxGui SHARED ${SandboxGui_SRCS} ${SandboxGui_Scripts})
-target_link_libraries(SandboxGui ${SandboxGui_LIBS})
+target_link_libraries(SandboxGui
+    PUBLIC
+        ${SandboxGui_LIBS}
+    PRIVATE
+        Boost::boost
+        Boost::thread
+)
 
 
 fc_target_copy_resource_flat(SandboxGui

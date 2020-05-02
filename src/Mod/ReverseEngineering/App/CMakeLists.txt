@@ -26,7 +26,6 @@ endif ()
 
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
-    ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
     ${PCL_INCLUDE_DIRS}
@@ -70,7 +69,12 @@ SET(Reen_SRCS
 )
 
 add_library(ReverseEngineering SHARED ${Reen_SRCS})
-target_link_libraries(ReverseEngineering ${Reen_LIBS})
+target_link_libraries(ReverseEngineering
+    PUBLIC
+        ${Reen_LIBS}
+    PRIVATE
+        Boost::boost
+)
 
 
 SET_BIN_DIR(ReverseEngineering ReverseEngineering /Mod/ReverseEngineering)

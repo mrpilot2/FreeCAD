@@ -6,12 +6,10 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/src/3rdParty/libkdtree
-    ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
 )
 
 set(Mesh_LIBS
-    ${Boost_LIBRARIES}
     FreeCADBase
     FreeCADApp
 )
@@ -378,6 +376,9 @@ target_link_libraries(Mesh
     PUBLIC
         ${Mesh_LIBS}
         Eigen3::Eigen
+    PRIVATE
+        Boost::boost
+        Boost::regex
 )
 
 
