@@ -52,9 +52,6 @@
 #include <string>
 #include <vector>
 
-// Xerces
-#include <xercesc/util/XercesDefs.hpp>
-
 #endif //_PreComp_
 
 #endif

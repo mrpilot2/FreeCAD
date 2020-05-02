@@ -61,9 +61,6 @@
 // Boost
 #include <boost/regex.hpp>
 
-// Xerces
-#include <xercesc/util/XercesDefs.hpp>
-
 #endif //_PreComp_
 
 #endif

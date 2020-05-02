@@ -63,9 +63,6 @@
 #include <vector>
 #include <map>
 
-// Xerces
-#include <xercesc/util/XercesDefs.hpp>
-
 // OpenCasCade =====================================================================================
 // Base
 #include "OpenCascadeAll.h"

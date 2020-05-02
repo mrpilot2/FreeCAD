@@ -54,9 +54,6 @@
 #include <string>
 #include <vector>
 
-// Xerces
-#include <xercesc/util/XercesDefs.hpp>
-
 // QtCore
 #include <QObject>
 #include <QCoreApplication>
