@@ -11,9 +11,19 @@ macro(SetupEigen)
                 "=================\n")
     endif(NOT EIGEN3_FOUND)
 
-    if (${EIGEN3_VERSION} VERSION_LESS "3.3.1")
+    # on Xenial Eigen provides it's own CMake config files, but no
+    # target. For unified usage it's created here
+    if (NOT TARGET Eigen3::Eigen)
+        add_library(Eigen3::Eigen INTERFACE IMPORTED)
+
+        set_target_properties(Eigen3::Eigen PROPERTIES
+            INTERFACE_INCLUDE_DIRECTORIES "${EIGEN3_INCLUDE_DIRS}"
+        )
+    endif()
+
+    if (${EIGEN3_VERSION_STRING} VERSION_LESS "3.3.1")
         message(WARNING "Disable module flatmesh because it requires "
-                        "minimum Eigen3 version 3.3.1 but version ${EIGEN3_VERSION} was found")
+                        "minimum Eigen3 version 3.3.1 but version ${EIGEN3_VERSION_STRING} was found")
         set (BUILD_FLAT_MESH OFF)
     endif()
 

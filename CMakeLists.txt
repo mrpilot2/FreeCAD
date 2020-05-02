@@ -41,6 +41,7 @@ CheckInterModuleDependencies()
 FreeCADLibpackChecks()
 
 SetupDoxygen()
+SetupEigen()
 SetupXercesC()
 find_package(ZLIB REQUIRED)
 
@@ -58,7 +59,6 @@ if(NOT FREECAD_LIBPACK_USE OR FREECAD_LIBPACK_CHECKFILE_CLBUNDLER)
     # not needed at the moment
     #find_package(OpenCV REQUIRED)
     SetupSwig()
-    SetupEigen()
     # This file is included directly due to some cMake macros that are defined within.
     # If these macro definitions are embedded within another macro, it causes problems.
     include(cMake/FreeCAD_Helpers/SetupQt.cmake)

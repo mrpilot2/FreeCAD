@@ -65,7 +65,7 @@ macro(PrintFinalReport)
     endif(DEFINED SWIG_FOUND)
 
     if(DEFINED EIGEN3_FOUND)
-        message(STATUS "Eigen3               ${EIGEN3_VERSION}")
+        message(STATUS "Eigen3               ${EIGEN3_VERSION_STRING}")
     else(DEFINED EIGEN3_FOUND)
         message(STATUS "Eigen3:              not found")
     endif(DEFINED EIGEN3_FOUND)
