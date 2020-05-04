@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 link_directories(${OCC_LIBRARY_DIR})
 
@@ -57,7 +56,21 @@ SET(Raytracing_SRCS
 )
 
 add_library(Raytracing SHARED ${Raytracing_SRCS})
-target_link_libraries(Raytracing ${Raytracing_LIBS})
+target_link_libraries(Raytracing
+    PUBLIC
+        ${Raytracing_LIBS}
+)
+
+if(${BUILD_DYNAMIC_LINK_PYTHON})
+    target_link_libraries(Raytracing
+        PRIVATE
+            ${PYTHON_LIBRARIES})
+endif()
+
+target_include_directories(Raytracing
+    SYSTEM PRIVATE
+        ${PYTHON_INCLUDE_DIRS}
+)
 
 SET_BIN_DIR(Raytracing Raytracing /Mod/Raytracing)
 SET_PYTHON_PREFIX_SUFFIX(Raytracing)

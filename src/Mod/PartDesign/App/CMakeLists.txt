@@ -11,7 +11,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
     ${QT_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
     ${QT_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})

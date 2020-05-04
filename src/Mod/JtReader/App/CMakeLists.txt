@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_PATH}
     ${QT_INCLUDE_DIR}
 )
 
@@ -43,7 +42,21 @@ SOURCE_GROUP("JrJt" FILES ${JRJT_SRCS}  )
 SOURCE_GROUP("Module" FILES ${JtReader_SRCS})
 
 add_library(JtReader SHARED ${JtReader_SRCS} ${JRJT_SRCS} ${JtReader_Scripts})
-target_link_libraries(JtReader ${JtReader_LIBS})
+target_link_libraries(JtReader
+    PUBLIC
+        ${JtReader_LIBS}
+)
+
+if(${BUILD_DYNAMIC_LINK_PYTHON})
+    target_link_libraries(JtReader
+        PRIVATE
+            ${PYTHON_LIBRARIES})
+endif()
+
+target_include_directories(JtReader
+    SYSTEM PRIVATE
+        ${PYTHON_INCLUDE_DIRS}
+)
 
 fc_target_copy_resource_flat(JtReader
     ${CMAKE_CURRENT_SOURCE_DIR}

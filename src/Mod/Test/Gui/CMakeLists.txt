@@ -1,7 +1,6 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 set(TestGui_LIBS

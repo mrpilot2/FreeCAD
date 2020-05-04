@@ -13,7 +13,6 @@ include_directories(
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${EIGEN3_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 link_directories(${OCC_LIBRARY_DIR})
 

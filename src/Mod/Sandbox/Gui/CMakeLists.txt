@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src/Gui
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 if(BUILD_QT5)

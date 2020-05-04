@@ -8,7 +8,6 @@ if(MSVC)
     add_definitions(-D_CRT_SECURE_NO_WARNINGS /wd4244)
 endif(MSVC)
 
-include_directories(${PYTHON_INCLUDE_DIRS})
 include_directories(${CMAKE_CURRENT_SOURCE_DIR})
 
 
@@ -155,6 +154,11 @@ target_link_libraries(area
         ${area_native_LIBS}
     PRIVATE
         Boost::boost
+)
+
+target_include_directories(area
+    SYSTEM PRIVATE
+        ${PYTHON_INCLUDE_DIRS}
 )
 
 # TODO why CMAKE_SHARED_LINKER_FLAGS is not used here?

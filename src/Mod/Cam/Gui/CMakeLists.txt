@@ -10,7 +10,6 @@ include_directories(
     ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_PATH}
     ${QT_INCLUDE_DIR}
     ${SMSH_INCLUDE_DIR}
     ${SMESH_INCLUDE_DIR}

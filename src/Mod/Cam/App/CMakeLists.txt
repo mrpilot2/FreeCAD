@@ -11,7 +11,6 @@ include_directories(
     #${CMAKE_SOURCE_DIR}/src/3rdParty/OCCAdaptMesh/Include
     ${QT_INCLUDE_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_PATH}
     ${UMFPACK_INCLUDE_DIR}
     ${SMSH_INCLUDE_DIR}
     ${SMESH_INCLUDE_DIR}

@@ -12,7 +12,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
     ${QT_QTCORE_INCLUDE_DIR}
 )
 
@@ -252,6 +251,17 @@ target_link_libraries(TechDraw
         Boost::boost
         Boost::regex
         Boost::signals
+)
+
+if(${BUILD_DYNAMIC_LINK_PYTHON})
+    target_link_libraries(TechDraw
+        PRIVATE
+            ${PYTHON_LIBRARIES})
+endif()
+
+target_include_directories(TechDraw
+    SYSTEM PRIVATE
+        ${PYTHON_INCLUDE_DIRS}
 )
 
 ADD_CUSTOM_COMMAND(TARGET TechDraw

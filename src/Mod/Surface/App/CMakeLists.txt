@@ -6,7 +6,6 @@ endif(MSVC)
 
 include_directories(
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 set(Surface_LIBS

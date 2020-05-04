@@ -27,7 +27,6 @@ endif ()
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
     ${PCL_INCLUDE_DIRS}
     ${FLANN_INCLUDE_DIRS}
 )

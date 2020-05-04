@@ -9,12 +9,10 @@ if(BUILD_GUI)
     include_directories(
         ${COIN3D_INCLUDE_DIRS}
         ${QT_INCLUDE_DIR}
-        ${PYTHON_INCLUDE_DIRS}
     )
 else(BUILD_GUI)
     include_directories(
         ${QT_INCLUDE_DIR}
-        ${PYTHON_INCLUDE_DIRS}
     )
 endif(BUILD_GUI)
 

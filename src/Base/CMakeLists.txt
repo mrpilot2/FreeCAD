@@ -10,7 +10,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
     ${PYCXX_INCLUDE_DIR}
 )
 
@@ -55,10 +54,6 @@ else()
     )
     list(APPEND FreeCADBase_LIBS ${QT_QTCORE_LIBRARY})
 endif()
-
-if (BUILD_DYNAMIC_LINK_PYTHON)
-    list(APPEND FreeCADBase_LIBS ${PYTHON_LIBRARIES})
-endif (BUILD_DYNAMIC_LINK_PYTHON)
 
 # needed for OpenSUSE
 if(${CMAKE_SYSTEM_NAME} STREQUAL "Linux")
@@ -397,8 +392,18 @@ target_link_libraries(FreeCADBase
     PRIVATE
         Boost::boost
         Boost::regex
-#        Boost::iostreams
         Boost::system
+)
+
+if(${BUILD_DYNAMIC_LINK_PYTHON})
+    target_link_libraries(FreeCADBase
+        PUBLIC
+            ${PYTHON_LIBRARIES})
+endif()
+
+target_include_directories(FreeCADBase
+    SYSTEM PUBLIC
+        ${PYTHON_INCLUDE_DIRS}
 )
 
 SET_BIN_DIR(FreeCADBase FreeCADBase)

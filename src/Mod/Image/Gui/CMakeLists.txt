@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${COIN3D_INCLUDE_DIRS}
     ${OPENCV2_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 if(MSVC)

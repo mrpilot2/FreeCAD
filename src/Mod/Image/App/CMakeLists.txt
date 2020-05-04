@@ -8,7 +8,6 @@ endif(OPENCV2_FOUND)
 
 include_directories(
     ${OPENCV_INCLUDE2_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 set(Image_LIBS

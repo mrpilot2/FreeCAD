@@ -2,7 +2,6 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 
 if(BUILD_QT5)

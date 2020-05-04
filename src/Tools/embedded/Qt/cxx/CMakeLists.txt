@@ -31,7 +31,6 @@ add_definitions(-DBOOST_ALL_DYN_LINK)
 
 include_directories(
     #${COIN3D_INCLUDE_DIRS}
-    ${PYTHON_INCLUDE_DIRS}
     ${Qt5Core_INCLUDE_DIRS}
     ${Qt5Gui_INCLUDE_DIRS}
     ${Qt5Widgets_INCLUDE_DIRS}

@@ -21,7 +21,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}/..
     ${CMAKE_CURRENT_BINARY_DIR}/..
     ${OCC_INCLUDE_DIR}
-    ${PYTHON_INCLUDE_DIRS}
 )
 link_directories(${OCC_LIBRARY_DIR})
 
