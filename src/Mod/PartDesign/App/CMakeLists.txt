@@ -10,8 +10,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${QT_INCLUDE_DIR}
-    ${QT_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})
 
@@ -143,6 +141,18 @@ target_link_libraries(PartDesign
         Boost::boost
         Boost::signals
 )
+
+if(BUILD_QT5)
+    target_link_libraries(PartDesign
+        PUBLIC
+            Qt5::Core
+    )
+else()
+    target_link_libraries(PartDesign
+        PUBLIC
+            Qt4::QtCore
+    )
+endif()
 
 if(FREECAD_USE_PCH)
     add_definitions(-D_PreComp_)

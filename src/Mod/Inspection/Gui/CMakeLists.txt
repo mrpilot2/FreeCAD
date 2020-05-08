@@ -58,8 +58,19 @@ SET(InspectionGuiIcon_SVG
 )
 
 add_library(InspectionGui SHARED ${InspectionGui_SRCS} ${InspectionGui_Scripts} ${InspectionGuiIcon_SVG})
-target_link_libraries(InspectionGui ${InspectionGui_LIBS})
+target_link_libraries(InspectionGui PUBLIC ${InspectionGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(InspectionGui
+        PUBLIC
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(InspectionGui
+        PUBLIC
+            Qt4::QtGui
+    )
+endif()
 
 fc_target_copy_resource_flat(InspectionGui
     ${CMAKE_CURRENT_SOURCE_DIR}

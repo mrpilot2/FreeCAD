@@ -16,7 +16,6 @@ link_directories(${OCC_LIBRARY_DIR})
 
 set(Robot_LIBS
     Part
-    ${QT_QTCORE_LIBRARY}
     FreeCADApp
 )
 

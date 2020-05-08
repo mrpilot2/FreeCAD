@@ -73,6 +73,19 @@ target_link_libraries(PointsGui
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(PointsGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(PointsGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 fc_target_copy_resource_flat(PointsGui
     ${CMAKE_CURRENT_SOURCE_DIR}

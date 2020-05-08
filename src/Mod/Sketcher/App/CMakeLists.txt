@@ -134,6 +134,18 @@ target_link_libraries(Sketcher
         Boost::signals
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Sketcher
+        PRIVATE
+            Qt5::Core
+    )
+else()
+    target_link_libraries(Sketcher
+        PRIVATE
+            Qt4::QtCore
+    )
+endif()
+
 if(FREECAD_USE_PCH)
     add_definitions(-D_PreComp_)
     GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" Sketcher_CPP_SRCS ${Sketcher_PCH_SRCS})

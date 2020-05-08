@@ -400,6 +400,17 @@ target_link_libraries(Part
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Part
+        PUBLIC
+            Qt5::Core
+    )
+else()
+    target_link_libraries(Part
+        PUBLIC
+            Qt4::QtCore
+    )
+endif()
 
 SET_BIN_DIR(Part Part /Mod/Part)
 SET_PYTHON_PREFIX_SUFFIX(Part)

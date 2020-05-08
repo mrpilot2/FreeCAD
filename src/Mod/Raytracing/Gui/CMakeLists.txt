@@ -81,8 +81,21 @@ SET(RaytracingGuiIcon_SVG
 )
 
 add_library(RaytracingGui SHARED ${RaytracingGui_SRCS} ${RaytracingGuiIcon_SVG})
-target_link_libraries(RaytracingGui ${RaytracingGui_LIBS})
+target_link_libraries(RaytracingGui PUBLIC ${RaytracingGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(RaytracingGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(RaytracingGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(RaytracingGui RaytracingGui /Mod/Raytracing)
 SET_PYTHON_PREFIX_SUFFIX(RaytracingGui)

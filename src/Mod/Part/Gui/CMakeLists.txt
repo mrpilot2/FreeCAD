@@ -25,15 +25,6 @@ if(MSVC)
     )
 endif(MSVC)
 
-if (BUILD_QT5)
-    include_directories(
-        ${Qt5Concurrent_INCLUDE_DIRS}
-    )
-    list(APPEND PartGui_LIBS
-        ${Qt5Concurrent_LIBRARIES}
-    )
-endif()
-
 set(PartGui_MOC_HDRS
     CrossSections.h
     Mirroring.h
@@ -273,6 +264,20 @@ target_link_libraries(PartGui
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(PartGui
+        PUBLIC
+            Qt5::Concurrent
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(PartGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(PartGui PartGui /Mod/Part)
 SET_PYTHON_PREFIX_SUFFIX(PartGui)

@@ -33,8 +33,21 @@ SET(ImportGui_SRCS
 )
 
 add_library(ImportGui SHARED ${ImportGui_SRCS})
-target_link_libraries(ImportGui ${ImportGui_LIBS})
+target_link_libraries(ImportGui PUBLIC ${ImportGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(ImportGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(ImportGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(ImportGui ImportGui /Mod/Import)
 SET_PYTHON_PREFIX_SUFFIX(ImportGui)

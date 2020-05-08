@@ -75,6 +75,17 @@ target_link_libraries(ReverseEngineering
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(ReverseEngineering
+        PRIVATE
+            Qt5::Concurrent
+        )
+else()
+    target_link_libraries(ReverseEngineering
+        PRIVATE
+            Qt4::QtCore
+        )
+endif()
 
 SET_BIN_DIR(ReverseEngineering ReverseEngineering /Mod/ReverseEngineering)
 SET_PYTHON_PREFIX_SUFFIX(ReverseEngineering)

@@ -23,7 +23,6 @@
 #ifndef PATH_AREA_H
 #define PATH_AREA_H
 
-#include <QCoreApplication>
 #include <chrono>
 #include <memory>
 #include <vector>

@@ -77,8 +77,21 @@ SET(ReverseEngineeringGuiIcon_SVG
 )
 
 add_library(ReverseEngineeringGui SHARED ${ReenGui_SRCS} ${ReverseEngineeringGuiIcon_SVG})
-target_link_libraries(ReverseEngineeringGui ${ReenGui_LIBS})
+target_link_libraries(ReverseEngineeringGui PUBLIC ${ReenGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(ReverseEngineeringGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(ReverseEngineeringGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(ReverseEngineeringGui ReverseEngineeringGui /Mod/ReverseEngineering)
 SET_PYTHON_PREFIX_SUFFIX(ReverseEngineeringGui)

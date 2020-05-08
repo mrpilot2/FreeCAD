@@ -60,22 +60,14 @@ set(FreeCADApp_LIBS
 )
 
 if (BUILD_QT5)
-    include_directories(
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Xml_INCLUDE_DIRS}
-    )
     list(APPEND FreeCADApp_LIBS
-         ${Qt5Core_LIBRARIES}
-         ${Qt5Xml_LIBRARIES}
+         Qt5::Core
+         Qt5::Xml
     )
 else()
-    include_directories(
-        ${QT_QTCORE_INCLUDE_DIR}
-        ${QT_QTXML_INCLUDE_DIR}
-    )
     list(APPEND FreeCADApp_LIBS
-        ${QT_QTCORE_LIBRARY}
-        ${QT_QTXML_LIBRARY}
+        Qt4::QtCore
+        Qt4::QtXml
     )
 endif()
 

@@ -4,21 +4,6 @@ include_directories(
     ${OCC_INCLUDE_DIR}
 )
 
-if(BUILD_QT5)
-    include_directories(
-        ${Qt5Network_INCLUDE_DIRS}
-    )
-    set(Web_LIBS
-         FreeCADApp
-         ${Qt5Network_LIBRARIES}
-    )
-else()
-    set(Web_LIBS
-         FreeCADApp
-         ${QT_LIBRARIES}
-    )
-endif()
-
 set(Web_MOC_HDRS
     Server.h
 )
@@ -34,8 +19,21 @@ SET(Web_SRCS
 )
 
 add_library(Web SHARED ${Web_SRCS})
-target_link_libraries(Web ${Web_LIBS})
+target_link_libraries(Web PUBLIC FreeCADApp)
 
+if(BUILD_QT5)
+    target_link_libraries(Web
+        PUBLIC
+            Qt5::Core
+            Qt5::Network
+    )
+else()
+    target_link_libraries(Web
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtNetwork
+    )
+endif()
 
 SET_BIN_DIR(Web Web /Mod/Web)
 SET_PYTHON_PREFIX_SUFFIX(Web)

@@ -12,20 +12,7 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${QT_QTCORE_INCLUDE_DIR}
 )
-
-if(BUILD_QT5)
-    include_directories(
-        ${Qt5XmlPatterns_INCLUDE_DIRS}
-    )
-    set(QtXmlPatternsLib ${Qt5XmlPatterns_LIBRARIES})
-else(BUILD_QT5)
-    include_directories(
-        ${QT_QTXMLPATTERNS_INCLUDE_DIR}
-    )
-    set(QtXmlPatternsLib ${QT_QTXMLPATTERNS_LIBRARY})
-endif(BUILD_QT5)
 
 link_directories(${OCC_LIBRARY_DIR})
 
@@ -257,6 +244,22 @@ if(${BUILD_DYNAMIC_LINK_PYTHON})
     target_link_libraries(TechDraw
         PRIVATE
             ${PYTHON_LIBRARIES})
+endif()
+
+if(BUILD_QT5)
+    target_link_libraries(TechDraw
+        PRIVATE
+            Qt5::Core
+            Qt5::Xml
+            Qt5::XmlPatterns
+    )
+else()
+    target_link_libraries(TechDraw
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtXml
+            Qt4::QtXmlPatterns
+    )
 endif()
 
 target_include_directories(TechDraw

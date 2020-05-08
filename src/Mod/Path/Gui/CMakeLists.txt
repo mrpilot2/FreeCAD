@@ -107,6 +107,20 @@ target_link_libraries(PathGui
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(PathGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(PathGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
+
 SET_BIN_DIR(PathGui PathGui /Mod/Path)
 SET_PYTHON_PREFIX_SUFFIX(PathGui)
 

@@ -13,15 +13,6 @@ set(Mesh_LIBS
     FreeCADApp
 )
 
-if (BUILD_QT5)
-    include_directories(
-        ${Qt5Concurrent_INCLUDE_DIRS}
-    )
-    list(APPEND Mesh_LIBS
-        ${Qt5Concurrent_LIBRARIES}
-    )
-endif()
-
 generate_from_xml(FacetPy)
 generate_from_xml(MeshFeaturePy)
 generate_from_xml(MeshPointPy)
@@ -380,6 +371,18 @@ target_link_libraries(Mesh
         Boost::regex
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Mesh
+        PUBLIC
+            Qt5::Concurrent
+            Qt5::Core
+    )
+else()
+    target_link_libraries(Mesh
+        PUBLIC
+            Qt4::QtCore
+    )
+endif()
 
 SET_BIN_DIR(Mesh Mesh /Mod/Mesh)
 SET_PYTHON_PREFIX_SUFFIX(Mesh)

@@ -95,9 +95,33 @@ SET(ImageGuiIcon_SVG
 )
 
 add_library(ImageGui SHARED ${ImageGui_SRCS} ${ImageGuiIcon_SVG})
-target_link_libraries(ImageGui ${ImageGui_LIBS})
+target_link_libraries(ImageGui PUBLIC ${ImageGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(ImageGui
+        PRIVATE
+            Qt5::Widgets
+    )
 
+    if(FREECAD_USE_QTOPENGL_WIDGET)
+        target_link_libraries(ImageGui
+            PRIVATE
+                Qt5::OpenGL
+        )
+    endif()
+else()
+    target_link_libraries(ImageGui
+        PRIVATE
+            Qt4::QtGui
+    )
+
+    if(FREECAD_USE_QTOPENGL_WIDGET)
+        target_link_libraries(ImageGui
+            PRIVATE
+                Qt4::QtOpenGL
+        )
+    endif()
+endif()
 SET_BIN_DIR(ImageGui ImageGui /Mod/Image)
 SET_PYTHON_PREFIX_SUFFIX(ImageGui)
 

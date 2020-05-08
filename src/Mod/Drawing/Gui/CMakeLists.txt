@@ -92,6 +92,20 @@ target_link_libraries(DrawingGui
         Boost::signals
 )
 
+if(BUILD_QT5)
+    target_link_libraries(DrawingGui
+        PUBLIC
+            Qt5::Core
+            Qt5::PrintSupport
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(DrawingGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(DrawingGui DrawingGui /Mod/Drawing)
 SET_PYTHON_PREFIX_SUFFIX(DrawingGui)

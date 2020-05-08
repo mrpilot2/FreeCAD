@@ -98,6 +98,20 @@ target_link_libraries(SpreadsheetGui
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(SpreadsheetGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(SpreadsheetGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
+
 SET_BIN_DIR(SpreadsheetGui SpreadsheetGui /Mod/Spreadsheet)
 SET_PYTHON_PREFIX_SUFFIX(SpreadsheetGui)
 

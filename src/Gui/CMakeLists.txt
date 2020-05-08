@@ -76,39 +76,29 @@ if (BUILD_QT5)
         add_definitions(-DQTWEBENGINE)
     endif()
 
-    include_directories(
-        ${Qt5Core_INCLUDE_DIRS}
-        ${Qt5Widgets_INCLUDE_DIRS}
-        ${Qt5OpenGL_INCLUDE_DIRS}
-        ${Qt5PrintSupport_INCLUDE_DIRS}
-        ${Qt5Svg_INCLUDE_DIRS}
-        ${Qt5Network_INCLUDE_DIRS}
-        ${Qt5UiTools_INCLUDE_DIRS}
-    )
     list(APPEND FreeCADGui_LIBS
-        ${Qt5Core_LIBRARIES}
-        ${Qt5Widgets_LIBRARIES}
-        ${Qt5OpenGL_LIBRARIES}
-        ${Qt5PrintSupport_LIBRARIES}
-        ${Qt5Svg_LIBRARIES}
-        ${Qt5Network_LIBRARIES}
-        ${Qt5UiTools_LIBRARIES}
+        Qt5::Core
+        Qt5::Network
+        Qt5::OpenGL
+        Qt5::PrintSupport
+        Qt5::Svg
+        Qt5::UiTools
+        Qt5::Widgets
     )
     if(${Qt5WinExtras_FOUND})
-      include_directories(
-        ${Qt5WinExtras_INCLUDE_DIRS}
-      )
       list(APPEND FreeCADGui_LIBS
-        ${Qt5WinExtras_LIBRARIES}
+        Qt5::WinExtras
       )
     endif()
 else()
-    include_directories(
-        ${QT_INCLUDE_DIR}
-    )
     list(APPEND FreeCADGui_LIBS
-        ${QT_LIBRARIES}
-        ${QT_QTUITOOLS_LIBRARY}
+        Qt4::QtCore
+        Qt4::QtGui
+        Qt4::QtNetwork
+        Qt4::QtOpenGL
+        Qt4::QtSvg
+        Qt4::QtUiTools
+        Qt4::QtWebKit
     )
 endif()
 

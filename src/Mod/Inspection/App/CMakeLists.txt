@@ -40,6 +40,18 @@ target_link_libraries(Inspection
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Inspection
+        PUBLIC
+            Qt5::Concurrent
+            Qt5::Core
+        )
+else()
+    target_link_libraries(Inspection
+        PUBLIC
+            Qt4::QtCore
+        )
+endif()
 
 fc_target_copy_resource_flat(Inspection
     ${CMAKE_CURRENT_SOURCE_DIR}

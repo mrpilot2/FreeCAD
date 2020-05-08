@@ -45,7 +45,21 @@ SET(StartGuiIcon_SVG
 )
 
 add_library(StartGui SHARED ${StartGui_SRCS} ${StartGuiIcon_SVG})
-target_link_libraries(StartGui ${StartGui_LIBS})
+target_link_libraries(StartGui PUBLIC ${StartGui_LIBS})
+
+if(BUILD_QT5)
+    target_link_libraries(StartGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(StartGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(StartGui StartGui /Mod/Start)
 SET_PYTHON_PREFIX_SUFFIX(StartGui)

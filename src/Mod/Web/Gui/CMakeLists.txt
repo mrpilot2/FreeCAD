@@ -15,11 +15,9 @@ set(WebGui_LIBS
 
 if(BUILD_QT5)
     if(Qt5WebEngineWidgets_FOUND)
-        include_directories(${Qt5WebEngineWidgets_INCLUDE_DIRS})
-        list(APPEND WebGui_LIBS ${Qt5WebEngineWidgets_LIBRARIES})
+        list(APPEND WebGui_LIBS Qt5::WebEngineWidgets)
     else()
-        include_directories(${Qt5WebKitWidgets_INCLUDE_DIRS})
-        list(APPEND WebGui_LIBS ${Qt5WebKitWidgets_LIBRARIES})
+        list(APPEND WebGui_LIBS Qt5::WebKitWidgets)
     endif()
     qt5_add_resources(Web_QRC_SRCS Resources/Web.qrc)
 else()
@@ -52,8 +50,23 @@ SET(WebGuiIcon_SVG
 )
 
 add_library(WebGui SHARED ${WebGui_SRCS} ${WebGuiIcon_SVG})
-target_link_libraries(WebGui ${WebGui_LIBS})
+target_link_libraries(WebGui PUBLIC ${WebGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(WebGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Network
+            Qt5::Widgets
+        )
+else()
+    target_link_libraries(WebGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+            Qt4::QtNetwork
+    )
+endif()
 
 SET_BIN_DIR(WebGui WebGui /Mod/Web)
 SET_PYTHON_PREFIX_SUFFIX(WebGui)

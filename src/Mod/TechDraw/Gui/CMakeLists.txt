@@ -13,16 +13,6 @@ include_directories(
     ${OCC_INCLUDE_DIR}
 )
 
-if(BUILD_QT5)
-    include_directories(
-        ${Qt5XmlPatterns_INCLUDE_DIRS}
-    )
-else(BUILD_QT5)
-    include_directories(
-        ${QT_QTXMLPATTERNS_INCLUDE_DIR}
-    )
-endif(BUILD_QT5)
-
 link_directories(${OCC_LIBRARY_DIR})
 
 set(TechDrawGui_LIBS
@@ -405,6 +395,24 @@ target_link_libraries(TechDrawGui
     PRIVATE
         Boost::boost
 )
+
+if(BUILD_QT5)
+    target_link_libraries(TechDrawGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+            Qt5::Xml
+            Qt5::XmlPatterns
+    )
+else()
+    target_link_libraries(TechDrawGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+            Qt4::QtXml
+            Qt4::QtXmlPatterns
+    )
+endif()
 
 fc_copy_sources(TechDrawGui "${CMAKE_BINARY_DIR}/${CMAKE_INSTALL_DATADIR}/Mod/TechDraw/" ${TechDrawGuiIcon_SVG})
 INSTALL(FILES ${TechDrawGuiIcon_SVG} DESTINATION "${CMAKE_INSTALL_DATADIR}/Mod/TechDraw/Resources/icons")

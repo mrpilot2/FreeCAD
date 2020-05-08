@@ -174,6 +174,20 @@ target_link_libraries(MeshGui
         Boost::signals
 )
 
+if(BUILD_QT5)
+    target_link_libraries(MeshGui
+        PUBLIC
+            Qt5::Concurrent
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(MeshGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(MeshGui MeshGui /Mod/Mesh)
 SET_PYTHON_PREFIX_SUFFIX(MeshGui)

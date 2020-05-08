@@ -20,8 +20,6 @@ if (NOT BUILD_QT5)
 
     find_package(Qt4)# REQUIRED
 
-    include(${QT_USE_FILE})
-
     if(NOT QT4_FOUND)
         message(FATAL_ERROR "========================\n"
                             "Qt4 libraries not found.\n"

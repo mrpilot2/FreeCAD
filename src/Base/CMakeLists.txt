@@ -44,15 +44,9 @@ else(MSVC)
 endif(MSVC)
 
 if (BUILD_QT5)
-    include_directories(
-        ${Qt5Core_INCLUDE_DIRS}
-    )
-    list(APPEND FreeCADBase_LIBS ${Qt5Core_LIBRARIES})
+    list(APPEND FreeCADBase_LIBS Qt5::Core)
 else()
-    include_directories(
-        ${QT_QTCORE_INCLUDE_DIR}
-    )
-    list(APPEND FreeCADBase_LIBS ${QT_QTCORE_LIBRARY})
+    list(APPEND FreeCADBase_LIBS Qt4::QtCore)
 endif()
 
 # needed for OpenSUSE

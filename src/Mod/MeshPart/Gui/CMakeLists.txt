@@ -85,8 +85,21 @@ set(FLATMESH_PY_SRCS
 )
 
 add_library(MeshPartGui SHARED ${MeshPartGui_SRCS} ${MeshPartGui_Scripts} ${FLATMESH_PY_SRCS})
-target_link_libraries(MeshPartGui ${MeshPartGui_LIBS})
+target_link_libraries(MeshPartGui PUBLIC ${MeshPartGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(MeshPartGui
+        PUBLIC
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(MeshPartGui
+        PUBLIC
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(MeshPartGui MeshPartGui /Mod/MeshPart)
 SET_PYTHON_PREFIX_SUFFIX(MeshPartGui)

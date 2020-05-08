@@ -8,11 +8,6 @@ file(COPY icon.ico DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 if(BUILD_GUI)
     include_directories(
         ${COIN3D_INCLUDE_DIRS}
-        ${QT_INCLUDE_DIR}
-    )
-else(BUILD_GUI)
-    include_directories(
-        ${QT_INCLUDE_DIR}
     )
 endif(BUILD_GUI)
 
@@ -28,6 +23,18 @@ if(BUILD_GUI)
     SET(FreeCAD_LIBS
         FreeCADGui
     )
+
+    if (BUILD_QT5)
+        list(APPEND FreeCAD_LIBS
+            Qt5::Core
+            Qt5::Widgets
+        )
+    else()
+        list(APPEND FreeCAD_LIBS
+            Qt4::QtCore
+            Qt4::QtGui
+        )
+    endif()
 
     if (MSVC AND NOT BUILD_QT5)
         list(APPEND FreeCAD_LIBS
@@ -77,18 +84,6 @@ add_executable(FreeCADMainCmd ${FreeCADMainCmd_SRCS})
 SET(FreeCADMainCmd_LIBS
     FreeCADApp
 )
-
-if (BUILD_QT5)
-    list(APPEND FreeCADMainCmd_LIBS
-        ${Qt5Core_LIBRARIES}
-        ${Qt5Xml_LIBRARIES}
-    )
-else()
-    list(APPEND FreeCADMainCmd_LIBS
-        ${QT_QTCORE_LIBRARY}
-        ${QT_QTXML_LIBRARY}
-    )
-endif()
 
 if(NOT BUILD_DYNAMIC_LINK_PYTHON)
     # executables have to be linked against python libraries,
@@ -152,6 +147,18 @@ if(BUILD_GUI)
     )
 
     add_library(FreeCADGuiPy SHARED ${FreeCADGuiPy_SRCS})
+
+    if (BUILD_QT5)
+        target_link_libraries(FreeCADGuiPy
+            Qt5::Core
+            Qt5::Widgets
+        )
+    else()
+        target_link_libraries(FreeCADGuiPy
+            Qt4::QtCore
+            Qt4::QtGui
+        )
+    endif()
 
     target_link_libraries(FreeCADGuiPy FreeCADGui)
 

@@ -54,6 +54,17 @@ target_link_libraries(Spreadsheet
         Boost::regex
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Spreadsheet
+        PRIVATE
+            Qt5::Core
+    )
+else()
+    target_link_libraries(Spreadsheet
+        PRIVATE
+            Qt4::QtCore
+    )
+endif()
 
 SET_BIN_DIR(Spreadsheet Spreadsheet /Mod/Spreadsheet)
 SET_PYTHON_PREFIX_SUFFIX(Spreadsheet)

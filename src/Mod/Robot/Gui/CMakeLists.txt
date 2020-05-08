@@ -150,8 +150,21 @@ SET(RobotGuiIcon_SVG
 
 
 add_library(RobotGui SHARED ${RobotGui_SRCS} ${RobotGuiIcon_SVG})
-target_link_libraries(RobotGui ${RobotGui_LIBS})
+target_link_libraries(RobotGui PUBLIC ${RobotGui_LIBS})
 
+if(BUILD_QT5)
+    target_link_libraries(RobotGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(RobotGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(RobotGui RobotGui /Mod/Robot)
 SET_PYTHON_PREFIX_SUFFIX(RobotGui)

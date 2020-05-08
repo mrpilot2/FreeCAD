@@ -11,16 +11,6 @@ include_directories(
     ${OCC_INCLUDE_DIR}
 )
 
-if(BUILD_QT5)
-    include_directories(
-        ${Qt5Core_INCLUDE_DIRS}
-    )
-else()
-    include_directories(
-        ${QT_INCLUDE_DIR}
-    )
-endif()
-
 link_directories(${OCC_LIBRARY_DIR})
 
 set(SandboxGui_LIBS
@@ -75,6 +65,20 @@ target_link_libraries(SandboxGui
         Boost::thread
 )
 
+if(BUILD_QT5)
+    target_link_libraries(SandboxGui
+        PRIVATE
+            Qt5::Concurrent
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(SandboxGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 fc_target_copy_resource_flat(SandboxGui
     ${CMAKE_CURRENT_SOURCE_DIR}

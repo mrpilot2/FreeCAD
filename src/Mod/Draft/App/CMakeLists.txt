@@ -11,7 +11,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${QT_QTCORE_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})
 

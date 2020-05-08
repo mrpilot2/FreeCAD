@@ -11,19 +11,6 @@ set(Points_LIBS
     FreeCADApp
 )
 
-if (BUILD_QT5)
-    include_directories(
-        ${Qt5Concurrent_INCLUDE_DIRS}
-    )
-    list(APPEND Points_LIBS
-        ${Qt5Concurrent_LIBRARIES}
-    )
-else()
-    include_directories(
-        ${QT_QTCORE_INCLUDE_DIR}
-    )
-endif()
-
 generate_from_xml(PointsPy)
 
 SET(Points_SRCS
@@ -64,6 +51,17 @@ target_link_libraries(Points
         Boost::regex
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Points
+        PRIVATE
+            Qt5::Concurrent
+    )
+else()
+    target_link_libraries(Points
+        PRIVATE
+            Qt4::QtCore
+    )
+endif()
 
 fc_target_copy_resource_flat(Points
     ${CMAKE_CURRENT_SOURCE_DIR}

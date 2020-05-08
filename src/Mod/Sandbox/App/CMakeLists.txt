@@ -7,17 +7,6 @@ include_directories(
     ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
-if (BUILD_QT5)
-    include_directories(
-        ${Qt5Core_INCLUDE_DIRS}
-    )
-else()
-    include_directories(
-        ${QT_INCLUDE_DIR}
-    )
-endif()
-
-
 set(Sandbox_LIBS
     Mesh
 )
@@ -46,6 +35,17 @@ target_link_libraries(Sandbox
         Boost::boost
 )
 
+if(BUILD_QT5)
+    target_link_libraries(Sandbox
+        PRIVATE
+            Qt5::Core
+    )
+else()
+    target_link_libraries(Sandbox
+        PRIVATE
+            Qt4::QtCore
+    )
+endif()
 
 fc_target_copy_resource_flat(Sandbox
     ${CMAKE_CURRENT_SOURCE_DIR}

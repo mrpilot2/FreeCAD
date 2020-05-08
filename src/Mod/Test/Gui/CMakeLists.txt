@@ -62,7 +62,22 @@ SET(TestGuiIcon_SVG
 
 add_library(QtUnitGui SHARED ${TestGui_SRCS} ${TestGuiPy_SRCS} ${TestGuiIcon_SVG})
 
-target_link_libraries(QtUnitGui ${TestGui_LIBS})
+target_link_libraries(QtUnitGui PUBLIC ${TestGui_LIBS})
+
+if(BUILD_QT5)
+    target_link_libraries(QtUnitGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(QtUnitGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
+
 add_dependencies(QtUnitGui Test)
 
 fc_copy_sources(QtUnitGui "${CMAKE_BINARY_DIR}/Mod/Test" qtunittest.py)

@@ -70,7 +70,21 @@ SET(SurfaceGui_SRCS
 
 link_directories(${OCC_LIBRARY_DIR})
 add_library(SurfaceGui SHARED ${SurfaceGui_SRCS})
-target_link_libraries(SurfaceGui ${SurfaceGui_LIBS})
+target_link_libraries(SurfaceGui PUBLIC ${SurfaceGui_LIBS})
+
+if(BUILD_QT5)
+    target_link_libraries(SurfaceGui
+        PRIVATE
+            Qt5::Core
+            Qt5::Widgets
+    )
+else()
+    target_link_libraries(SurfaceGui
+        PRIVATE
+            Qt4::QtCore
+            Qt4::QtGui
+    )
+endif()
 
 SET_BIN_DIR(SurfaceGui SurfaceGui /Mod/Surface)
 SET_PYTHON_PREFIX_SUFFIX(SurfaceGui)
