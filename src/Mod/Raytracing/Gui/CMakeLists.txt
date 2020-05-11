@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
 )
 link_directories(${OCC_LIBRARY_DIR})
@@ -81,7 +80,12 @@ SET(RaytracingGuiIcon_SVG
 )
 
 add_library(RaytracingGui SHARED ${RaytracingGui_SRCS} ${RaytracingGuiIcon_SVG})
-target_link_libraries(RaytracingGui PUBLIC ${RaytracingGui_LIBS})
+target_link_libraries(RaytracingGui
+    PUBLIC
+        ${RaytracingGui_LIBS}
+    PRIVATE
+        Coin::Coin
+)
 
 if(BUILD_QT5)
     target_link_libraries(RaytracingGui

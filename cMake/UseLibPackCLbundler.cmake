@@ -3,6 +3,8 @@ list(APPEND CMAKE_PREFIX_PATH ${FREECAD_LIBPACK_DIR})
 
 set(Boost_INCLUDE_DIR ${FREECAD_LIBPACK_DIR}/include CACHE PATH "" FORCE)
 
+set(coin_DIR ${FREECAD_LIBPACK_DIR}/lib/cmake CACHE PATH "" FORCE)
+
 set(OCE_DIR ${FREECAD_LIBPACK_DIR}/lib/cmake CACHE PATH "" FORCE)
 
 set(SWIG_EXECUTABLE ${FREECAD_LIBPACK_DIR}/bin/swig/swig.exe CACHE FILEPATH "Swig" FORCE)
@@ -51,12 +53,6 @@ set (Qt5Xml_DIR ${Qt5_ROOT_DIR}/lib/cmake/Qt5Xml CACHE PATH "")
 set (Qt5XmlPatterns_DIR ${Qt5_ROOT_DIR}/lib/cmake/Qt5XmlPatterns CACHE PATH "")
 
 endif (BUILD_QT5)
-
-find_library(COIN3D_LIBRARY_RELEASE coin4 "${FREECAD_LIBPACK_DIR}/lib")
-find_library(COIN3D_LIBRARY_DEBUG coin4d "${FREECAD_LIBPACK_DIR}/lib")
-set(COIN3D_LIBRARIES optimized ${COIN3D_LIBRARY_RELEASE}
-                     debug ${COIN3D_LIBRARY_DEBUG})
-set(COIN3D_FOUND TRUE)
 
 set(NETGENDATA ${FREECAD_LIBPACK_DIR}/include/netgen)
 

@@ -6,7 +6,6 @@ endif(OPENCV2_FOUND)
 
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
     ${OPENCV2_INCLUDE_DIR}
 )
 
@@ -95,7 +94,12 @@ SET(ImageGuiIcon_SVG
 )
 
 add_library(ImageGui SHARED ${ImageGui_SRCS} ${ImageGuiIcon_SVG})
-target_link_libraries(ImageGui PUBLIC ${ImageGui_LIBS})
+target_link_libraries(ImageGui
+    PUBLIC
+        ${ImageGui_LIBS}
+    PRIVATE
+        Coin::Coin
+)
 
 if(BUILD_QT5)
     target_link_libraries(ImageGui

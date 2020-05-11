@@ -10,7 +10,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${EIGEN3_INCLUDE_DIR}
 )
@@ -150,7 +149,12 @@ SET(RobotGuiIcon_SVG
 
 
 add_library(RobotGui SHARED ${RobotGui_SRCS} ${RobotGuiIcon_SVG})
-target_link_libraries(RobotGui PUBLIC ${RobotGui_LIBS})
+target_link_libraries(RobotGui
+    PUBLIC
+        ${RobotGui_LIBS}
+    PRIVATE
+        Coin::Coin
+)
 
 if(BUILD_QT5)
     target_link_libraries(RobotGui

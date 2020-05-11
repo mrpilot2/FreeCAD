@@ -5,12 +5,6 @@ configure_file(freecad.rc.cmake ${CMAKE_CURRENT_BINARY_DIR}/freecad.rc)
 configure_file(freecadCmd.rc.cmake ${CMAKE_CURRENT_BINARY_DIR}/freecadCmd.rc)
 file(COPY icon.ico DESTINATION ${CMAKE_CURRENT_BINARY_DIR})
 
-if(BUILD_GUI)
-    include_directories(
-        ${COIN3D_INCLUDE_DIRS}
-    )
-endif(BUILD_GUI)
-
 ######################## FreeCADMain ########################
 if(BUILD_GUI)
 
@@ -150,17 +144,22 @@ if(BUILD_GUI)
 
     if (BUILD_QT5)
         target_link_libraries(FreeCADGuiPy
-            Qt5::Core
-            Qt5::Widgets
+            PRIVATE
+                Qt5::Core
+                Qt5::Widgets
         )
     else()
         target_link_libraries(FreeCADGuiPy
-            Qt4::QtCore
-            Qt4::QtGui
+            PRIVATE
+                Qt4::QtCore
+                Qt4::QtGui
         )
     endif()
 
-    target_link_libraries(FreeCADGuiPy FreeCADGui)
+    target_link_libraries(FreeCADGuiPy
+        PRIVATE
+            Coin::Coin
+            FreeCADGui)
 
     SET_BIN_DIR(FreeCADGuiPy FreeCADGui)
     SET_PYTHON_PREFIX_SUFFIX(FreeCADGuiPy)

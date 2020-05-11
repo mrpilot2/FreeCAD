@@ -38,7 +38,6 @@ include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}/TaskView
     ${CMAKE_CURRENT_BINARY_DIR}/Quarter
     ${CMAKE_CURRENT_BINARY_DIR}/DAGView
-    ${COIN3D_INCLUDE_DIRS}
     ${3DCONNEXION_INCLUDE_DIR}
 )
 
@@ -51,7 +50,6 @@ endif(MSVC)
 if(MSVC)
     set(FreeCADGui_LIBS
          FreeCADApp
-         ${COIN3D_LIBRARIES}
          ${OPENGL_gl_LIBRARY}
     )
 
@@ -64,7 +62,6 @@ if(MSVC)
 else(MSVC)
     set(FreeCADGui_LIBS
         FreeCADApp
-        ${COIN3D_LIBRARIES}
         ${OPENGL_gl_LIBRARY}
         ${3DCONNEXION_LINKFLAGS}
     )
@@ -1335,6 +1332,7 @@ target_link_libraries(FreeCADGui
         ${FreeCADGui_LIBS}
         Boost::boost
         Boost::signals
+        Coin::Coin
     PRIVATE
         Boost::regex
         Eigen3::Eigen

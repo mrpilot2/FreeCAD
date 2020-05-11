@@ -9,7 +9,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${COIN3D_INCLUDE_DIRS}
 )
 link_directories(${OCC_LIBRARY_DIR})
 
@@ -286,6 +285,8 @@ target_link_libraries(PartDesignGui
         ${PartDesignGui_LIBS}
         Boost::boost
         Boost::signals
+    PRIVATE
+        Coin::Coin
 )
 
 if(BUILD_QT5)

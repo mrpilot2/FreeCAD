@@ -2,7 +2,6 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
 )
 
 set(CloudGui_LIBS

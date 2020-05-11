@@ -7,7 +7,6 @@ endif(MSVC)
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src/Gui
-    ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
 )
 
@@ -63,6 +62,7 @@ target_link_libraries(SandboxGui
     PRIVATE
         Boost::boost
         Boost::thread
+        Coin::Coin
 )
 
 if(BUILD_QT5)

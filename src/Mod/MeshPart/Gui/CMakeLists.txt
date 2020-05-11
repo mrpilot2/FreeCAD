@@ -17,7 +17,6 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
     ${OCC_INCLUDE_DIR}
-    ${COIN3D_INCLUDE_DIRS}
 )
 
 link_directories(${OCC_LIBRARY_DIR})
@@ -85,7 +84,12 @@ set(FLATMESH_PY_SRCS
 )
 
 add_library(MeshPartGui SHARED ${MeshPartGui_SRCS} ${MeshPartGui_Scripts} ${FLATMESH_PY_SRCS})
-target_link_libraries(MeshPartGui PUBLIC ${MeshPartGui_LIBS})
+target_link_libraries(MeshPartGui
+    PUBLIC
+        ${MeshPartGui_LIBS}
+    PRIVATE
+        Coin::Coin
+)
 
 if(BUILD_QT5)
     target_link_libraries(MeshPartGui

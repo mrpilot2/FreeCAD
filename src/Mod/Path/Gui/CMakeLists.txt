@@ -8,7 +8,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
 )
 
@@ -105,6 +104,7 @@ target_link_libraries(PathGui
         ${PathGui_LIBS}
     PRIVATE
         Boost::boost
+        Coin::Coin
 )
 
 if(BUILD_QT5)

@@ -1,7 +1,5 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
-    ${COIN3D_INCLUDE_DIRS}/Inventor/annex
 )
 
 if(MSVC)
@@ -172,6 +170,7 @@ target_link_libraries(MeshGui
     PRIVATE
         Boost::boost
         Boost::signals
+        Coin::Coin
 )
 
 if(BUILD_QT5)

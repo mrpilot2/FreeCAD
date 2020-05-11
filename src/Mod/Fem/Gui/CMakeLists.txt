@@ -25,7 +25,6 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${SMESH_INCLUDE_DIR}
     ${VTK_INCLUDE_DIRS}
@@ -394,6 +393,8 @@ target_link_libraries(FemGui
         ${VTK_LIBRARIES}
         Boost::boost
         Boost::signals
+    PRIVATE
+        Coin::Coin
 )
 
 if(BUILD_QT5)

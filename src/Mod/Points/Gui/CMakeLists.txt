@@ -1,6 +1,5 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
 )
 
 set(PointsGui_LIBS
@@ -71,6 +70,7 @@ target_link_libraries(PointsGui
         ${PointsGui_LIBS}
     PRIVATE
         Boost::boost
+        Coin::Coin
 )
 
 if(BUILD_QT5)

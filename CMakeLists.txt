@@ -45,6 +45,10 @@ SetupEigen()
 SetupXercesC()
 find_package(ZLIB REQUIRED)
 
+if(BUILD_GUI)
+    SetupCoin3D()
+endif(BUILD_GUI)
+
 if(NOT FREECAD_LIBPACK_USE OR FREECAD_LIBPACK_CHECKFILE_CLBUNDLER)
     SetupPython()
     SetupPCL()
@@ -66,7 +70,6 @@ if(NOT FREECAD_LIBPACK_USE OR FREECAD_LIBPACK_CHECKFILE_CLBUNDLER)
 
     if(BUILD_GUI)
         SetupOpenGL()
-        SetupCoin3D()
         SetupSpaceball()
         SetupShibokenAndPyside()
         SetupMatplotlib()

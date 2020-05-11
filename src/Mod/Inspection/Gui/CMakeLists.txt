@@ -1,7 +1,6 @@
 include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
-    ${COIN3D_INCLUDE_DIRS}
 )
 
 link_directories(${OCC_LIBRARY_DIR})
@@ -58,7 +57,12 @@ SET(InspectionGuiIcon_SVG
 )
 
 add_library(InspectionGui SHARED ${InspectionGui_SRCS} ${InspectionGui_Scripts} ${InspectionGuiIcon_SVG})
-target_link_libraries(InspectionGui PUBLIC ${InspectionGui_LIBS})
+target_link_libraries(InspectionGui
+    PUBLIC
+        ${InspectionGui_LIBS}
+    PRIVATE
+        Coin::Coin
+)
 
 if(BUILD_QT5)
     target_link_libraries(InspectionGui

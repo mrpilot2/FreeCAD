@@ -39,7 +39,6 @@
 #include <Geom_BSplineCurve.hxx>
 #include <TopExp_Explorer.hxx>
 #include <TopoDS.hxx>
-#include <Inventor/events/SoMouseButtonEvent.h>
 #endif
 
 #include <Base/Console.h>
