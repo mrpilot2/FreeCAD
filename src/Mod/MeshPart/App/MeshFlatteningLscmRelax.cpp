@@ -20,15 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <array>
 #include <cmath>
 #include <iostream>
 #include <map>
 #include <set>
 #include <vector>
-#endif
+
 
 #ifndef M_PI
 #define M_PI 3.14159265358979323846f

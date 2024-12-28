@@ -22,9 +22,10 @@
  *                                                                          *
  ***************************************************************************/
 
+#ifndef _Standard_Version_HeaderFile
+# include <Standard_Version.hxx>
+#endif
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 
 #include <BRepAdaptor_Curve.hxx>
@@ -80,8 +81,6 @@
 #include <gp_Pln.hxx>
 
 #include <utility>
-
-#endif
 
 #if OCC_VERSION_HEX >= 0x070500
 #include <OSD_Parallel.hxx>

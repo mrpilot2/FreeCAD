@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cassert>
 
 #include <Inventor/SbRotation.h>
@@ -46,7 +44,6 @@
 #include <Inventor/nodes/SoSphere.h>
 #include <Inventor/nodes/SoSwitch.h>
 #include <Inventor/nodes/SoTranslation.h>
-#endif
 
 #include <Base/Quantity.h>
 

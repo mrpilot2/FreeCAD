@@ -29,8 +29,6 @@
 #pragma warning(disable : 4251)
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <cmath>
@@ -111,6 +109,5 @@
 #define NOMINMAX
 #endif
 #include <windows.h>
-#endif  // _PreComp_
 
 #endif

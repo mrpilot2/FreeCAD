@@ -29,8 +29,6 @@
 # pragma warning( disable : 4275 )
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <algorithm>
 #include <cstdio>
@@ -67,5 +65,4 @@
 // OpenCasCade
 #include <Mod/Part/App/OpenCascadeAll.h>
 
-#endif // _PreComp_
 #endif

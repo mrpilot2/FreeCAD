@@ -20,7 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+
 
 // inclusion of the generated files (generated out of PythonWorkbenchPy.xml)
 #include "PythonWorkbenchPy.h"

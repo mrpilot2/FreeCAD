@@ -9,8 +9,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <sstream>
 #include <vector>
 
@@ -20,7 +18,6 @@
 #include <QFileInfo>
 #include <QMessageBox>
 #include <QRegularExpression>
-#endif
 
 #include <App/Document.h>
 #include <App/PropertyGeo.h>

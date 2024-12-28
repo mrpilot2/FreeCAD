@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
 # ifdef FC_OS_WIN32
 #  include <windows.h>
 # endif
@@ -41,7 +40,6 @@
 # include <Inventor/elements/SoPointSizeElement.h>
 # include <Inventor/errors/SoDebugError.h>
 # include <Inventor/misc/SoState.h>
-#endif
 
 #include <Gui/SoFCUnifiedSelection.h>
 

@@ -21,9 +21,7 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QApplication>
 #include <QCheckBox>
 #include <QFrame>
@@ -35,7 +33,7 @@
 #include <QScrollArea>
 #include <QWidget>
 #include <QStackedWidget>
-#endif
+
 
 #include "StartView.h"
 #include "FileCardDelegate.h"

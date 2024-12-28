@@ -20,7 +20,6 @@
  *                                                                         *
  **************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "Metadata.h"
 #include <Base/FileInfo.h>

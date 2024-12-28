@@ -3,6 +3,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
@@ -45,7 +46,6 @@ SET(MeasureGui_SRCS
     AppMeasureGui.cpp
     Command.cpp
     Resources/Measure.qrc
-    PreCompiled.cpp
     PreCompiled.h
     QuickMeasurePy.xml
     QuickMeasurePyImp.cpp
@@ -76,17 +76,18 @@ SET(MeasureGuiTaskDlgs_SRCS
 #    ../InitGui.py
 #)
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${MeasureGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(MeasureGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 SET(MeasureGuiIcon_SVG
     Resources/icons/preferences-measure.svg
 )
 
 add_library(MeasureGui SHARED ${MeasureGui_SRCS} ${MeasureGuiIcon_SVG})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(MeasureGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(MeasureGui ${MeasureGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(MeasureGui)

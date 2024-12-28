@@ -22,8 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Mod/Part/App/FCBRepAlgoAPI_Fuse.h>
 # include <BRep_Builder.hxx>
 # include <BRepFeat_MakePrism.hxx>
@@ -34,7 +32,7 @@
 # include <TopoDS_Compound.hxx>
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Shape.hxx>
-#endif
+
 
 #include <App/Document.h>
 #include <Base/Tools.h>

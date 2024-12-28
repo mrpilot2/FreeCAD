@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
 #include "DlgEditFileIncludePropertyExternal.h"
 #include "Application.h"
 #include "FileDialog.h"

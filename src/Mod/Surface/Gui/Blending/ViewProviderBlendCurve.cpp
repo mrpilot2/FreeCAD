@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "ViewProviderBlendCurve.h"
 #include <Gui/BitmapFactory.h>

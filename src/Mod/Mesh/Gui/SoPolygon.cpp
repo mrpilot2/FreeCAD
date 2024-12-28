@@ -20,8 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+#include <FCConfig.h>
+
 #ifdef FC_OS_WIN32
 #include <Windows.h>
 #endif
@@ -39,7 +39,6 @@
 #include <Inventor/elements/SoCoordinateElement.h>
 #include <Inventor/elements/SoLazyElement.h>
 #include <Inventor/misc/SoState.h>
-#endif
 
 #include "SoPolygon.h"
 

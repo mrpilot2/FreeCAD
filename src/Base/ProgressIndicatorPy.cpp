@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include "ProgressIndicatorPy.h"
 
 

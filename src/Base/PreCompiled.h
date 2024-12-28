@@ -26,8 +26,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // Python
 #include <Python.h>
 
@@ -136,8 +134,5 @@
 #include <QReadWriteLock>
 #include <QTime>
 #include <QUuid>
-
-
-#endif  //_PreComp_
 
 #endif  // BASE_PRECOMPILED_H

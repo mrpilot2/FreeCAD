@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <iomanip>
 # include <sstream>
 
@@ -44,7 +42,6 @@
 #include <TopoDS_Face.hxx>
 #include <TopoDS_Compound.hxx>
 #include <TopTools_IndexedMapOfShape.hxx>
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

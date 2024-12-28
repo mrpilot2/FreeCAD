@@ -8,6 +8,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
@@ -25,11 +26,18 @@ set(DraftUtils_LIBS
 SET(DraftUtils_SRCS
     AppDraftUtils.cpp
     AppDraftUtilsPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 
 add_library(DraftUtils SHARED ${DraftUtils_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(DraftUtils PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
+
 target_link_libraries(DraftUtils ${DraftUtils_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(DraftUtils)

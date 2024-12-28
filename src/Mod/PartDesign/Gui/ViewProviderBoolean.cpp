@@ -22,12 +22,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QMenu>
 # include <QMessageBox>
-#endif
+
 
 #include "ViewProviderBoolean.h"
 #include "TaskBooleanParameters.h"

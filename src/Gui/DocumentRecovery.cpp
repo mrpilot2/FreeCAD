@@ -24,9 +24,7 @@
 // write a property to file only when it has been modified
 // implement xml meta file
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/interprocess/sync/file_lock.hpp>
 # include <QApplication>
 # include <QCloseEvent>
@@ -45,7 +43,6 @@
 # include <QTreeWidgetItem>
 # include <QVector>
 # include <sstream>
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

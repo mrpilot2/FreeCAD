@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 // inclusion of the generated files (generated out of BoundBoxPy.xml)
 #include "MatrixPy.h"
 #include "VectorPy.h"

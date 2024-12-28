@@ -21,11 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 #include <sstream>
-#endif
+
 #ifdef __GNUC__
 #include <unistd.h>
 #endif

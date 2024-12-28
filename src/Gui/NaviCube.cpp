@@ -20,8 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+#include <FCConfig.h>
+
 # include <algorithm>
 # include <cfloat>
 # ifdef FC_OS_WIN32
@@ -43,7 +43,6 @@
 # include <QMenu>
 # include <QOpenGLTexture>
 # include <QPainterPath>
-#endif
 
 #include <App/Color.h>
 #include <Base/Tools.h>

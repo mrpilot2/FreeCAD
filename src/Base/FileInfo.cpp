@@ -21,10 +21,8 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <FCConfig.h>
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <algorithm>
 #include <cassert>
 #include <codecvt>
@@ -40,7 +38,6 @@
 #endif
 #include <sys/stat.h>
 #include <sys/types.h>
-#endif
 
 #include "FileInfo.h"
 #include "Exception.h"

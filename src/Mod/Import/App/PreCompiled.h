@@ -36,13 +36,13 @@
 #endif
 
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <cstdio>
 #include <fcntl.h>
+#ifdef FC_OS_WIN32
 #include <io.h>
+#endif
 #include <iostream>
 #include <list>
 #include <map>
@@ -58,6 +58,5 @@
 // Base
 #include <Mod/Part/App/OpenCascadeAll.h>
 
-#endif  //_PreComp_
 
 #endif

@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRep_Builder.hxx>
 # include <BRep_Tool.hxx>
 # include <BRepAdaptor_Curve.hxx>
@@ -62,7 +60,6 @@
 # include <GCPnts_TangentialDeflection.hxx>
 # include <GCPnts_UniformAbscissa.hxx>
 # include <GCPnts_UniformDeflection.hxx>
-#endif // _PreComp_
 
 #include <Base/GeometryPyCXX.h>
 #include <Base/PyWrapParseTupleAndKeywords.h>

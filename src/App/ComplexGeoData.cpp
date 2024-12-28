@@ -26,9 +26,8 @@
 
 #include "PreCompiled.h"  // NOLINT
 
-#ifndef _PreComp_
 #include <cstdlib>
-#endif
+
 
 #include <boost/regex.hpp>
 

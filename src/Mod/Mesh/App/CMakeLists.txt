@@ -379,7 +379,6 @@ SET(Mesh_SRCS
     MeshPyImp.cpp
     MeshTexture.cpp
     MeshTexture.h
-    PreCompiled.cpp
     PreCompiled.h
     Segment.cpp
     Segment.h
@@ -394,12 +393,6 @@ if (MINGW AND CMAKE_COMPILER_IS_CLANGXX)
     endif()
 endif()
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Core_SRCS} ${Mesh_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Mesh PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 # Suppress some very long Eigen3 warnings of older versions
 if (EIGEN3_NO_DEPRECATED_COPY)
     set_source_files_properties(
@@ -411,6 +404,13 @@ if (EIGEN3_NO_DEPRECATED_COPY)
 endif ()
 
 add_library(Mesh SHARED ${Core_SRCS} ${WildMagic4_SRCS} ${Mesh_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Mesh PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(Mesh ${Mesh_LIBS})
 set_target_properties(Mesh PROPERTIES CXX_STANDARD_REQUIRED ON)
 set_target_properties(Mesh PROPERTIES CXX_STANDARD 17)

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include <cmath>
 #include <limits>
 #include <boost/math/special_functions/fpclassify.hpp>

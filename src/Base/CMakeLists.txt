@@ -349,7 +349,6 @@ SET(FreeCADBase_SRCS
     ${FreeCADBase_UNITAPI_SRCS}
     PyTools.c
     PyTools.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -381,13 +380,13 @@ else(FREECAD_USE_EXTERNAL_ZIPIOS)
     list(APPEND FreeCADBase_SRCS ${zipios_SRCS})
 endif(FREECAD_USE_EXTERNAL_ZIPIOS)
 
+add_library(FreeCADBase SHARED ${FreeCADBase_SRCS})
 
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    ADD_MSVC_PRECOMPILED_HEADER(FreeCADBase PreCompiled.h PreCompiled.cpp FreeCADBase_CPP_SRCS)
+    target_precompile_headers(FreeCADBase PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
-
-add_library(FreeCADBase SHARED ${FreeCADBase_SRCS})
 
 target_link_libraries(FreeCADBase ${FreeCADBase_LIBS})
 if (FREECAD_WARN_ERROR)

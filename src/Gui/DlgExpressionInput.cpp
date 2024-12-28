@@ -20,13 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QApplication>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QTreeWidget>
-#endif
 
 #include <fmt/format.h>
 

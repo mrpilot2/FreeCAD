@@ -24,9 +24,7 @@
 //  in GeometryObject.
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <BRepAlgo_NormalProjection.hxx>
 #include <BRepBndLib.hxx>
 #include <BRepBuilderAPI_Copy.hxx>
@@ -61,7 +59,6 @@
 #include <gp_Pln.hxx>
 #include <gp_Trsf.hxx>
 #include <gp_Vec.hxx>
-#endif// #ifndef _PreComp_
 
 #include <Base/Console.h>
 

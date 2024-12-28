@@ -20,7 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+
 
 #include "VectorListEditor.h"
 #include "ui_VectorListEditor.h"

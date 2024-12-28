@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <string>
 # include <QAction>
 # include <QApplication>
@@ -48,7 +47,7 @@
 # include <Inventor/nodes/SoPerspectiveCamera.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/SoPickedPoint.h>
-#endif
+
 
 #include <App/Document.h>
 #include <App/GeoFeature.h>

@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "PrecisionPy.h"
 #include "PrecisionPy.cpp"

@@ -42,8 +42,6 @@
 #pragma warning( disable : 4786 )  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
@@ -105,8 +103,8 @@
 #include "QtAll.h"
 #include "InventorAll.h"
 
-#elif defined(FC_OS_WIN32)
+#if defined(FC_OS_WIN32)
 #include <windows.h>
-#endif  //_PreComp_
+#endif
 
 #endif // GUI_PRECOMPILED_H

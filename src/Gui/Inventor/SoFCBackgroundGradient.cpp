@@ -19,21 +19,19 @@
  *   Suite 330, Boston, MA  02111-1307, USA                                *
  *                                                                         *
  ***************************************************************************/
+#include <FCConfig.h>
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <array>
 #include <boost/math/constants/constants.hpp>
 #ifdef FC_OS_WIN32
  #define _USE_MATH_DEFINES
+ #include <windows.h>
 #endif
 #include <cmath>
 #ifdef FC_OS_MACOSX
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
-#endif
 #endif
 
 #include "SoFCBackgroundGradient.h"

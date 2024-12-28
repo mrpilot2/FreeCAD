@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QGroupBox>
 #include <QLabel>
-#endif
+
 
 #include <Gui/Application.h>
 #include <Gui/Command.h>

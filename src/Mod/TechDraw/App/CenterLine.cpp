@@ -21,8 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
     #include <boost/random.hpp>
     #include <boost/uuid/uuid_io.hpp>
     #include <boost/uuid/uuid_generators.hpp>
@@ -30,7 +28,7 @@
     #include <BRepBndLib.hxx>
     #include <Bnd_Box.hxx>
     #include <TopoDS_Shape.hxx>
-#endif
+
 
 #include <BRepTools.hxx>
 

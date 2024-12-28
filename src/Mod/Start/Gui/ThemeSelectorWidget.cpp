@@ -21,15 +21,13 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QGuiApplication>
 #include <QHBoxLayout>
 #include <QLabel>
 #include <QString>
 #include <QStyleHints>
 #include <QToolButton>
-#endif
+
 
 #include "ThemeSelectorWidget.h"
 #include <gsl/pointers>

@@ -22,7 +22,6 @@ SET(Inspection_SRCS
     AppInspection.cpp
     InspectionFeature.cpp
     InspectionFeature.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -30,13 +29,14 @@ set(Inspection_Scripts
     ../Init.py
 )
 
+add_library(Inspection SHARED ${Inspection_SRCS} ${Inspection_Scripts})
+
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Inspection_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Inspection PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(Inspection PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
-add_library(Inspection SHARED ${Inspection_SRCS} ${Inspection_Scripts})
 target_link_libraries(Inspection ${Inspection_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Inspection)

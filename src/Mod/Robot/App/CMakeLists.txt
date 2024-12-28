@@ -3,6 +3,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${EIGEN3_INCLUDE_DIR}
@@ -37,7 +38,6 @@ SET(Python_SRCS
 
 SET(Mod_SRCS
     AppRobot.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -67,12 +67,6 @@ SET(Robot_SRCS
     ${Mod_SRCS}
     ${Python_SRCS}
 )
-
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Robot_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Robot PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
 
 # FIXME: The bundled KDL has some extensions which makes it incompatible
 # to an installed KDL. To fix the issue two things must be done:
@@ -122,6 +116,13 @@ SOURCE_GROUP("Python" FILES ${Python_SRCS})
 SOURCE_GROUP("Module" FILES ${Mod_SRCS})
 
 add_library(Robot SHARED ${Robot_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Robot PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(Robot ${Robot_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Robot)

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 // inclusion of the generated files (generated out of MatrixPy.xml)
 #include "RotationPy.h"
 #include "VectorPy.h"

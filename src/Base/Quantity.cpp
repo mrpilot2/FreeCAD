@@ -20,12 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #define _USE_MATH_DEFINES
 #include <cmath>
 #include <array>
-#endif
 
 #include <fmt/format.h>
 #include <Base/Tools.h>

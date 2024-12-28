@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cfloat>
 #include <cmath>
 
@@ -31,7 +29,6 @@
 #include <Inventor/elements/SoViewVolumeElement.h>
 #include <Inventor/elements/SoViewportRegionElement.h>
 #include <Inventor/nodes/SoCamera.h>
-#endif
 
 #include "SoZoomTranslation.h"
 

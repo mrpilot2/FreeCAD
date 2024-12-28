@@ -19,12 +19,10 @@
  *                                                                         *
  **************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QString>
 #include <QDirIterator>
 #include <QFileInfo>
-#endif
+
 
 #include <App/Application.h>
 #include <Base/FileInfo.h>

@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <iomanip>
 #include <sstream>
-#endif
+
 
 #include <App/PropertyUnits.h>
 #include <Base/Exception.h>

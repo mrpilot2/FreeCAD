@@ -21,9 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <algorithm>
 #include <cassert>
 #include <exception>
@@ -34,7 +31,6 @@
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/lexical_cast.hpp>
 #include <boost/tokenizer.hpp>
-#endif
 
 #include "Builder3D.h"
 #include "Console.h"

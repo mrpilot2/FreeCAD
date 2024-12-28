@@ -21,12 +21,10 @@
  ******************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QMessageBox>
 #include <QTimer>
-#endif
+
 
 #include <Base/UnitsApi.h>
 #include <App/Application.h>

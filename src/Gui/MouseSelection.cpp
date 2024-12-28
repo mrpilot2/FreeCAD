@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 #include <QPixmap>
 #include <QMenu>
 #include <Inventor/SbBox.h>
@@ -30,7 +29,7 @@
 #include <Inventor/events/SoKeyboardEvent.h>
 #include <Inventor/events/SoLocation2Event.h>
 #include <Inventor/events/SoMouseButtonEvent.h>
-#endif
+
 
 #include "MouseSelection.h"
 #include "View3DInventorViewer.h"

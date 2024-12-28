@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <sstream>
 
 #include <BRepLib.hxx>
@@ -35,7 +33,6 @@
 #include <gp_Ax2.hxx>
 #include <gp_Dir.hxx>
 #include <gp_Pnt.hxx>
-#endif
 
 #include <Base/Exception.h>
 

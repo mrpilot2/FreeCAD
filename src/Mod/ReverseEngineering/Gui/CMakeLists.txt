@@ -2,6 +2,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
@@ -52,7 +53,6 @@ SET(ReenGui_SRCS
     AppReverseEngineeringGui.cpp
     Command.cpp
     Resources/ReverseEngineering.qrc
-    PreCompiled.cpp
     PreCompiled.h
     Workbench.cpp
     Workbench.h
@@ -62,13 +62,14 @@ SET(ReverseEngineeringGuiIcon_SVG
     Resources/icons/ReverseEngineeringWorkbench.svg
 )
 
+add_library(ReverseEngineeringGui SHARED ${ReenGui_SRCS} ${ReverseEngineeringGuiIcon_SVG})
+
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${ReenGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(ReverseEngineeringGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(ReverseEngineeringGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
-add_library(ReverseEngineeringGui SHARED ${ReenGui_SRCS} ${ReverseEngineeringGuiIcon_SVG})
 target_link_libraries(ReverseEngineeringGui ${ReenGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(ReverseEngineeringGui)

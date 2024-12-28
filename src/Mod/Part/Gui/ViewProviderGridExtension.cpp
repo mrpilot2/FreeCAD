@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 # include <cfloat>
 
 # include <Inventor/nodes/SoDepthBuffer.h>
@@ -36,7 +33,6 @@
 # include <Inventor/SbVec3f.h>
 
 # include <QApplication>
-#endif
 
 #include <Base/Parameter.h>
 #include <App/Application.h>

@@ -21,12 +21,9 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <algorithm>
 #include <array>
 #include <utility>
-#endif
 
 #include "UnitsSchemaCentimeters.h"
 

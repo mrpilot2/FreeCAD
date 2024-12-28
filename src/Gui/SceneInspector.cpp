@@ -20,12 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <Inventor/nodes/SoSeparator.h>
 # include <QHeaderView>
 # include <QTextStream>
-#endif
+
 
 #include "SceneInspector.h"
 #include "ui_SceneInspector.h"

@@ -22,9 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #ifdef FC_OS_WIN32
 #include <xercesc/sax/SAXParseException.hpp>
 #endif
@@ -32,7 +29,6 @@
 #include <sstream>
 #include <string>
 #include <utility>
-#endif
 
 #ifdef FC_OS_LINUX
 #include <unistd.h>

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <gp_Dir.hxx>
 # include <BRep_Builder.hxx>
 # include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
@@ -44,7 +42,7 @@
 # include <TopoDS_Face.hxx>
 # include <TopoDS_Wire.hxx>
 # include <TopExp.hxx>
-#endif
+
 
 #include <App/Application.h>
 #include <App/DocumentObject.h>

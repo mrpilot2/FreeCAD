@@ -20,14 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QDockWidget>
 #include <QSignalBlocker>
 #include <QString>
 #include <algorithm>
 #include <boost_signals2.hpp>
-#endif
+
 
 #include <Base/Console.h>
 #include <Gui/Application.h>

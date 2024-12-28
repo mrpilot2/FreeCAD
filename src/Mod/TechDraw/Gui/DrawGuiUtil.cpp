@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <sstream>
 
 #include <QBitmap>
@@ -38,7 +36,6 @@
 # include <BRepAdaptor_Surface.hxx>
 # include <BRepLProp_SLProps.hxx>
 # include <gp_Dir.hxx>
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

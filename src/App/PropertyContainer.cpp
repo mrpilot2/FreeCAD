@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-
 #include <Base/Console.h>
 #include <Base/Exception.h>
 #include <Base/Reader.h>

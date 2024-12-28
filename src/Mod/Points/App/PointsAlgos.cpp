@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #ifdef FC_OS_LINUX
 #include <unistd.h>
 #endif
@@ -32,7 +30,6 @@
 #include <boost/lexical_cast.hpp>
 #include <boost/math/special_functions/fpclassify.hpp>  // needed for compilation on some systems
 #include <boost/regex.hpp>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Converter.h>

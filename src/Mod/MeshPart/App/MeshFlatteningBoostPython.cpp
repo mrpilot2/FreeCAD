@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <TopoDS.hxx>
 #include <TopoDS_Edge.hxx>
 #include <TopoDS_Face.hxx>
@@ -29,7 +27,7 @@
 #include <memory>
 #include <stdexcept>
 #include <vector>
-#endif
+
 
 // boost is purposely not in the precompiled headers, see
 // https://github.com/FreeCAD/FreeCAD/pull/7979#issuecomment-1358123252

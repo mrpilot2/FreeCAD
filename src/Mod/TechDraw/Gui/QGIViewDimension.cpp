@@ -20,13 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #ifdef FC_OS_WIN32
 # define _USE_MATH_DEFINES //resolves Windows & M_PI issues
 #endif
 
-#ifndef _PreComp_
 # include <cmath>
 
 # include <QApplication>
@@ -37,7 +35,6 @@
 # include <QPainter>
 # include <QPainterPath>
 # include <QSvgGenerator>
-#endif
 
 #include <App/Application.h>
 #include <Base/Console.h>

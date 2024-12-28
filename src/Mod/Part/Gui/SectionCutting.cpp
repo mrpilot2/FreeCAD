@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 
 // to avoid compiler warnings of redefining contents of basic.h
 // later by #include <Gui/ViewProviderGeometryObject.h>
@@ -37,7 +34,6 @@
 # include <QDoubleSpinBox>
 # include <QSlider>
 # include <QToolTip>
-#endif
 
 #include <App/Document.h>
 #include <App/Link.h>

@@ -20,7 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+// Exporting of App classes
+#ifdef FC_OS_WIN32
+#define CloudAppExport __declspec(dllexport)
+#else  // for Linux
+#define CloudAppExport
+#endif
 
 #if defined(FC_OS_WIN32)
 #include <Windows.h>

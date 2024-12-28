@@ -20,14 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <mutex>
 #include <vector>
 #include <algorithm>
-#endif
 
 #include "Sequencer.h"
 

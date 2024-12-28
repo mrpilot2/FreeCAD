@@ -21,11 +21,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>    // std::find
 # include <QGraphicsScene>
-#endif
+
 
 #include <Base/Console.h>
 #include <Mod/TechDraw/App/DrawViewClip.h>

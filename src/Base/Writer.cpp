@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include <limits>
 #include <locale>
 #include <iomanip>

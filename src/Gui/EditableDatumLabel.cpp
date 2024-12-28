@@ -21,13 +21,11 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <Inventor/sensors/SoNodeSensor.h>
 # include <Inventor/nodes/SoAnnotation.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <Inventor/nodes/SoTransform.h>
-#endif // _PreComp_
 
 #include <Gui/Application.h>
 #include <Gui/View3DInventor.h>

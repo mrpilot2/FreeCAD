@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Inventor/SbSphere.h>
 # include <Inventor/actions/SoGetBoundingBoxAction.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
@@ -32,7 +29,6 @@
 # include <QDir>
 # include <QKeySequence>
 # include <QMessageBox>
-#endif
 
 #include <boost/algorithm/string/replace.hpp>
 

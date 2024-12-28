@@ -29,8 +29,6 @@
 #   pragma warning(disable : 4005)
 #endif
 
-#ifdef _PreComp_
-
 #ifdef FC_OS_WIN32
 #ifndef NOMINMAX
 #define NOMINMAX
@@ -65,5 +63,4 @@
 # include <Gui/InventorAll.h>
 #endif
 
-#endif // _PreComp_
 #endif // __PRECOMPILED_GUI__

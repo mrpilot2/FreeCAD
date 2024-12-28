@@ -21,13 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QApplication>
 # include <QModelIndex>
 # include <QPainter>
-#endif
+
 
 #include <Base/Tools.h>
 

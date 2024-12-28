@@ -20,9 +20,8 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <atomic>
 # include <cctype>
 # include <boost/algorithm/string/predicate.hpp>
@@ -45,7 +44,7 @@
 # include <QApplication>
 # include <QMenu>
 # include <QCheckBox>
-#endif
+
 
 #include <boost/range.hpp>
 #include <App/ElementNamingUtils.h>

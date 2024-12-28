@@ -21,8 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <string>
 #include <vector>
 
@@ -32,7 +30,6 @@
 #include <QMouseEvent>
 #include <QPoint>
 #include <QPixmap>
-#endif//#ifndef _PreComp_
 
 #include <App/AutoTransaction.h>
 #include <App/Document.h>

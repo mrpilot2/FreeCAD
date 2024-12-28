@@ -20,16 +20,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
+#if defined(FC_OS_WIN32)
+#include <windows.h>
+#endif
+
 #ifdef FC_OS_MACOSX
 #include <OpenGL/gl.h>
 #else
 #include <GL/gl.h>
 #endif
 #include <Inventor/elements/SoCacheElement.h>
-#endif
 
 #include "So3DAnnotation.h"
 

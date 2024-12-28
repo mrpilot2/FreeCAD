@@ -21,8 +21,6 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/algorithm/string/predicate.hpp>
 #include <QByteArray>
 #include <QCryptographicHash>
@@ -32,7 +30,7 @@
 #include <QFileInfo>
 #include <QStandardPaths>
 #include <QUrl>
-#endif
+
 
 #include "DisplayedFilesModel.h"
 #include <App/Application.h>

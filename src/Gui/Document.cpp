@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 # include <cctype>
 # include <mutex>
 # include <QApplication>
@@ -33,7 +30,6 @@
 # include <QStatusBar>
 # include <Inventor/actions/SoSearchAction.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
 
 #include <App/AutoTransaction.h>
 #include <App/Document.h>

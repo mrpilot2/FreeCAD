@@ -25,11 +25,9 @@
  *  Project (www.freetype.org).  All rights reserved.                      *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #ifdef FCUseFreeType
 
-#ifndef _PreComp_
 # include <iostream>
 # include <fstream>
 # include <cstdio>
@@ -55,7 +53,6 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
 # include <TopoDS_Wire.hxx>
-#endif // _PreComp
 
 #include <Base/Console.h>
 #include <Base/FileInfo.h>

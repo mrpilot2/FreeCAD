@@ -20,14 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <iomanip>
 #include <iterator>
 #include <sstream>
 
 #include <boost/regex.hpp>
-#endif
 
 #include "FeatureViewSymbol.h"
 

@@ -4,6 +4,7 @@ set(JTREADER_TKJT_LIBRARIES CACHE FILEPATH  "File path to TKJT library")
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
@@ -22,7 +23,6 @@ set(JtReader_LIBS
 SET(JtReader_SRCS
     AppJtReader.cpp
     AppJtReaderPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
     TestJtReader.cpp
     TestJtReader.h
@@ -54,6 +54,13 @@ SOURCE_GROUP("JrJt" FILES ${JRJT_SRCS}  )
 SOURCE_GROUP("Module" FILES ${JtReader_SRCS})
 
 add_library(JtReader SHARED ${JtReader_SRCS} ${JRJT_SRCS} ${JtReader_Scripts})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(JtReader PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(JtReader ${JtReader_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(JtReader)

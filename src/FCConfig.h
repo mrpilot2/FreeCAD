@@ -78,7 +78,7 @@
 #   define HAVE_UINT64_T
 #   define HAVE_INTPTR_T
 #   define HAVE_UINTPTR_T
-#endif
+#   endif
 
 #else
 #   error "FreeCAD is not ported to this OS yet. For help see www.freecad.org"

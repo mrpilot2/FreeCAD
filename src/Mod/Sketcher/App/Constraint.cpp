@@ -20,12 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QDateTime>
 #include <boost/random.hpp>
 #include <cmath>
-#endif
+
 
 #include <Base/Reader.h>
 #include <Base/Tools.h>

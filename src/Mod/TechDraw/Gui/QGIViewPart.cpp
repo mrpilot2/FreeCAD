@@ -20,13 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 
 #include <QPainterPath>
 #include <QKeyEvent>
 #include <qmath.h>
-#endif// #ifndef _PreComp_
 
 #include <App/Application.h>
 #include <App/Document.h>

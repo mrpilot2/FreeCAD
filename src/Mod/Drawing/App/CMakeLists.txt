@@ -1,5 +1,6 @@
 include_directories(
     ${CMAKE_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
@@ -38,7 +39,6 @@ SET(Features_SRCS
 SET(Drawing_SRCS
     AppDrawing.cpp
     AppDrawingPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -59,13 +59,14 @@ SET(DrawingComplete_SRCS
     ${Features_SRCS}
 )
 
+add_library(Drawing SHARED ${Drawing_SRCS} ${Features_SRCS} ${DrawingAlgos_SRCS})
+
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${DrawingComplete_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Drawing PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(Drawing PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
-add_library(Drawing SHARED ${Drawing_SRCS} ${Features_SRCS} ${DrawingAlgos_SRCS})
 target_link_libraries(Drawing ${Drawing_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Drawing)

@@ -25,6 +25,8 @@
 #ifndef BASE_EXCEPTION_H
 #define BASE_EXCEPTION_H
 
+#include <FCConfig.h>
+
 #include <csignal>
 #include <string>
 #include "BaseClass.h"

@@ -20,14 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <QContextMenuEvent>
 # include <QMenu>
 # include <QPainter>
 # include <QShortcut>
 # include <QTextCursor>
-#endif
+
 
 #include <Base/Parameter.h>
 

@@ -35,8 +35,6 @@
 #	pragma warning( disable : 4786 )  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <cmath>
@@ -76,13 +74,9 @@
 #define WIN32_LEAN_AND_MEAN
 #ifndef NOMINMAX
 # define NOMINMAX
-#endif
 #include <Windows.h>
 #include <io.h>
-#endif //_PreComp_
-
-#ifndef _Standard_Version_HeaderFile
-# include <Standard_Version.hxx>
 #endif
+
 
 #endif

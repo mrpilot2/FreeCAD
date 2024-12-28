@@ -21,15 +21,14 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <QApplication>
 # include <QDir>
 # include <QFileInfo>
 # include <QMessageBox>
 # include <QTimer>
-#endif
+
 
 #include <App/Application.h>
 #include <Base/Console.h>

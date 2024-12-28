@@ -3,6 +3,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${QT_INCLUDE_DIR}
@@ -115,7 +116,6 @@ SOURCE_GROUP("SketchBasedFeatures" FILES ${FeaturesSketchBased_SRCS})
 SET(Module_SRCS
     AppPartDesign.cpp
     AppPartDesignPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
     Measure.cpp
     Measure.h
@@ -148,9 +148,9 @@ if (FREECAD_WARN_ERROR)
 endif()
 
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PartDesign_CPP_SRCS ${PartDesign_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(PartDesign PreCompiled.h PreCompiled.cpp PartDesign_CPP_SRCS)
+    target_precompile_headers(PartDesign PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
 SET_BIN_DIR(PartDesign _PartDesign /Mod/PartDesign)

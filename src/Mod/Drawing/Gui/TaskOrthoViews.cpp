@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QLineEdit>
 #include <QMenu>
-#endif
+
 
 #include <fmt/printf.h>
 #include <App/Document.h>

@@ -20,11 +20,9 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QListWidgetItem>
 # include <QList>
-#endif
+
 
 #include <Base/Console.h> // for FC_LOG_LEVEL_INIT
 

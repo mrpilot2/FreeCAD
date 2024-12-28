@@ -23,6 +23,7 @@
 
 include_directories(
         ${CMAKE_CURRENT_BINARY_DIR}
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${Boost_INCLUDE_DIRS}
         ${COIN3D_INCLUDE_DIRS}
         ${PYTHON_INCLUDE_DIRS}
@@ -62,7 +63,6 @@ SET(StartGui_SRCS
         GeneralSettingsWidget.h
         Manipulator.cpp
         Manipulator.h
-        PreCompiled.cpp
         PreCompiled.h
         StartView.cpp
         StartView.h
@@ -81,13 +81,6 @@ SET(StartGuiThumbnail_PNG
         Resources/thumbnails/Theme_thumbnail_light.png
         )
 
-# TODO: Evaluate PCH use with Qt6/QtQuick/Qml
-if (FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${StartGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(StartGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif (FREECAD_USE_PCH)
-
 # Add CoreFoundation to StartGui_LIBS on macOS
 if (APPLE)
     find_library(COREFOUNDATION_LIBRARY CoreFoundation)
@@ -99,6 +92,14 @@ if (APPLE)
 endif()
 
 add_library(StartGui SHARED ${StartGui_SRCS} ${StartGuiIcon_SVG} ${StartGuiThumbnail_PNG})
+
+# TODO: Evaluate PCH use with Qt6/QtQuick/Qml
+if(FREECAD_USE_PCH)
+    target_precompile_headers(StartGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 # target_link_libraries(StartGui ${StartGui_LIBS} Qt::Quick Qt::Qml Qt::QuickWidgets)
 target_link_libraries(StartGui ${StartGui_LIBS})
 if (FREECAD_WARN_ERROR)

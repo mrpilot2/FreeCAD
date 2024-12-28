@@ -20,13 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <boost/core/ignore_unused.hpp>
 #include <memory>
 #include <sstream>
-#endif
 
 #include <xercesc/framework/LocalFileFormatTarget.hpp>
 #include <xercesc/framework/LocalFileInputSource.hpp>

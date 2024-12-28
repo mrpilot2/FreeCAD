@@ -21,14 +21,11 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QMessageBox>
 #include <QTextStream>
 #ifdef FC_OS_WIN32
 #include <windows.h>
-#endif
 #endif
 
 #include <App/DocumentObject.h>

@@ -2,6 +2,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${ZLIB_INCLUDE_DIR}
@@ -38,7 +39,6 @@ SET(PathGui_SRCS_Module
     AppPathGui.cpp
     AppPathGuiPy.cpp
     Resources/Path.qrc
-    PreCompiled.cpp
     PreCompiled.h
     DlgSettingsPathColor.ui
     DlgSettingsPathColor.cpp
@@ -73,17 +73,18 @@ SET(PathGui_SRCS
     ${PathGui_SRCS_ViewProvider}
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${PathGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(PathGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 SET(PathGuiIcon_SVG
     Resources/icons/CAMWorkbench.svg
 )
 
 add_library(PathGui SHARED ${PathGui_SRCS} ${PathGuiIcon_SVG})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(PathGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(PathGui ${PathGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(PathGui)

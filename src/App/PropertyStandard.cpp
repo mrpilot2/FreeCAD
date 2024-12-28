@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <boost/algorithm/string/predicate.hpp>
 #include <boost/math/special_functions/round.hpp>

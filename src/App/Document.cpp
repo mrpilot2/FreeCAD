@@ -55,13 +55,9 @@ recompute path. Also, it enables more complicated dependencies beyond trees.
 @see App::DocumentObject
 */
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <bitset>
 #include <stack>
 #include <boost/filesystem.hpp>
-#endif
 
 #include <boost/algorithm/string.hpp>
 #include <boost/bimap.hpp>

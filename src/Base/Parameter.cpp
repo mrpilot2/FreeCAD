@@ -22,9 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <algorithm>
 #include <cassert>
 #include <memory>
@@ -39,7 +36,6 @@
 #include <sstream>
 #include <string>
 #include <utility>
-#endif
 
 #include <QFileInfo>
 #include <QLockFile>

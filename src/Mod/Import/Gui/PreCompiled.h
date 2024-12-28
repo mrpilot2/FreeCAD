@@ -35,7 +35,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
 
 // standard
 #include <cassert>
@@ -48,7 +47,7 @@
 #include <string>
 #include <vector>
 
-#ifndef FC_OS_WIN32
+#ifdef FC_OS_WIN32
 #include <windows.h>
 #endif
 
@@ -82,18 +81,10 @@
 #include <gp_Sphere.hxx>
 #include <gp_Trsf.hxx>
 
-#ifndef FC_OS_WIN32
-#include <Graphic3d_GraphicDevice.hxx>
-#else
-#include <Graphic3d_WNTGraphicDevice.hxx>
-#endif
-
 // Qt Toolkit
 #ifndef __QtAll__
 #include <Gui/QtAll.h>
 #endif
 
-
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoAnnotation.h>
 # include <Inventor/nodes/SoDrawStyle.h>
@@ -31,7 +30,7 @@
 # include <Inventor/nodes/SoMaterialBinding.h>
 # include <Inventor/nodes/SoScale.h>
 # include <Inventor/nodes/SoSeparator.h>
-#endif
+
 
 #include <App/Document.h>
 #include <App/Datums.h>

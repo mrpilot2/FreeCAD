@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <TopoDS_Shape.hxx>
 #include <sstream>
-#endif
+
 
 #include <Mod/Part/App/PartFeature.h>
 

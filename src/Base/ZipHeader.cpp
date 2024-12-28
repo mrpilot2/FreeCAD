@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include "ZipHeader.h"
 #include <zipios++/zipinputstream.h>
 

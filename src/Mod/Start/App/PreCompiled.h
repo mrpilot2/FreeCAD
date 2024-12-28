@@ -30,7 +30,6 @@
 #pragma warning(disable : 5208)
 #endif
 
-#ifdef _PreComp_
 
 // standard
 #include <cinttypes>
@@ -55,5 +54,4 @@
 #include <QStandardPaths>
 #include <QUrl>
 
-#endif  // _PreComp_
 #endif  // START_PRECOMPILED_H

@@ -21,9 +21,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
 # if defined(FC_OS_LINUX) || defined(FC_OS_MACOSX) || defined(FC_OS_BSD)
 #  include <unistd.h>
 #  include <pwd.h>
@@ -37,7 +36,6 @@
 # include <boost/date_time/posix_time/posix_time.hpp>
 # include <chrono>
 # include <random>
-#endif
 
 #ifdef FC_OS_WIN32
 # include <Shlobj.h>

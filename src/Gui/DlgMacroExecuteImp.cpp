@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QInputDialog>
 #include <QLabel>
 #include <QMessageBox>
@@ -29,7 +27,6 @@
 #include <QSignalBlocker>
 #include <QTextStream>
 #include <QTimer>
-#endif
 
 #include <App/Document.h>
 #include <Base/Interpreter.h>

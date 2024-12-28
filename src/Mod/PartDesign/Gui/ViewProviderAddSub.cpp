@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoSwitch.h>
 # include <Inventor/nodes/SoCoordinate3.h>
@@ -37,7 +35,7 @@
 # include <Standard_Version.hxx>
 # include <TopExp_Explorer.hxx>
 # include <TopoDS.hxx>
-#endif
+
 
 #include <Base/Console.h>
 #include <Gui/Application.h>

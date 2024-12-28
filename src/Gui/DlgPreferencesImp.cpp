@@ -22,8 +22,6 @@
   *                                                                          *
   ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <algorithm>
 # include <cstring>
 # include <QAbstractButton>
@@ -40,7 +38,6 @@
 # include <QProcess>
 # include <QPushButton>
 # include <QWindow>
-#endif
 
 #include <App/Application.h>
 #include <Base/Console.h>

@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "MeshFeature.h"
 // inclusion of the generated files (generated out of MeshFeaturePy.xml)

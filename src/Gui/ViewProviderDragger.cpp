@@ -20,16 +20,15 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <string>
 # include <QAction>
 # include <QMenu>
 # include <Inventor/draggers/SoDragger.h>
 # include <Inventor/nodes/SoPickStyle.h>
 # include <Inventor/nodes/SoTransform.h>
-#endif
+
 
 #include <App/GeoFeature.h>
 #include <Base/Placement.h>

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include <boost/iostreams/stream.hpp>
 
 #include "Persistence.h"

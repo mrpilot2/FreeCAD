@@ -20,12 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <sstream>
 
 #include <QFileInfo>
-#endif
 
 #include <App/DocumentObjectPy.h>
 #include <Base/Exception.h>

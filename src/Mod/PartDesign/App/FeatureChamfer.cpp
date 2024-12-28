@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAlgo.hxx>
 # include <BRepFilletAPI_MakeChamfer.hxx>
 # include <TopExp.hxx>
@@ -33,7 +31,7 @@
 # include <ShapeFix_Shape.hxx>
 # include <ShapeFix_ShapeTolerance.hxx>
 # include <Standard_Version.hxx>
-#endif
+
 
 #include <Base/Exception.h>
 #include <Base/Reader.h>

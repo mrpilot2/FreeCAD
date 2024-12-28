@@ -20,14 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <sstream>
 #include <locale>
 #include <iostream>
 #include <QDateTime>
-#endif
 
 #include "PyExport.h"
 #include "Interpreter.h"

@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepAdaptor_Surface.hxx>
 # include <Mod/Part/App/FCBRepAlgoAPI_Common.h>
 # include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
@@ -41,7 +39,7 @@
 # include <TopoDS_Wire.hxx>
 # include <gp_Ax1.hxx>
 # include <gp_Ax3.hxx>
-#endif
+
 
 # include <Standard_Version.hxx>
 # include <Base/Axis.h>

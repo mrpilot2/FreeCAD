@@ -22,15 +22,12 @@
  **************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/core/ignore_unused.hpp>
 #include <Standard_Version.hxx>
 #include <TColStd_IndexedDataMapOfStringString.hxx>
 #if OCC_VERSION_HEX >= 0x070500
 #include <Message_ProgressRange.hxx>
 #include <RWGltf_CafWriter.hxx>
-#endif
 #endif
 
 #include "WriterGltf.h"

@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <Python.h>
 #include <vtkCompositeDataSet.h>
 #include <vtkMultiBlockDataSet.h>
@@ -38,7 +36,7 @@
 #include <vtkXMLRectilinearGridReader.h>
 #include <vtkXMLStructuredGridReader.h>
 #include <vtkXMLUnstructuredGridReader.h>
-#endif
+
 
 #include <App/Application.h>
 #include <App/DocumentObject.h>

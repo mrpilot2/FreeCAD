@@ -12,6 +12,7 @@ endif(BUILD_FEM_NETGEN)
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${ZLIB_INCLUDE_DIR}
@@ -51,19 +52,12 @@ SET(MeshPart_SRCS
     MeshAlgos.h
     Mesher.cpp
     Mesher.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 
 set(MeshPart_Scripts
     ../Init.py
 )
-
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${MeshPart_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(MeshPart PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
 
 # Suppress -Wundefined-var-template
 if (MINGW AND CMAKE_COMPILER_IS_CLANGXX)
@@ -75,6 +69,13 @@ if (MINGW AND CMAKE_COMPILER_IS_CLANGXX)
 endif()
 
 add_library(MeshPart SHARED ${MeshPart_SRCS} ${MeshPart_Scripts})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(MeshPart PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(MeshPart ${MeshPart_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(MeshPart)

@@ -152,7 +152,6 @@ SET(TechDraw_SRCS
     DrawDimHelper.h
     HatchLine.cpp
     HatchLine.h
-    PreCompiled.cpp
     PreCompiled.h
     EdgeWalker.cpp
     EdgeWalker.h
@@ -271,16 +270,16 @@ SOURCE_GROUP("Features" FILES ${Draw_SRCS})
 SOURCE_GROUP("Geometry" FILES ${Geometry_SRCS})
 SOURCE_GROUP("Python" FILES ${Python_SRCS})
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${TechDraw_SRCS} ${Draw_SRCS} ${TechDrawAlgos_SRCS}
-                                                           ${Geometry_SRCS} ${Python_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(TechDraw PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 add_library(TechDraw SHARED ${TechDraw_SRCS} ${Draw_SRCS} ${TechDrawAlgos_SRCS}
                            ${Geometry_SRCS} ${Python_SRCS})
 target_link_libraries(TechDraw ${TechDrawLIBS} ${TechDraw})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(TechDraw PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(TechDraw)
 endif()

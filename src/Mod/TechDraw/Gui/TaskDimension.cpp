@@ -20,11 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <QMessageBox>
-#endif // #ifndef _PreComp_
 
 #include <App/Document.h>
 #include <Gui/BitmapFactory.h>

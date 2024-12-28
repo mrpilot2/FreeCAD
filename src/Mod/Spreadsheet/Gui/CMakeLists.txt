@@ -74,7 +74,6 @@ SET(SpreadsheetGui_SRCS
     SheetTableViewAccessibleInterface.cpp
     SheetModel.h
     SheetModel.cpp
-    PreCompiled.cpp
     PreCompiled.h
     Workbench.cpp
     Workbench.h
@@ -111,6 +110,13 @@ set(SpreadsheetGui_UIC_SRCS
 )
 
 add_library(SpreadsheetGui SHARED ${SpreadsheetGui_SRCS} ${SpreadsheetGuiIcon_SVG})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(SpreadsheetGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(SpreadsheetGui ${SpreadsheetGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(SpreadsheetGui)

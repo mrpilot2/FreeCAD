@@ -330,17 +330,18 @@ SET(FreeCADApp_SRCS
     ${FreeCADApp_XML_SRCS}
     FreeCADInit.py
     FreeCADTest.py
-    PreCompiled.cpp
-    PreCompiled.h
 )
 
+add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
+
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    ADD_MSVC_PRECOMPILED_HEADER(FreeCADApp PreCompiled.h PreCompiled.cpp FreeCADApp_CPP_SRCS)
+    target_precompile_headers(FreeCADApp PRIVATE
+        $<$<COMPILE_LANGUAGE:CXX>:"App/PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
-add_library(FreeCADApp SHARED ${FreeCADApp_SRCS})
 target_link_libraries(FreeCADApp ${FreeCADApp_LIBS})
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(FreeCADApp)
 endif()

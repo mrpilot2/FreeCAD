@@ -46,7 +46,6 @@ SET(Surface_SRCS
   ${Blending_SRCS}
   ${BlendingPy_SRCS}
   AppSurface.cpp
-  PreCompiled.cpp
   PreCompiled.h
   FeatureExtend.cpp
   FeatureExtend.h
@@ -62,15 +61,16 @@ SET(Surface_SRCS
   FeatureCut.h
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Surface_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Surface PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 link_directories(${OCC_LIBRARY_DIR})
 add_library(Surface SHARED ${Surface_SRCS})
 target_link_libraries(Surface ${Surface_LIBS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Surface PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Surface)
 endif()

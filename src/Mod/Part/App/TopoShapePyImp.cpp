@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <sstream>
 # include <boost/regex.hpp>
 
@@ -64,7 +62,6 @@
 # include <TopTools_IndexedMapOfShape.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <TopTools_ListOfShape.hxx>
-#endif
 
 #include <App/PropertyStandard.h>
 #include <App/StringHasherPy.h>

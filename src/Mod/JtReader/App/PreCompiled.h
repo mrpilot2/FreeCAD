@@ -18,8 +18,6 @@
 #define AppJtReaderExport
 #endif
 
-#ifdef _PreComp_
-
 /// point at which warnings of overly long specifiers disabled (needed for VC6)
 
 #ifdef _MSC_VER
@@ -50,7 +48,5 @@
 
 // sys
 #include <sys/types.h>
-
-#endif  //_PreComp_
 
 #endif

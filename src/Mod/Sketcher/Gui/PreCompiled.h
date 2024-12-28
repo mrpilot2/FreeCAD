@@ -29,8 +29,6 @@
 #pragma warning(disable : 4005)
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cfloat>
 #include <cmath>
@@ -81,7 +79,5 @@
 #ifndef __InventorAll__
 #include <Gui/InventorAll.h>
 #endif
-
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

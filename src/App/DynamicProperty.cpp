@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-
 #include <Base/Reader.h>
 #include <Base/Tools.h>
 #include <Base/Writer.h>

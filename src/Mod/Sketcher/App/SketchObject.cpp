@@ -21,8 +21,6 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 #include <vector>
 
@@ -75,8 +73,6 @@
 #include <boost/iostreams/stream.hpp>
 #include <boost/range/adaptor/map.hpp>
 #include <boost_geometry.hpp>
-
-#endif
 
 #include <HLRAlgo_Projector.hxx>
 #include <HLRBRep_Algo.hxx>

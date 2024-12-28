@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
 // inclusion of the generated files (generated out of QuantityPy.xml)
 #include "QuantityPy.h"
 #include "UnitPy.h"

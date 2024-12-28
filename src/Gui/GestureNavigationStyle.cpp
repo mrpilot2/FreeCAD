@@ -60,14 +60,13 @@
  *
  */
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <Inventor/SoFullPath.h>
 # include <Inventor/SoPickedPoint.h>
 # include <Inventor/actions/SoRayPickAction.h>
 # include <Inventor/draggers/SoDragger.h>
 # include <QApplication>
-#endif
+
 
 #include <QTapAndHoldGesture>
 

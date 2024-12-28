@@ -20,9 +20,8 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <QAction>
 # include <QApplication>
 # include <QComboBox>
@@ -39,7 +38,7 @@
 # include <QTimerEvent>
 # include <QToolTip>
 # include <QScrollBar>
-#endif
+
 
 #include <QPainterPath>
 #include <QPropertyAnimation>

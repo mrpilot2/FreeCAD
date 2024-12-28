@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cfloat>
 
 
@@ -35,7 +33,6 @@
 # include <Inventor/nodes/SoPickStyle.h>
 # include <Inventor/nodes/SoSeparator.h>
 # include <Inventor/nodes/SoVertexProperty.h>
-#endif
 
 #include <App/Application.h>
 #include <Base/Console.h>

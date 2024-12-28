@@ -20,12 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <vtkDataSet.h>
 #include <vtkXMLDataSetWriter.h>
-#endif
+
 
 #include <Base/Exception.h>
 

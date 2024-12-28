@@ -21,7 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
 #include <Gui/Application.h>
 #include <Mod/Sketcher/App/SketchObject.h>

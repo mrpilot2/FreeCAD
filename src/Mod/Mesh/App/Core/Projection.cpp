@@ -20,12 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <algorithm>
 #include <cmath>
 #include <map>
-#endif
+
 
 #include "Grid.h"
 #include "Iterator.h"

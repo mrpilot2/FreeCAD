@@ -20,10 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <stack>
-#endif
+
 
 #include <App/Document.h>
 #include <App/DocumentObject.h>

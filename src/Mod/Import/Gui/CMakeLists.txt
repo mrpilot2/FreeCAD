@@ -1,6 +1,7 @@
 include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
@@ -31,13 +32,19 @@ SET(ImportGui_SRCS
     ImportOCAFGui.h
     OCAFBrowser.cpp
     OCAFBrowser.h
-    PreCompiled.cpp
     PreCompiled.h
     Workbench.cpp
     Workbench.h
 )
 
 add_library(ImportGui SHARED ${ImportGui_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(ImportGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(ImportGui ${ImportGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(ImportGui)

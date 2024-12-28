@@ -9,7 +9,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>

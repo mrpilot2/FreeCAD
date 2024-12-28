@@ -22,6 +22,7 @@
 #  ***************************************************************************/
 
 include_directories(
+        ${CMAKE_CURRENT_SOURCE_DIR}
         ${PYTHON_INCLUDE_DIRS}
         ${QtCore_INCLUDE_DIRS}
 )
@@ -36,12 +37,18 @@ SET(Start_SRCS
         DisplayedFilesModel.h
         ExamplesModel.cpp
         ExamplesModel.h
-        PreCompiled.cpp
         PreCompiled.h
         RecentFilesModel.cpp
         RecentFilesModel.h)
 
 add_library(Start SHARED ${Start_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Start PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(Start ${Start_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Start)

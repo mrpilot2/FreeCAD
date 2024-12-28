@@ -22,8 +22,6 @@
 
 // A widget for editing Vector3d without taking up too much space in the UI.
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QApplication>
 #include <QLabel>
 #include <QObject>
@@ -36,7 +34,7 @@
 #include <QLineEdit>
 #include <QSpacerItem>
 #include <QToolButton>
-#endif
+
 
 #include <Mod/TechDraw/TechDrawGlobal.h>
 

@@ -32,8 +32,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
-
 // STL
 #include <cfloat>
 
@@ -60,7 +58,5 @@
 #include <QApplication>
 #include <QMenu>
 #include <QMessageBox>
-
-#endif  //_PreComp_
 
 #endif  // GUI_PRECOMPILED_H

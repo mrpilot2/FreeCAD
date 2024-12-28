@@ -21,9 +21,7 @@
  *                                                                          *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QFile>
 #include <QFileIconProvider>
 #include <QImageReader>
@@ -33,7 +31,7 @@
 #include <QModelIndex>
 #include <QVBoxLayout>
 #include <QApplication>
-#endif
+
 
 #include "FileCardDelegate.h"
 #include "../App/DisplayedFilesModel.h"

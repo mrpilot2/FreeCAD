@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
 # include <cfloat>
 # ifdef FC_OS_WIN32
 #  include <windows.h>
@@ -33,7 +32,7 @@
 # include <GL/gl.h>
 # include <GL/glext.h>
 # include <GL/glu.h>
-# endif
+#endif
 
 # include <fmt/format.h>
 
@@ -84,7 +83,6 @@
 # include <QTimer>
 # include <QVariantAnimation>
 # include <QWheelEvent>
-#endif
 
 #include <App/Document.h>
 #include <App/GeoFeatureGroupExtension.h>

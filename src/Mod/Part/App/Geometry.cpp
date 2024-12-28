@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <Approx_Curve3d.hxx>
 # include <BRepAdaptor_Curve.hxx>
 # include <BRepAdaptor_Surface.hxx>
@@ -105,7 +103,6 @@
 # include <boost/random.hpp>
 # include <cmath>
 # include <ctime>
-#endif //_PreComp_
 
 #include <Base/Console.h>
 #include <Base/Exception.h>

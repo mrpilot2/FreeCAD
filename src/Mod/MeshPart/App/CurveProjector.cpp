@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #ifdef FC_OS_LINUX
 #include <unistd.h>
 #endif
@@ -42,7 +40,6 @@
 #include <TopoDS.hxx>
 #include <TopoDS_Edge.hxx>
 #include <gp_Pln.hxx>
-#endif
 
 #include <Base/Console.h>
 #include <Base/FileInfo.h>

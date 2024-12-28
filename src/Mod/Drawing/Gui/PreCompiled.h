@@ -29,8 +29,6 @@
 #pragma warning(disable : 4005)
 #endif
 
-#ifdef _PreComp_
-
 // STL
 #include <cmath>
 #include <sstream>
@@ -61,10 +59,7 @@
 #include <QPrintDialog>
 #include <QPrintPreviewDialog>
 #include <QPrinter>
-#include <QRegExp>
 #include <QTimer>
 #include <QWheelEvent>
-
-#endif  //_PreComp_
 
 #endif  // DRAWINGGUI_PRECOMPILED_H

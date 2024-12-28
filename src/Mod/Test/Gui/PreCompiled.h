@@ -25,8 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // point at which warnings of overly long specifiers disabled (needed for VC6)
 #ifdef _MSC_VER
 #pragma warning(disable : 4251)
@@ -38,7 +36,5 @@
 #include <QApplication>
 #include <QEventLoop>
 #include <QMessageBox>
-
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

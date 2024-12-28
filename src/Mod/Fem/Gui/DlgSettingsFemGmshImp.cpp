@@ -22,11 +22,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QMessageBox>
 #include <QThread>
-#endif
+
 
 #include <App/Application.h>
 #include "DlgSettingsFemGmshImp.h"

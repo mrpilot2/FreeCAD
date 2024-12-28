@@ -31,7 +31,6 @@
 #pragma warning(disable : 4275)
 #endif
 
-#ifdef _PreComp_
 
 // STL
 #include <cfloat>
@@ -76,6 +75,5 @@
 #include <Inventor/nodes/SoPointSet.h>
 #include <Inventor/nodes/SoSeparator.h>
 
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

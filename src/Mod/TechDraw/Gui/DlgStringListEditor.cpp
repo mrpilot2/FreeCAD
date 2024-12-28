@@ -20,10 +20,8 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QListWidgetItem>
-#endif
+
 
 #include "DlgStringListEditor.h"
 #include "ui_DlgStringListEditor.h"

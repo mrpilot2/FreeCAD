@@ -20,12 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <Inventor/SbString.h>
 #include <QApplication>
 #include <cfloat>
-#endif
+
 
 #include <App/Application.h>
 #include <Base/Console.h>

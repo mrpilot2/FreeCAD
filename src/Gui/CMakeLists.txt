@@ -1309,8 +1309,6 @@ SET(FreeCADGui_SRCS
     MetaTypes.h
     ModuleIO.h
     Notifications.h
-    PreCompiled.cpp
-    PreCompiled.h
     QtAll.h
     Control.h
     SpaceballEvent.h
@@ -1386,11 +1384,6 @@ if(MSVC)
     )
 endif(MSVC)
 
-if (FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    ADD_MSVC_PRECOMPILED_HEADER(FreeCADGui PreCompiled.h PreCompiled.cpp FreeCADGui_CPP_SRCS)
-endif(FREECAD_USE_PCH)
-
 if (FREECAD_USE_QT_FILEDIALOG)
     set_source_files_properties(FileDialog.cpp PROPERTIES COMPILE_FLAGS -DUSE_QT_FILEDIALOG)
 endif()
@@ -1410,6 +1403,18 @@ if (EIGEN3_NO_DEPRECATED_COPY)
 endif ()
 
 add_library(FreeCADGui SHARED ${FreeCADGui_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(FreeCADGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+
+    set_source_files_properties(
+        ${qsintActionPanel_SRCS} 
+        ${Quarter_SRCS}
+        PROPERTIES SKIP_PRECOMPILE_HEADERS TRUE)
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(FreeCADGui ${FreeCADGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(FreeCADGui)

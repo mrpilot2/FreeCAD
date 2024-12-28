@@ -21,16 +21,12 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <boost/algorithm/string/predicate.hpp>
 #include <QApplication>
 #include <QInputDialog>
 #include <QHeaderView>
 #include <QMenu>
 #include <QPainter>
-#endif
 
 #include <App/Application.h>
 #include <App/AutoTransaction.h>

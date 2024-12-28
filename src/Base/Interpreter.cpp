@@ -21,13 +21,8 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <sstream>
 #include <boost/regex.hpp>
-#endif
 
 #include "Interpreter.h"
 #include "Console.h"

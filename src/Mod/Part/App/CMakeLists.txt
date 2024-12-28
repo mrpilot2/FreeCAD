@@ -549,7 +549,6 @@ SET(Part_SRCS
     ImportStep.h
     Interface.cpp
     Interface.h
-    PreCompiled.cpp
     PreCompiled.h
     ProgressIndicator.cpp
     ProgressIndicator.h
@@ -584,12 +583,6 @@ SET(Part_SRCS
     WireJoiner.h
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Part_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Part PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 # Suppress some very long Eigen3 warnings of older versions
 if(EIGEN3_NO_DEPRECATED_COPY)
     set_source_files_properties(
@@ -599,6 +592,13 @@ if(EIGEN3_NO_DEPRECATED_COPY)
 endif()
 
 add_library(Part SHARED ${Part_SRCS} ${FCBRepAlgoAPI_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Part PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(Part ${Part_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Part)

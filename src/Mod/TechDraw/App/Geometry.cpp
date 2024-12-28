@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/uuid/uuid_generators.hpp>
 # include <boost/uuid/uuid_io.hpp>
 # include <boost/random.hpp>
@@ -72,7 +70,6 @@
 #if OCC_VERSION_HEX < 0x070600
 # include <BRepAdaptor_HCurve.hxx>
 #endif
-#endif  // #ifndef _PreComp_
 
 #include <Base/Console.h>
 #include <Base/Parameter.h>

@@ -34,8 +34,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
-
 // STL
 #include <algorithm>
 #include <deque>
@@ -55,7 +53,5 @@
 
 // Qt
 #include <QLocale>
-
-#endif  //_PreComp_
 
 #endif  // SPREADSHEET_PRECOMPILED_H

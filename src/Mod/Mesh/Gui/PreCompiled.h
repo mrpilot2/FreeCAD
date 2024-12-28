@@ -35,7 +35,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
 
 // standard
 #include <ios>
@@ -66,6 +65,5 @@
 #define NOMINMAX
 #endif
 #include <Windows.h>
-#endif  //_PreComp_
 
 #endif  // MESHGUI_PRECOMPILED_H

@@ -4,6 +4,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${OCC_INCLUDE_DIR}
     ${PYTHON_INCLUDE_DIRS}
 )
@@ -46,7 +47,6 @@ SOURCE_GROUP("Python" FILES ${Python_SRCS})
 SET(Module_SRCS
     AppAssembly.cpp
     AppAssemblyPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 SOURCE_GROUP("Module" FILES ${Module_SRCS})
@@ -79,9 +79,9 @@ if (FREECAD_WARN_ERROR)
 endif()
 
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${Assembly_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Assembly PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(Assembly PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
 SET_BIN_DIR(Assembly AssemblyApp /Mod/Assembly)

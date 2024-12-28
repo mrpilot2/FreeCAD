@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include "Type.h"
 #include "BaseClassPy.h"
 #include "BindingManager.h"

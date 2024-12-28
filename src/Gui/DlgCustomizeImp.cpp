@@ -20,14 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 # include <QEvent>
 # include <QGridLayout>
 # include <QPushButton>
 # include <QSizePolicy>
-#endif
 
 #include "DlgCustomizeImp.h"
 #include "MainWindow.h"

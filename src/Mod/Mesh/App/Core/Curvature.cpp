@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <algorithm>
 #include <functional>
-#endif
+
 
 #include <QFuture>
 #include <QFutureWatcher>

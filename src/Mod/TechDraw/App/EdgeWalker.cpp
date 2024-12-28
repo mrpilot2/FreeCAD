@@ -25,9 +25,7 @@
 // http://www.boost.org/LICENSE_1_0.txt)
 //**************************************************************************
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <sstream>
 # include <BRep_Tool.hxx>
@@ -38,7 +36,7 @@
 # include <ShapeFix_Wire.hxx>
 # include <TopExp.hxx>
 # include <boost/graph/boyer_myrvold_planar_test.hpp>
-#endif
+
 
 #include <Base/Console.h>
 

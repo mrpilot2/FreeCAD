@@ -20,7 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include "AxisPy.h"
 #include "CoordinateSystemPy.h"

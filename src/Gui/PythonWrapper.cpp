@@ -20,8 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <limits>
 # include <unordered_map>
 # include <list>
@@ -31,7 +30,7 @@
 # include <QIcon>
 # include <QPrinter>
 # include <QWidget>
-#endif
+
 
 #include <QMetaType>
 
@@ -140,10 +139,9 @@
 #endif
 
 // Must be imported after PySide headers
-#ifndef _PreComp_
 # include <QGraphicsItem>
 # include <QGraphicsObject>
-#endif
+
 
 #include <App/Application.h>
 #include <Base/Interpreter.h>

@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <boost/uuid/uuid_io.hpp>
-#endif
+
 
 #include <Base/Console.h>
 #include <Base/GeometryPyCXX.h>

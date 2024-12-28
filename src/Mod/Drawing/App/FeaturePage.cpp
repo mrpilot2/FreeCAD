@@ -20,15 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <fstream>
 #include <iostream>
 #include <iterator>
 #include <sstream>
 
 #include <boost/regex.hpp>
-#endif
 
 #include <App/Application.h>
 #include <Base/Console.h>

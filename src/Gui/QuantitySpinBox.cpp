@@ -21,8 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <QApplication>
 # include <QDebug>
 # include <QFocusEvent>
@@ -33,7 +32,7 @@
 # include <QStyle>
 # include <QStyleOptionSpinBox>
 # include <QToolTip>
-#endif
+
 
 #include <sstream>
 

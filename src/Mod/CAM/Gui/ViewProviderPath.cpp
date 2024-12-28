@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 #include <boost/algorithm/string/replace.hpp>
 
 #include <Inventor/SbVec3f.h>
@@ -36,7 +33,6 @@
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoSwitch.h>
 #include <Inventor/nodes/SoTransform.h>
-#endif
 
 #include <App/Application.h>
 #include <App/DocumentObject.h>

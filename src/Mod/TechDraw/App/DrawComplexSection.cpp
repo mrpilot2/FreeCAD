@@ -54,9 +54,7 @@
 //    - align and distribute the intersections along an "effective" section plane
 //      which is a flattened version of the profile
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <BRepAdaptor_Curve.hxx>
 #include <BRepAdaptor_Surface.hxx>
 #include <Mod/Part/App/FCBRepAlgoAPI_Common.h>
@@ -98,7 +96,7 @@
 #include <gp_Dir.hxx>
 #include <gp_Pln.hxx>
 #include <gp_Pnt.hxx>
-#endif
+
 
 #define _USE_MATH_DEFINES
 #include <cmath>

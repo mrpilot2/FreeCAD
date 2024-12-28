@@ -21,12 +21,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QMessageBox>
 #include <TopoDS.hxx>
-#endif
+
 
 #include <App/Document.h>
 #include <Gui/Command.h>

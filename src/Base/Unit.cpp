@@ -20,15 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <algorithm>
 #include <array>
 #include <cmath>
 #include <limits>
 #include <sstream>
 #include <utility>
-#endif
 
 #include "Unit.h"
 #include "Exception.h"

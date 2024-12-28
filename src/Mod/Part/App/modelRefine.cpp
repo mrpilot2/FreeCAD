@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <algorithm>
 # include <iterator>
 # include <Bnd_Box.hxx>
@@ -65,7 +63,6 @@
 # include <TopTools_DataMapIteratorOfDataMapOfShapeShape.hxx>
 # include <TopTools_ListIteratorOfListOfShape.hxx>
 # include <TopTools_ListOfShape.hxx>
-#endif // _PreComp_
 
 #include <Base/Console.h>
 

@@ -20,14 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <boost/tokenizer.hpp>
 #include <deque>
 #include <memory>
 #include <sstream>
-#endif
+
 
 #include <App/Application.h>
 #include <App/Document.h>

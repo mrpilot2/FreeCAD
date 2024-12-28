@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QMessageBox>
 # include <BRep_Tool.hxx>
 # include <BRepAdaptor_Curve.hxx>
@@ -31,7 +29,7 @@
 # include <TopoDS.hxx>
 # include <TopoDS_Edge.hxx>
 # include <TopTools_HSequenceOfShape.hxx>
-#endif
+
 
 #include <App/Application.h>
 #include <App/Document.h>

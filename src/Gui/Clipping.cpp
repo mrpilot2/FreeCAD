@@ -20,16 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <Inventor/actions/SoGetBoundingBoxAction.h>
 #include <Inventor/nodes/SoClipPlane.h>
 #include <Inventor/nodes/SoGroup.h>
 #include <Inventor/sensors/SoTimerSensor.h>
 #include <QDockWidget>
 #include <QPointer>
-#endif
 
 #include "Clipping.h"
 #include "ui_Clipping.h"

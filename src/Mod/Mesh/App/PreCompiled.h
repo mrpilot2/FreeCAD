@@ -35,8 +35,6 @@
 #pragma warning(disable : 4661)  // no suitable definition provided for explicit
 #endif                           // template instantiation request
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <cfloat>
@@ -81,7 +79,5 @@
 #include <xercesc/util/XMLUni.hpp>
 #include <xercesc/util/XMLUniDefs.hpp>
 #include <xercesc/util/XercesVersion.hpp>
-
-#endif  //_PreComp_
 
 #endif

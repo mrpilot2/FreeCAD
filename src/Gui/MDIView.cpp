@@ -20,9 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <boost_signals2.hpp>
 # include <boost/core/ignore_unused.hpp>
 # include <QApplication>
@@ -35,7 +34,7 @@
 # include <QPrinterInfo>
 # include <QRegularExpression>
 # include <QRegularExpressionMatch>
-#endif
+
 
 #include <Base/Interpreter.h>
 #include <App/Document.h>

@@ -21,7 +21,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <App/DocumentObject.h>
 #include <Mod/TechDraw/App/DrawLeaderLine.h>

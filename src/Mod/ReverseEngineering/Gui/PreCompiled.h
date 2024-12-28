@@ -33,7 +33,6 @@
 #pragma warning(disable : 4522)
 #endif
 
-#ifdef _PreComp_
 
 // standard
 #include <algorithm>
@@ -53,6 +52,5 @@
 #include <QMessageBox>
 #include <QPushButton>
 
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

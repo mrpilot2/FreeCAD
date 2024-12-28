@@ -26,7 +26,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
 
 // STL
 #include <algorithm>
@@ -52,6 +51,5 @@
 #include <Gui/InventorAll.h>
 #endif
 
-#endif  //_PreComp_
 
 #endif  // ASSEMBLYGUI_PRECOMPILED_H

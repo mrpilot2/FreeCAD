@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 // to avoid compiler warnings of redefining contents of basic.h
 // later by #include "ViewProvider.h"
 # define _USE_MATH_DEFINES
@@ -31,7 +28,6 @@
 # include <Inventor/nodes/SoGroup.h>
 # include <Inventor/nodes/SoMaterial.h>
 # include <Inventor/nodes/SoShapeHints.h>
-#endif
 
 #include <App/Document.h>
 #include <Base/Parameter.h>

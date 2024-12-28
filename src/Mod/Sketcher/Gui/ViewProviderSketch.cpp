@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/core/ignore_unused.hpp>
 #include <Inventor/SbBox3f.h>
 #include <Inventor/SbLine.h>
@@ -38,7 +36,6 @@
 #include <QMessageBox>
 #include <QScreen>
 #include <QTextStream>
-#endif
 
 #include <Base/Console.h>
 #include <Base/Vector3D.h>

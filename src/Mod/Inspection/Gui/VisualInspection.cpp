@@ -20,10 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cfloat>
-#endif
+
 
 #include <App/Document.h>
 #include <App/DocumentObject.h>

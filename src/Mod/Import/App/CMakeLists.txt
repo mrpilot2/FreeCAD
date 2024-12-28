@@ -40,7 +40,6 @@ SET(Import_SRCS
     StepShape.h
     StepShape.cpp
     StepShapePyImp.cpp
-    PreCompiled.cpp
     PreCompiled.h
     Tools.cpp
     Tools.h
@@ -86,6 +85,13 @@ SOURCE_GROUP("SCL" FILES ${SCL_Resources})
 generate_from_xml(StepShapePy)
 
 add_library(Import SHARED ${Import_SRCS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(Import PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(Import ${Import_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Import)

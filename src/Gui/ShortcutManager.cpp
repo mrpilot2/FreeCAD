@@ -20,11 +20,10 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <QShortcutEvent>
 # include <QApplication>
-#endif
+
 
 #include <boost/algorithm/string/predicate.hpp>
 

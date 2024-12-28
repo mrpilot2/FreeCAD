@@ -25,8 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <fstream>
 #include <iomanip>
@@ -72,5 +70,4 @@
 #include <BRepAdaptor_HCurve.hxx>
 #endif
 
-#endif  // _PreComp_
 #endif

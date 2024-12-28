@@ -39,9 +39,7 @@
 //!       for sketch based breaks, the break direction is perpendicular to the edges
 //!       in the sketch.
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <BRepAdaptor_Curve.hxx>
 #include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
 #include <BRepBndLib.hxx>
@@ -68,7 +66,7 @@
 #include <gp_Dir.hxx>
 #include <gp_Pln.hxx>
 #include <gp_Pnt.hxx>
-#endif
+
 
 #include <App/Document.h>
 #include <Base/BoundBox.h>

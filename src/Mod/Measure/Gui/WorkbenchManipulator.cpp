@@ -20,7 +20,6 @@
  **************************************************************************/
 
 
-#include "PreCompiled.h"
 #include "WorkbenchManipulator.h"
 #include <Gui/MenuManager.h>
 #include <Gui/ToolBarManager.h>

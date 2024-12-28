@@ -9,6 +9,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
@@ -122,7 +123,6 @@ SET(MatGui_SRCS
     ModelSelect.cpp
     ModelSelect.h
     ModelSelect.ui
-    PreCompiled.cpp
     PreCompiled.h
     TextEdit.cpp
     TextEdit.h
@@ -132,12 +132,6 @@ SET(MatGui_SRCS
     WorkbenchManipulator.cpp
     WorkbenchManipulator.h
 )
-
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${MatGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(MatGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
 
 SET(MatGuiIcon_SVG
     Resources/icons/list.svg
@@ -159,6 +153,13 @@ SET(Material_Ui_Files
 )
 
 add_library(MatGui SHARED ${MatGui_SRCS} ${MatGuiIcon_SVG} ${MatGuiImages} ${Material_Ui_Files})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(MatGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(MatGui ${MatGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(MatGui)

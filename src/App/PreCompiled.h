@@ -43,8 +43,6 @@
 #endif
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <csignal>
@@ -100,7 +98,5 @@
 #include <boost/filesystem/exception.hpp>
 #include <boost/filesystem/operations.hpp>
 #include <boost/filesystem/path.hpp>
-
-#endif  //_PreComp_
 
 #endif  // APP_PRECOMPILED_H

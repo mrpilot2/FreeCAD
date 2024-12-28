@@ -20,13 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QApplication>
 #include <QEvent>
 #include <QKeyEvent>
-#endif
+
 
 #include "LineEdit.h"
 

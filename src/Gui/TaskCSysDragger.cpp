@@ -20,13 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 #include <cassert>
 #include <limits>
 #include <QApplication>
 #include <QGridLayout>
-#endif
+
 
 #include <App/Document.h>
 #include "Document.h" // must be before TaskCSysDragger.h

@@ -20,14 +20,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <cmath>
 # include <sstream>
 # include <Standard_Failure.hxx>
 # include <Precision.hxx>
-#endif
+
 
 #include <App/Application.h>
 #include <App/Document.h>

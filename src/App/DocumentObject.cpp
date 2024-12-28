@@ -21,11 +21,7 @@
  *                                                                         *
  ***************************************************************************/
 
-
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <stack>
-#endif
 
 #include <App/DocumentObjectPy.h>
 #include <Base/Console.h>

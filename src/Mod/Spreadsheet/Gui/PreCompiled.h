@@ -34,8 +34,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cmath>
 
@@ -50,7 +48,5 @@
 #ifndef __QtAll__
 #include <Gui/QtAll.h>
 #endif
-
-#endif  //_PreComp_
 
 #endif  // SPREADSHEET_PRECOMPILED_H

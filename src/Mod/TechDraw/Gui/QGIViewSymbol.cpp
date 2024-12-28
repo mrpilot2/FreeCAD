@@ -21,15 +21,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <sstream>
 
 # include <QGraphicsColorizeEffect>
 # include <QGraphicsItem>
 # include <QRectF>
-#endif
 
 #include <Base/Console.h>
 #include <Mod/TechDraw/App/DrawViewArch.h>

@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <Standard_Failure.hxx>
 #include <sstream>
-#endif
+
 
 #include <Base/Exception.h>
 

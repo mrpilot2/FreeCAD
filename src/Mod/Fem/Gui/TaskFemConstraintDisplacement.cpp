@@ -24,12 +24,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QAction>
 #include <QMessageBox>
 #include <sstream>
-#endif
+
 
 #include <Gui/Command.h>
 #include <Gui/SelectionObject.h>

@@ -2,6 +2,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${COIN3D_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
@@ -34,7 +35,6 @@ SET(DrawingGui_SRCS
     AppDrawingGuiPy.cpp
     Command.cpp
     Resources/Drawing.qrc
-    PreCompiled.cpp
     PreCompiled.h
     TaskDialog.cpp
     TaskDialog.h
@@ -70,18 +70,18 @@ SET(DrawingGuiComplete_SRCS
     ${DrawingGuiViewProvider_SRCS}
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${DrawingGuiComplete_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(DrawingGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 SET(DrawingGuiIcon_SVG
     Resources/icons/DrawingWorkbench.svg
 )
 
 add_library(DrawingGui SHARED ${DrawingGui_SRCS} ${DrawingGuiView_SRCS}
                               ${DrawingGuiViewProvider_SRCS} ${DrawingGuiIcon_SVG})
+if(FREECAD_USE_PCH)
+    target_precompile_headers(DrawingGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 target_link_libraries(DrawingGui ${DrawingGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(DrawingGui)

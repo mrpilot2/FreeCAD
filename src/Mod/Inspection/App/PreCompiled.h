@@ -32,7 +32,6 @@
 #pragma warning(disable : 4786)  // specifier longer then 255 chars
 #endif
 
-#ifdef _PreComp_
 
 // STL
 #include <numeric>
@@ -55,6 +54,5 @@
 #include <QFutureWatcher>
 #include <QtConcurrentMap>
 
-#endif  //_PreComp_
 
 #endif

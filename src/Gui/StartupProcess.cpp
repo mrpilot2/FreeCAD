@@ -21,8 +21,12 @@
  *                                                                         *
  **************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+#include <FCConfig.h>
+
+#ifdef FC_OS_WIN32
+#include <windows.h>
+#endif
+
 #include <QApplication>
 #include <QDir>
 #include <QImageReader>
@@ -32,7 +36,7 @@
 #include <QStatusBar>
 #include <QWindow>
 #include <Inventor/SoDB.h>
-#endif
+
 
 #include "StartupProcess.h"
 #include "Application.h"

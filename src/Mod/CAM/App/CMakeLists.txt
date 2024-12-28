@@ -7,6 +7,7 @@ include_directories(
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_BINARY_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${EIGEN3_INCLUDE_DIR}
@@ -56,7 +57,6 @@ SET(Python_SRCS
 SET(Mod_SRCS
     AppPath.cpp
     AppPathPy.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -139,9 +139,9 @@ if(NOT ${Boost_VERSION} LESS 107500)
 endif()
 
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" Path_CPP_SRCS ${Path_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(Path PreCompiled.h PreCompiled.cpp Path_CPP_SRCS)
+    target_precompile_headers(Path PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
 SET_BIN_DIR(Path PathApp /Mod/CAM)

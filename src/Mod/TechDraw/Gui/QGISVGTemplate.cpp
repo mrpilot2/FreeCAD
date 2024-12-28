@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <QDomDocument>
 # include <QFile>
 # include <QGraphicsColorizeEffect>
@@ -31,7 +29,6 @@
 # include <QSvgRenderer>
 # include <QRegularExpression>
 # include <QRegularExpressionMatch>
-#endif// #ifndef _PreComp_
 
 #include <App/Application.h>
 #include <Base/Console.h>

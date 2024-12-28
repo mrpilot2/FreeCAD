@@ -1,5 +1,6 @@
 include_directories(
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${Boost_INCLUDE_DIRS}
     ${PYTHON_INCLUDE_DIRS}
@@ -40,7 +41,6 @@ SET(TestGui_SRCS
     ${Dialogs_SRCS}
     ${Resource_SRCS}
     AppTestGui.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 SET(TestGuiPy_SRCS
@@ -51,13 +51,13 @@ SET(TestGuiIcon_SVG
     Resources/icons/TestWorkbench.svg
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${TestGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(QtUnitGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 add_library(QtUnitGui SHARED ${TestGui_SRCS} ${TestGuiPy_SRCS} ${TestGuiIcon_SVG})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(QtUnitGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
 
 target_link_libraries(QtUnitGui ${TestGui_LIBS})
 add_dependencies(QtUnitGui Test)

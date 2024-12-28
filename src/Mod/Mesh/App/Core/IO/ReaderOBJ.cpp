@@ -20,13 +20,11 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/lexical_cast.hpp>
 #include <boost/regex.hpp>
 #include <boost/tokenizer.hpp>
 #include <istream>
-#endif
+
 
 #include "Core/MeshIO.h"
 #include "Core/MeshKernel.h"

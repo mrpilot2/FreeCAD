@@ -20,13 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QDir>
 #include <QFile>
 #include <QFileInfo>
 #include <QMessageBox>
-#endif
 
 #include "DlgMacroRecordImp.h"
 #include "ui_DlgMacroRecord.h"

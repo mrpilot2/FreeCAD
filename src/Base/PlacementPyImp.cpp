@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include "GeometryPyCXX.h"
 #include <Base/PyWrapParseTupleAndKeywords.h>
 

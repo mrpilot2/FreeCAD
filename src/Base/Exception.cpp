@@ -22,8 +22,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-
 #include "Exception.h"
 #include "Console.h"
 #include "PyObjectBase.h"

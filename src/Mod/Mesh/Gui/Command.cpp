@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #ifdef FC_OS_WIN32
 #include <windows.h>
 #endif
@@ -33,7 +31,6 @@
 #include <qinputdialog.h>
 #include <qmessagebox.h>
 #include <qstringlist.h>
-#endif
 
 #ifndef __InventorAll__
 #include <Gui/InventorAll.h>

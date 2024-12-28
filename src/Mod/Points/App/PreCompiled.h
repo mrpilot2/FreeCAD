@@ -32,7 +32,6 @@
 #pragma warning(disable : 4522)
 #endif
 
-#ifdef _PreComp_
 
 // standard
 #include <cstdio>
@@ -55,6 +54,5 @@
 // Qt
 #include <QtConcurrentMap>
 
-#endif  //_PreComp_
 
 #endif

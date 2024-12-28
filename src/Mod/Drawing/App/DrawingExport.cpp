@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 #include <sstream>
 
@@ -49,7 +47,6 @@
 #include <gp_Vec.hxx>
 #if OCC_VERSION_HEX < 0x070600
 #include <BRepAdaptor_HCurve.hxx>
-#endif
 #endif
 
 #include <Base/Tools.h>

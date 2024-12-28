@@ -20,8 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+#include <Mod/Part/PartGlobal.h>
+
 # include <Standard_Version.hxx>
 # include <TopoDS.hxx>
 # include <TopoDS_Solid.hxx>
@@ -29,7 +29,6 @@
 # if OCC_VERSION_HEX >= 0x070500
 #  include <Message_ProgressRange.hxx>
 # endif
-#endif
 
 #include "ShapeFix/ShapeFix_SolidPy.h"
 #include "ShapeFix/ShapeFix_SolidPy.cpp"

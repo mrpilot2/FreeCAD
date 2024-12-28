@@ -21,8 +21,6 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <BRepPrim_Cylinder.hxx>
 # include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
 # include <Mod/Part/App/FCBRepAlgoAPI_Fuse.h>
@@ -36,7 +34,7 @@
 # include <BRepPrimAPI_MakeCylinder.hxx>
 # include <BRepPrimAPI_MakeSphere.hxx>
 # include <BRepPrimAPI_MakeTorus.hxx>
-#endif
+
 
 #include <App/DocumentObject.h>
 #include <Base/Exception.h>

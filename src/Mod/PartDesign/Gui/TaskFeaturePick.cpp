@@ -21,13 +21,11 @@
  *                                                                            *
  ******************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 #include <QListIterator>
 #include <QListWidgetItem>
 #include <QTimer>
-#endif
+
 
 #include <App/Document.h>
 #include <App/Origin.h>

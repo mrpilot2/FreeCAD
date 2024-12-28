@@ -30,8 +30,6 @@
 #pragma warning(disable : 4290)
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <cmath>
@@ -164,7 +162,5 @@
 #include <vtkDoubleArray.h>
 #include <vtkLookupTable.h>
 #include <vtkPointData.h>
-
-#endif  //_PreComp_
 
 #endif  // FEMGUI_PRECOMPILED_H

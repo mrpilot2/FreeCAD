@@ -22,8 +22,6 @@
  **************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/core/ignore_unused.hpp>
 #include <Standard_Version.hxx>
 #if OCC_VERSION_HEX >= 0x070500
@@ -38,7 +36,6 @@
 #include <XCAFDoc_ShapeTool.hxx>
 #include <XCAFDoc_VisMaterial.hxx>
 #include <XCAFDoc_VisMaterialTool.hxx>
-#endif
 #endif
 
 #include "ReaderGltf.h"

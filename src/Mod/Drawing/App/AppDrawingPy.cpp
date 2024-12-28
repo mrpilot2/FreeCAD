@@ -20,10 +20,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/regex.hpp>
-#endif
+
 
 #include <Base/Console.h>
 #include <Base/Interpreter.h>

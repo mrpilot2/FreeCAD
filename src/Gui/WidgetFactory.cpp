@@ -21,11 +21,10 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
+
 # include <QApplication>
 # include <QVBoxLayout>
-#endif
+
 
 #ifdef FC_OS_WIN32
 #undef max

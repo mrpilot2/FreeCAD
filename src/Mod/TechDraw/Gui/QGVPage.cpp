@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 
 #include <QApplication>
@@ -33,7 +31,6 @@
 #include <QPainter>
 #include <QScrollBar>
 #include <QWheelEvent>
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

@@ -21,9 +21,7 @@
  ***************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Inventor/details/SoLineDetail.h>
 # include <Inventor/nodes/SoCoordinate3.h>
 # include <Inventor/nodes/SoDrawStyle.h>
@@ -33,7 +31,7 @@
 # include <Inventor/nodes/SoSwitch.h>
 # include <Inventor/nodes/SoText2.h>
 # include <Inventor/nodes/SoTranslation.h>
-#endif
+
 
 #include <App/Application.h>
 #include <Gui/Inventor/SoAutoZoomTranslation.h>

@@ -18,7 +18,7 @@
  *
  */
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
 #include <Base/Console.h>
 #include <Inventor/SbLine.h>
@@ -33,6 +33,10 @@
 #include <Inventor/nodes/SoOrthographicCamera.h>
 #include <Inventor/nodes/SoPerspectiveCamera.h>
 #include <Inventor/nodes/SoSeparator.h>
+
+#if defined(FC_OS_WIN32)
+#include <windows.h>
+#endif
 
 #if !defined(FC_OS_MACOSX)
 # include <GL/gl.h>

@@ -32,8 +32,6 @@
 #pragma warning(disable : 4522)
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cmath>
 #include <iostream>
@@ -78,5 +76,4 @@
 #include <TopoDS_Shape.hxx>
 #include <gp_Pln.hxx>
 
-#endif  // _PreComp_
 #endif

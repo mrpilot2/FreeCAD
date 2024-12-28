@@ -20,11 +20,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <iostream>
 #include <sstream>
-#endif
+
 
 #include "FeatureClip.h"
 #include "FeatureView.h"

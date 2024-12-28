@@ -20,9 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#ifndef _PreComp_
 
 // to avoid compiler warnings of redefining contents of basic.h
 // later by #include <Gui/ViewProvider.h>
@@ -45,7 +42,6 @@
 # include <QRegularExpression>
 # include <QTreeWidget>
 # include <QComboBox>
-#endif
 
 #include <Base/Tools.h>
 #include <App/Application.h>

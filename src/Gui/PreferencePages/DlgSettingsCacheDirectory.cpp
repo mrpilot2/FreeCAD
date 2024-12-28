@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <QCoreApplication>
 # include <QDate>
 # include <QDesktopServices>
@@ -33,7 +31,7 @@
 # include <QUrl>
 # include <cmath>
 # include <vector>
-#endif
+
 
 #include <App/Application.h>
 #include <App/Document.h>

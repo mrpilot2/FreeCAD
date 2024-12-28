@@ -20,14 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
+
 # include <QSplitter>
 # include <Inventor/nodes/SoDirectionalLight.h>
 # include <Inventor/nodes/SoOrthographicCamera.h>
 # include <Inventor/nodes/SoPerspectiveCamera.h>
-#endif
+
 
 #include <Base/Builder3D.h>
 #include <Base/Interpreter.h>

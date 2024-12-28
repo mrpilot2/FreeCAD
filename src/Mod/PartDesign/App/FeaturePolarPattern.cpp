@@ -21,15 +21,13 @@
  ******************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <TopoDS.hxx>
 # include <TopoDS_Face.hxx>
 # include <gp_Lin.hxx>
 # include <gp_Circ.hxx>
 # include <gp_Ax2.hxx>
 # include <BRepAdaptor_Curve.hxx>
-#endif
+
 
 #include "DatumLine.h"
 #include <Base/Axis.h>

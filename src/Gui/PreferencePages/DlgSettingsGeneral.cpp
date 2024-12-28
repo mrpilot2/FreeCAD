@@ -23,8 +23,6 @@
   ***************************************************************************/
 
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 # include <cmath>
 # include <limits>
 # include <QApplication>
@@ -34,7 +32,7 @@
 # include <QString>
 # include <algorithm>
 # include <boost/filesystem.hpp>
-#endif
+
 
 #include <App/Document.h>
 #include <Base/Parameter.h>

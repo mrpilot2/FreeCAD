@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <cmath>
 
 #include <QAction>
@@ -45,8 +43,6 @@
 #include <QPrintPreviewDialog>
 #include <QPrinter>
 #include <QWheelEvent>
-
-#endif
 
 #include <App/Application.h>
 #include <App/Document.h>

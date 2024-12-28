@@ -21,9 +21,7 @@
  ******************************************************************************/
 
 
-#include "PreCompiled.h"
 
-#ifndef _PreComp_
 # include <Bnd_Box.hxx>
 # include <BRep_Tool.hxx>
 # include <BRepBndLib.hxx>
@@ -44,7 +42,7 @@
 # include <Inventor/nodes/SoTransparencyType.h>
 # include <QAction>
 # include <QMenu>
-#endif
+
 
 #include <App/Document.h>
 #include <Base/Console.h>

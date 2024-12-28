@@ -19,7 +19,6 @@
  *                                                                         *
  **************************************************************************/
 
-#include "PreCompiled.h"
 
 #include <App/PropertyGeo.h>
 #include <Base/PlacementPy.h>

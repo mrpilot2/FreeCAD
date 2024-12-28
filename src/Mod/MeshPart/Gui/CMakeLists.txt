@@ -13,6 +13,7 @@ include_directories(
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
     ${CMAKE_CURRENT_BINARY_DIR}
+    ${CMAKE_CURRENT_SOURCE_DIR}
     ${Boost_INCLUDE_DIRS}
     ${OCC_INCLUDE_DIR}
     ${COIN3D_INCLUDE_DIRS}
@@ -53,7 +54,6 @@ SET(MeshPartGui_SRCS
     CurveOnMesh.cpp
     CurveOnMesh.h
     Resources/MeshPart.qrc
-    PreCompiled.cpp
     PreCompiled.h
     TaskCurveOnMesh.ui
     TaskCurveOnMesh.cpp
@@ -73,13 +73,14 @@ set(FLATMESH_PY_SRCS
     MeshFlatteningCommand.py
 )
 
+add_library(MeshPartGui SHARED ${MeshPartGui_SRCS} ${MeshPartGui_Scripts} ${FLATMESH_PY_SRCS})
+
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${MeshPartGui_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(MeshPartGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(MeshPartGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
-add_library(MeshPartGui SHARED ${MeshPartGui_SRCS} ${MeshPartGui_Scripts} ${FLATMESH_PY_SRCS})
 target_link_libraries(MeshPartGui ${MeshPartGui_LIBS})
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(MeshPartGui)

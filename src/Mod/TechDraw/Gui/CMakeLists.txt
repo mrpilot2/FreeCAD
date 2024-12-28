@@ -108,7 +108,6 @@ SET(TechDrawGui_SRCS
     DimensionValidators.cpp
     DimensionValidators.h
     Resources/TechDraw.qrc
-    PreCompiled.cpp
     PreCompiled.h
     Workbench.cpp
     Workbench.h
@@ -468,17 +467,16 @@ SET(TechDrawGuiFonts
     Resources/fonts/Y14.5-FreeCAD.ttf
 )
 
-if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${TechDrawGui_SRCS} ${TechDrawGuiView_SRCS}
-                                                           ${TechDrawGuiNav_SRCS}
-                                                           ${TechDrawGuiViewProvider_SRCS} ${MRTE_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(TechDrawGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
-endif(FREECAD_USE_PCH)
-
 add_library(TechDrawGui SHARED ${TechDrawGui_SRCS} ${TechDrawGuiView_SRCS} ${TechDrawGuiViewProvider_SRCS}
                                ${TechDrawGuiNav_SRCS} ${TechDrawGuiIcon_SVG} ${TechDrawGuiFonts} ${MRTE_SRCS})
 target_link_libraries(TechDrawGui ${TechDrawGui_LIBS})
+
+if(FREECAD_USE_PCH)
+    target_precompile_headers(TechDrawGui PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"PreCompiled.h">
+    )
+endif(FREECAD_USE_PCH)
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(TechDrawGui)
 endif()
