@@ -13,6 +13,18 @@
           "CMAKE_EXPORT_COMPILE_COMMANDS": {
             "type": "BOOL",
             "value": "ON"
+          },
+          "BUILD_CLOUD": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "BUILD_DRAWING": {
+            "type": "BOOL",
+            "value": "ON"
+          },
+          "BUILD_JTREADER": {
+            "type": "BOOL",
+            "value": "ON"
           }
         }
       },
