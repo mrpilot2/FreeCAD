@@ -128,7 +128,7 @@ jobs:
 
     - name: CMake Configure
       run: |
-        pixi run configure-release
+        pixi run configure-release -DFREECAD_USE_PCH=ON
 
     - name: CMake Build
       run: |
