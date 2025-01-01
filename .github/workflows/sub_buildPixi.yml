@@ -126,13 +126,10 @@ jobs:
         pixi run ccache -z
         pixi run ccache -p
 
-    - name: CMake Configure
+    - name: Build Benchmark
+      shell: bash
       run: |
-        pixi run configure-release -DFREECAD_USE_PCH=ON
-
-    - name: CMake Build
-      run: |
-        pixi run build
+        ./build_benchmark.sh
 
     - name: Print ccache statistics after Build
       run: |
