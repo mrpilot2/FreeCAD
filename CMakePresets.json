@@ -14,10 +14,6 @@
             "type": "BOOL",
             "value": "ON"
           },
-          "BUILD_CLOUD": {
-            "type": "BOOL",
-            "value": "ON"
-          },
           "BUILD_DRAWING": {
             "type": "BOOL",
             "value": "ON"
