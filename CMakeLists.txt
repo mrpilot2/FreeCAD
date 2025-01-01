@@ -16,7 +16,7 @@ if (POLICY CMP0148)
     cmake_policy(SET CMP0148 OLD)
 endif()
 
-option(FREECAD_USE_CCACHE "Auto detect and use ccache during compilation" ON)
+option(FREECAD_USE_CCACHE "Auto detect and use ccache during compilation" OFF)
 
 if(FREECAD_USE_CCACHE)
     find_program(CCACHE_PROGRAM ccache)  #This check should occur before project()
