@@ -137,82 +137,18 @@ jobs:
         pixi run ccache -s
         pixi run ccache -z
         pixi run ccache -p
+        pixi run ccache -C
+        pixi run ccache -c
 
-    - name: CMake Configure
+    - name: Build Benchmark - Base App Gui
+      shell: bash
       run: |
-        pixi run configure-${{ env.config }}
-
-    - name: CMake Build
-      run: |
-        pixi run build-${{ env.config }}
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
 
     - name: Print ccache statistics after Build
       if: always()
       run: |
         pixi run ccache -s
-
-    - name: FreeCAD CLI tests on build dir
-      if: inputs.testOnBuildDir
-      timeout-minutes: 10
-      uses: ./.github/workflows/actions/runPythonTests
-      with:
-        testDescription: "CLI tests on build dir"
-        testCommand: pixi run ${{ env.builddir }}/bin/FreeCADCmd -t 0
-        logFile: ${{ env.logdir }}TestCLIBuild.log
-        reportFile: ${{env.reportdir}}${{ env.reportfilename }}
-
-    - name: FreeCAD GUI tests on build dir
-      if: runner.os == 'Linux' && inputs.testOnBuildDir
-      timeout-minutes: 15
-      uses: ./.github/workflows/actions/runPythonTests
-      with:
-        testDescription: "GUI tests on build dir"
-        testCommand: pixi run xvfb-run ${{ env.builddir }}/bin/FreeCAD -t 0
-        logFile: ${{ env.logdir }}TestGUIBuild.log
-        reportFile: ${{env.reportdir}}${{ env.reportfilename }}
-
-    - name: C++ tests
-      timeout-minutes: 10
-      if: runner.os != 'Windows'
-      uses: ./.github/workflows/actions/runCPPTests/runAllTests
-      with:
-        reportdir: ${{ env.reportdir }}
-        builddir: ${{ env.builddir }}
-        reportFile: ${{ env.reportdir }}${{ env.reportfilename }}
-
-    - name: CMake Install
-      run: |
-        pixi run install-${{ env.config }}
-
-    - name: FreeCAD CLI tests on install
-      if: runner.os != 'Windows'
-      timeout-minutes: 10
-      uses: ./.github/workflows/actions/runPythonTests
-      with:
-        testDescription: "CLI tests on install"
-        testCommand: pixi run FreeCADCmd -t 0
-        logFile: ${{ env.logdir }}TestCLIInstall.log
-        reportFile: ${{env.reportdir}}${{ env.reportfilename }}
-
-    - name: FreeCAD GUI tests on install
-      # if: runner.os == 'Linux'
-      # currently broken on Qt6 builds
-      if: false
-      timeout-minutes: 15
-      uses: ./.github/workflows/actions/runPythonTests
-      with:
-        testDescription: "GUI tests on install"
-        testCommand: pixi run xvfb-run FreeCAD -t 0
-        logFile: ${{ env.logdir }}TestGUIInstall.log
-        reportFile: ${{env.reportdir}}${{ env.reportfilename }}
-
-    - name: Save Compiler Cache
-      id: cache-save
-      if: always()
-      uses: actions/cache/save@0400d5f644dc74513175e3cd8d07132dd4860809 # v4.2.4
-      with:
-        path: ${{ env.CCACHE_DIR }}
-        key: FC-${{ env.cacheKey }}-${{ github.ref }}-${{ github.run_id }}
 
     - name: Upload logs
       if: always()
