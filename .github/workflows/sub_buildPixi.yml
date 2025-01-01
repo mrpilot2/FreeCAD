@@ -126,10 +126,110 @@ jobs:
         pixi run ccache -z
         pixi run ccache -p
 
-    - name: Build Benchmark
+    - name: Build Benchmark - Base App Gui
       shell: bash
       run: |
-        ./build_benchmark.sh
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
+
+    - name: Build Benchmark - AddonManager Help Start StartGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh AddonManager Help Start StartGui
+
+    - name: Build Benchmark Assembly AssemblyGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Assembly AssemblyGui
+
+    - name: Build Benchmark BIM CAMSimulator
+      shell: bash
+      run: |
+        ./build_benchmark.sh BIM CAMSimulator
+
+    - name: Build Benchmark Drawing DrawingGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Drawing DrawingGui
+
+    - name: Build Benchmark Fem FemGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Fem FemGui
+
+    - name: Build Benchmark Import ImportGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Import ImportGui
+
+    - name: Build Benchmark JtReader Inspection Materials
+      shell: bash
+      run: |
+        ./build_benchmark.sh JtReader Inspection Materials
+
+    - name: Build Benchmark Measure MeasureGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Measure MeasureGui
+
+    - name: Build Benchmark  Mesh MeshGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Mesh MeshGui
+
+    - name: Build Benchmark  MeshPart MeshPartGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh MeshPart MeshPartGui
+
+    - name: Build Benchmark Part PartGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Part PartGui
+
+    - name: Build Benchmark PartDesign PartDesignGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh PartDesign PartDesignGui
+
+    - name: Build Benchmark Path PathGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Path PathGui
+
+    - name: Build Benchmark Points PointsGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Points PointsGui
+
+    - name: Build Benchmark Robot RobotGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Robot RobotGui
+
+    - name: Build Benchmark Sketcher SketcherGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Sketcher SketcherGui
+
+    - name: Build Benchmark Spreadsheet SpreadsheetGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Spreadsheet SpreadsheetGui
+
+    - name: Build Benchmark Surface SurfaceGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Surface SurfaceGui
+
+    - name: Build Benchmark TechDraw TechDrawGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh TechDraw TechDrawGui
+
+    - name: Build Benchmark all
+      shell: bash
+      run: |
+        ./build_benchmark.sh all
 
     - name: Print ccache statistics after Build
       run: |
