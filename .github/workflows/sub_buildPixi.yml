@@ -146,15 +146,15 @@ jobs:
         #run: |
         #./build_benchmark.sh BIM CAMSimulator
 
-    - name: Build Benchmark Drawing DrawingGui
-      shell: bash
-      run: |
-        ./build_benchmark.sh Drawing DrawingGui
+        #- name: Build Benchmark Drawing DrawingGui
+        #shell: bash
+        #run: |
+        #./build_benchmark.sh Drawing DrawingGui
 
-    - name: Build Benchmark Fem FemGui
-      shell: bash
-      run: |
-        ./build_benchmark.sh Fem FemGui
+        #- name: Build Benchmark Fem FemGui
+        #shell: bash
+        #run: |
+        #./build_benchmark.sh Fem FemGui
 
     - name: Build Benchmark Import ImportGui
       shell: bash
