@@ -1,6 +1,6 @@
 for target in $@
 do
-    for i in $(seq 1 5);
+    for i in $(seq 1 3);
     do
         pixi run configure-release -DFREECAD_USE_PCH=OFF
 
@@ -14,7 +14,7 @@ do
         mkdir -p $builddir
     done
 
-    for i in $(seq 1 5);
+    for i in $(seq 1 3);
     do
         pixi run configure-release -DFREECAD_USE_PCH=ON
 

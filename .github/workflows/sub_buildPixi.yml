@@ -126,10 +126,10 @@ jobs:
         pixi run ccache -z
         pixi run ccache -p
 
-    - name: Build Benchmark - Base App Gui
-      shell: bash
-      run: |
-        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
+        #- name: Build Benchmark - Base App Gui
+        #shell: bash
+        #run: |
+        #./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
 
     - name: Build Benchmark - AddonManager Help Start StartGui
       shell: bash
