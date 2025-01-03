@@ -36,15 +36,24 @@ if(POLICY CMP0177)
     cmake_policy(SET CMP0177 NEW)
 endif()
 
-
 option(FREECAD_USE_CCACHE "Auto detect and use ccache during compilation" ON)
+option(FREECAD_USE_PCH "Activate precompiled headers where it's used." ON)
 
 if(FREECAD_USE_CCACHE)
     find_program(CCACHE_PROGRAM ccache)  #This check should occur before project()
     if(CCACHE_PROGRAM)
         message(STATUS "Using ccache found at: " ${CCACHE_PROGRAM})
-        set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
-        set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+        if(FREECAD_USE_PCH)
+            set(ccacheEnv
+                CCACHE_SLOPPINESS=pch_defines,time_macros,include_file_ctime,include_file_mtime CCACHE_LOGFILE=${CMAKE_BINARY_DIR}/ccache.log
+            )
+            message(STATUS "Precompiled header enabled - setting ccache slopiness to 'pch_defines,time_macros'")
+            set(CMAKE_C_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${ccacheEnv} ${CCACHE_PROGRAM})
+            set(CMAKE_CXX_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${ccacheEnv} ${CCACHE_PROGRAM})
+        else()
+            set(CMAKE_C_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+            set(CMAKE_CXX_COMPILER_LAUNCHER "${CCACHE_PROGRAM}")
+        endif()
     endif()
 endif()
 
@@ -67,6 +76,13 @@ include(cMake/FreeCadMacros.cmake)
 add_subdirectory(cMake/FreeCAD_Helpers)
 
 list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cMake")
+
+if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND FREECAD_USE_PCH)
+    add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-pch-timestamp>")
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND FREECAD_USE_PCH)
+    message(STATUS "Setting -fpch-preprocess for precompiled headers")
+    add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-fpch-preprocess>")
+endif()
 
 CompilerChecksAndSetups()
 ConfigureCMakeVariables()
