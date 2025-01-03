@@ -126,35 +126,35 @@ jobs:
         pixi run ccache -z
         pixi run ccache -p
 
-        #- name: Build Benchmark - Base App Gui
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
+    - name: Build Benchmark - Base App Gui
+      shell: bash
+      run: |
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
 
-        #- name: Build Benchmark - AddonManager Help Start StartGui
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh AddonManager Help Start StartGui
+    - name: Build Benchmark - AddonManager Help Start StartGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh AddonManager Help Start StartGui
 
-        #- name: Build Benchmark Assembly AssemblyGui
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh Assembly AssemblyGui
+    - name: Build Benchmark Assembly AssemblyGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Assembly AssemblyGui
 
-        #- name: Build Benchmark BIM CAMSimulator
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh BIM CAMSimulator
+    - name: Build Benchmark BIM CAMSimulator
+      shell: bash
+      run: |
+        ./build_benchmark.sh BIM CAMSimulator
 
-        #- name: Build Benchmark Drawing DrawingGui
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh Drawing DrawingGui
+    - name: Build Benchmark Drawing DrawingGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Drawing DrawingGui
 
-        #- name: Build Benchmark Fem FemGui
-        #shell: bash
-        #run: |
-        #./build_benchmark.sh Fem FemGui
+    - name: Build Benchmark Fem FemGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Fem FemGui
 
     - name: Build Benchmark Import ImportGui
       shell: bash
