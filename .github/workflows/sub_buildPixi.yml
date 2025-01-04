@@ -125,6 +125,8 @@ jobs:
         pixi run ccache -s
         pixi run ccache -z
         pixi run ccache -p
+        pixi run ccache -C
+        pixi run ccache -c
 
     - name: Build Benchmark - Base App Gui
       shell: bash
