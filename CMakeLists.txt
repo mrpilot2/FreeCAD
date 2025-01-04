@@ -58,7 +58,8 @@ list(APPEND CMAKE_MODULE_PATH "${CMAKE_CURRENT_SOURCE_DIR}/cMake")
 
 if(CMAKE_CXX_COMPILER_ID MATCHES "Clang" AND FREECAD_USE_PCH)
     add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-Xclang -fno-pch-timestamp>")
-elseif(CMAKE_COMPILER_IS_GNUCXX AND FREECAD_USE_PCH)
+elseif(CMAKE_CXX_COMPILER_ID MATCHES "GNU" AND FREECAD_USE_PCH)
+    message(STATUS "Setting -fpch-preprocess for precompiled headers")
     add_compile_options("$<$<COMPILE_LANGUAGE:CXX>:SHELL:-fpch-preprocess>")
 endif()
 
