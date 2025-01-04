@@ -24,8 +24,9 @@ if(FREECAD_USE_CCACHE)
         message(STATUS "Using ccache found at: " ${CCACHE_PROGRAM})
         if(FREECAD_USE_PCH)
             set(ccacheEnv
-                CCACHE_SLOPPINESS=pch_defines,time_macros
+                CCACHE_SLOPPINESS=pch_defines,time_macros,include_file_ctime,include_file_mtime
             )
+            message(STATUS "Precompiled header enabled - setting ccache slopiness to 'pch_defines,time_macros'")
             set(CMAKE_C_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${ccacheEnv} ${CCACHE_PROGRAM})
             set(CMAKE_CXX_COMPILER_LAUNCHER ${CMAKE_COMMAND} -E env ${ccacheEnv} ${CCACHE_PROGRAM})
         else()
