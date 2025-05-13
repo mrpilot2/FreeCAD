@@ -28,6 +28,14 @@
 #include <algorithm>
 #include <iostream>
 #include <memory>
+#include <sstream>
+#include <string>
+#include <utility>
+
+#include <boost/algorithm/string.hpp>
+
+#include <fmt/printf.h>
+
 #include <xercesc/dom/DOM.hpp>
 #include <xercesc/framework/LocalFileFormatTarget.hpp>
 #include <xercesc/framework/LocalFileInputSource.hpp>
@@ -37,10 +45,6 @@
 #include <xercesc/sax/EntityResolver.hpp>
 #include <xercesc/sax/ErrorHandler.hpp>
 #include <xercesc/sax/SAXParseException.hpp>
-#include <sstream>
-#include <string>
-#include <utility>
-#endif
 
 #include <QFileInfo>
 #include <QLockFile>
@@ -49,9 +53,7 @@
 #ifdef FC_OS_LINUX
 #include <unistd.h>
 #endif
-
-#include <boost/algorithm/string.hpp>
-#include <fmt/printf.h>
+#endif
 
 #include "Parameter.h"
 #include "Parameter.inl"
