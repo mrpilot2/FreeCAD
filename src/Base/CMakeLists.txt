@@ -335,7 +335,7 @@ if(FREECAD_USE_PCH)
     ADD_MSVC_PRECOMPILED_HEADER(FreeCADBase PreCompiled.h PreCompiled.cpp FreeCADBase_CPP_SRCS)
     target_precompile_headers(
         FreeCADBase
-        PUBLIC
+        PRIVATE
         $<$<COMPILE_LANGUAGE:CXX>:${CMAKE_CURRENT_SOURCE_DIR}/PreCompiled.h>
     )
 endif(FREECAD_USE_PCH)
