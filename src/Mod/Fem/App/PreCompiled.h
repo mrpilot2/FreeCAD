@@ -25,8 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <algorithm>
 #include <bitset>
@@ -208,5 +206,4 @@
 #include <NETGENPlugin_SimpleHypothesis_3D.hxx>
 #endif
 
-#endif  // _PreComp_
 #endif

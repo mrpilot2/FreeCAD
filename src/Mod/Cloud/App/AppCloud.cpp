@@ -20,12 +20,16 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
-#include <limits>
+// Exporting of App classes
+#ifdef FC_OS_WIN32
+#define CloudAppExport __declspec(dllexport)
+#else  // for Linux
+#define CloudAppExport
 #endif
 
+#include <limits>
 
 #if defined(FC_OS_WIN32)
 #include <Windows.h>

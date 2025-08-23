@@ -16,6 +16,11 @@ target_include_directories(
     PRIVATE
     ${CMAKE_BINARY_DIR}
     ${CMAKE_SOURCE_DIR}/src
+    ${CMAKE_CURRENT_SOURCE_DIR}
+    ${Boost_INCLUDE_DIRS}
+    ${OCC_INCLUDE_DIR}
+    ${ZLIB_INCLUDE_DIR}
+    ${PYTHON_INCLUDE_DIRS}
 )
 
 target_include_directories(
@@ -60,7 +65,6 @@ SET(MeshPart_SRCS
     MeshAlgos.h
     Mesher.cpp
     Mesher.h
-    PreCompiled.cpp
     PreCompiled.h
 )
 
@@ -69,9 +73,9 @@ set(MeshPart_Scripts
 )
 
 if(FREECAD_USE_PCH)
-    add_definitions(-D_PreComp_)
-    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${MeshPart_SRCS})
-    ADD_MSVC_PRECOMPILED_HEADER(MeshPart PreCompiled.h PreCompiled.cpp PCH_SRCS)
+    target_precompile_headers(MeshPart PRIVATE
+            $<$<COMPILE_LANGUAGE:CXX>:"${CMAKE_CURRENT_LIST_DIR}/PreCompiled.h">
+    )
 endif(FREECAD_USE_PCH)
 
 # Suppress -Wundefined-var-template

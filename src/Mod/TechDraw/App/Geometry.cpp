@@ -20,57 +20,54 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <limits>
 
-#ifndef _PreComp_
-# include <limits>
-# include <Approx_Curve3d.hxx>
-# include <BRep_Tool.hxx>
-# include <BRepAdaptor_Curve.hxx>
-# include <Mod/Part/App/FCBRepAlgoAPI_Section.h>
-# include <BRepBuilderAPI_MakeEdge.hxx>
-# include <BRepBuilderAPI_MakeFace.hxx>
-# include <BRepBuilderAPI_MakeVertex.hxx>
-# include <BRepBuilderAPI_MakeWire.hxx>
-# include <BRepExtrema_DistShapeShape.hxx>
-# include <BRepGProp.hxx>
-# include <BRepLib.hxx>
-# include <BRepLProp_CLProps.hxx>
-# include <BRepTools.hxx>
-# include <BRepLProp_CurveTool.hxx>
-# include <GC_MakeArcOfCircle.hxx>
-# include <GC_MakeEllipse.hxx>
-# include <GC_MakeCircle.hxx>
-# include <Geom_TrimmedCurve.hxx>
-# include <Geom_Circle.hxx>
+#include <Approx_Curve3d.hxx>
+#include <BRep_Tool.hxx>
+#include <BRepAdaptor_Curve.hxx>
+#include <Mod/Part/App/FCBRepAlgoAPI_Section.h>
+#include <BRepBuilderAPI_MakeEdge.hxx>
+#include <BRepBuilderAPI_MakeFace.hxx>
+#include <BRepBuilderAPI_MakeVertex.hxx>
+#include <BRepBuilderAPI_MakeWire.hxx>
+#include <BRepExtrema_DistShapeShape.hxx>
+#include <BRepGProp.hxx>
+#include <BRepLib.hxx>
+#include <BRepLProp_CLProps.hxx>
+#include <BRepTools.hxx>
+#include <BRepLProp_CurveTool.hxx>
+#include <GC_MakeArcOfCircle.hxx>
+#include <GC_MakeEllipse.hxx>
+#include <GC_MakeCircle.hxx>
+#include <Geom_TrimmedCurve.hxx>
+#include <Geom_Circle.hxx>
 
-# include <gce_MakeCirc.hxx>
-# include <GCPnts_AbscissaPoint.hxx>
-# include <GProp_GProps.hxx>
-# include <Geom_BSplineCurve.hxx>
-# include <Geom_BezierCurve.hxx>
-# include <GeomAPI_PointsToBSpline.hxx>
-# include <GeomAPI_ProjectPointOnCurve.hxx>
-# include <GeomConvert_BSplineCurveToBezierCurve.hxx>
-# include <GeomLProp_CLProps.hxx>
-# include <gp_Ax2.hxx>
-# include <gp_Circ.hxx>
-# include <gp_Dir.hxx>
-# include <gp_Elips.hxx>
-# include <gp_Pnt.hxx>
-# include <gp_Vec.hxx>
-# include <Poly_Polygon3D.hxx>
-# include <Precision.hxx>
-# include <Standard_Version.hxx>
-# include <TColgp_Array1OfPnt.hxx>
-# include <TopoDS.hxx>
-# include <TopoDS_Edge.hxx>
-# include <TopExp.hxx>
-# include <TopExp_Explorer.hxx>
+#include <gce_MakeCirc.hxx>
+#include <GCPnts_AbscissaPoint.hxx>
+#include <GProp_GProps.hxx>
+#include <Geom_BSplineCurve.hxx>
+#include <Geom_BezierCurve.hxx>
+#include <GeomAPI_PointsToBSpline.hxx>
+#include <GeomAPI_ProjectPointOnCurve.hxx>
+#include <GeomConvert_BSplineCurveToBezierCurve.hxx>
+#include <GeomLProp_CLProps.hxx>
+#include <gp_Ax2.hxx>
+#include <gp_Circ.hxx>
+#include <gp_Dir.hxx>
+#include <gp_Elips.hxx>
+#include <gp_Pnt.hxx>
+#include <gp_Vec.hxx>
+#include <Poly_Polygon3D.hxx>
+#include <Precision.hxx>
+#include <Standard_Version.hxx>
+#include <TColgp_Array1OfPnt.hxx>
+#include <TopoDS.hxx>
+#include <TopoDS_Edge.hxx>
+#include <TopExp.hxx>
+#include <TopExp_Explorer.hxx>
 #if OCC_VERSION_HEX < 0x070600
 # include <BRepAdaptor_HCurve.hxx>
 #endif
-#endif  // #ifndef _PreComp_
 
 #include <Base/Console.h>
 #include <Base/Converter.h>

@@ -19,7 +19,6 @@ set(Cloud_LIBS
 
 SET(Cloud_SRCS
     AppCloud.cpp
-    PreCompiled.cpp
     PreCompiled.h
 )
 

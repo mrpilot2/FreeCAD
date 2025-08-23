@@ -41,8 +41,6 @@
 # define AppPartExport
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
@@ -72,6 +70,4 @@
 #include <qmainwindow.h>
 #include <qworkspace.h>
 
-#endif  //_PreComp_
-
-#endif // GUI_PRECOMPILED_H 
+#endif // GUI_PRECOMPILED_H

@@ -36,8 +36,6 @@
 #define PartExport
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cinttypes>
 #include <iomanip>
@@ -97,5 +95,4 @@
 #include <TopExp_Explorer.hxx>
 #include <TopTools_HSequenceOfShape.hxx>
 
-#endif  // _PreComp_
 #endif

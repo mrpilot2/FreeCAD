@@ -36,7 +36,6 @@
 #define MeshExport
 #endif
 
-#ifdef _PreComp_
 
 // STL
 #include <memory>
@@ -63,5 +62,4 @@
 #include <TopoDS.hxx>
 #include <TopoDS_Edge.hxx>
 
-#endif  // _PreComp_
 #endif
