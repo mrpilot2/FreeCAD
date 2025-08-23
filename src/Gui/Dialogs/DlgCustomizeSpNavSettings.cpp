@@ -20,9 +20,7 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-
-#include "Dialogs/DlgCustomizeSpNavSettings.h"
+#include "DlgCustomizeSpNavSettings.h"
 #include "ui_DlgCustomizeSpNavSettings.h"
 #include "Application.h"
 #include "GuiApplicationNativeEventAware.h"

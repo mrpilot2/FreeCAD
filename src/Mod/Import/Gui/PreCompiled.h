@@ -26,8 +26,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <iostream>
@@ -39,7 +37,7 @@
 #include <string>
 #include <vector>
 
-#ifndef FC_OS_WIN32
+#ifdef FC_OS_WIN32
 #include <windows.h>
 #endif
 
@@ -81,8 +79,5 @@
 
 // Qt Toolkit
 #include <Gui/QtAll.h>
-
-
-#endif  //_PreComp_
 
 #endif  // __PRECOMPILED_GUI__

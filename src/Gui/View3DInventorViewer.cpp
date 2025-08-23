@@ -20,11 +20,10 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
 #include <Inventor/SoFCPlacementIndicatorKit.h>
 
-#ifndef _PreComp_
 # ifdef FC_OS_WIN32
 #  include <windows.h>
 # endif
@@ -90,7 +89,6 @@
 # include <QTimer>
 # include <QVariantAnimation>
 # include <QWheelEvent>
-#endif
 
 #include <App/Document.h>
 #include <App/GeoFeatureGroupExtension.h>
@@ -2423,7 +2421,7 @@ void View3DInventorViewer::renderScene()
 
         So3DAnnotation::render = true;
         glClear(GL_DEPTH_BUFFER_BIT);
-        
+
         // process delayed paths with priority support
         if (Gui::Selection().isClarifySelectionActive()) {
             Gui::SoDelayedAnnotationsElement::processDelayedPathsWithPriority(state, glra);
@@ -2431,7 +2429,7 @@ void View3DInventorViewer::renderScene()
             // standard processing for normal delayed annotations
             glra->apply(Gui::SoDelayedAnnotationsElement::getDelayedPaths(state));
         }
-        
+
         So3DAnnotation::render = false;
     }
     catch (const Base::MemoryException&) {

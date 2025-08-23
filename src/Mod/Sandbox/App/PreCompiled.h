@@ -35,8 +35,6 @@
 # define MeshExport
 #endif
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
@@ -66,8 +64,6 @@
 #include <QWaitCondition>
 #include <QSemaphore>
 #include <QThread>
-
-#endif //_PreComp_
 
 #endif
 

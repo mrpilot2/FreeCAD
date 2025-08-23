@@ -20,21 +20,18 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <limits>
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-# include <limits>
-# include <QApplication>
-# include <QDebug>
-# include <QFocusEvent>
-# include <QFontMetrics>
-# include <QLineEdit>
-# include <QRegularExpression>
-# include <QRegularExpressionMatch>
-# include <QStyle>
-# include <QStyleOptionSpinBox>
-# include <QToolTip>
-#endif
+#include <QApplication>
+#include <QDebug>
+#include <QFocusEvent>
+#include <QFontMetrics>
+#include <QLineEdit>
+#include <QRegularExpression>
+#include <QRegularExpressionMatch>
+#include <QStyle>
+#include <QStyleOptionSpinBox>
+#include <QToolTip>
 
 #include <sstream>
 

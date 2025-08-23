@@ -20,16 +20,13 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <limits>
 
-#ifndef _PreComp_
-# include <limits>
-# include <QKeyEvent>
-# include <QLineEdit>
-# include <QStyle>
-# include <QStyleOptionSpinBox>
-# include <QStylePainter>
-#endif
+#include <QKeyEvent>
+#include <QLineEdit>
+#include <QStyle>
+#include <QStyleOptionSpinBox>
+#include <QStylePainter>
 
 #include <boost/math/special_functions/round.hpp>
 

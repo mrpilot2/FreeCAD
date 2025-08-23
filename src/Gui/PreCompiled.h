@@ -26,8 +26,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <cstdio>
 #include <cassert>
@@ -37,7 +35,6 @@
 
 #ifdef FC_OS_WIN32
 #include <Windows.h>
-#include <io.h>
 #include <shellapi.h>
 #endif
 
@@ -89,8 +86,8 @@
 #include "QtAll.h"
 #include "InventorAll.h"
 
-#elif defined(FC_OS_WIN32)
+#if defined(FC_OS_WIN32)
 #include <windows.h>
-#endif  //_PreComp_
+#endif
 
 #endif // GUI_PRECOMPILED_H

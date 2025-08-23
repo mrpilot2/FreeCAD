@@ -38,8 +38,6 @@
 #define RobotGuiExport
 #endif
 
-#ifdef _PreComp_
-
 // STL
 #include <sstream>
 
@@ -70,7 +68,5 @@
 #include <Inventor/nodes/SoLineSet.h>
 #include <Inventor/nodes/SoMarkerSet.h>
 #include <Inventor/nodes/SoSeparator.h>
-
-#endif  //_PreComp_
 
 #endif  // ROBOTGUI_PRECOMPILED_H

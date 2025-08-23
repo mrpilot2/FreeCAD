@@ -22,6 +22,7 @@
 #ifndef SRC_APP_APPLICATIONDIRECTORIES_H_
 #define SRC_APP_APPLICATIONDIRECTORIES_H_
 
+#include "FCConfig.h"
 #include "FCGlobal.h"
 
 #include <filesystem>

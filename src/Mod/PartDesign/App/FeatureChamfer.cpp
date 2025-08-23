@@ -20,22 +20,19 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <limits>
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-# include <limits>
+#include <BRepAlgo.hxx>
+#include <BRepFilletAPI_MakeChamfer.hxx>
+#include <TopExp.hxx>
+#include <TopoDS.hxx>
+#include <TopoDS_Edge.hxx>
+#include <TopTools_IndexedDataMapOfShapeListOfShape.hxx>
+#include <TopTools_ListOfShape.hxx>
+#include <ShapeFix_Shape.hxx>
+#include <ShapeFix_ShapeTolerance.hxx>
+#include <Standard_Version.hxx>
 
-# include <BRepAlgo.hxx>
-# include <BRepFilletAPI_MakeChamfer.hxx>
-# include <TopExp.hxx>
-# include <TopoDS.hxx>
-# include <TopoDS_Edge.hxx>
-# include <TopTools_IndexedDataMapOfShapeListOfShape.hxx>
-# include <TopTools_ListOfShape.hxx>
-# include <ShapeFix_Shape.hxx>
-# include <ShapeFix_ShapeTolerance.hxx>
-# include <Standard_Version.hxx>
-#endif
 
 #include <Base/Exception.h>
 #include <Base/Reader.h>

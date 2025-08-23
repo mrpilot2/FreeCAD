@@ -20,24 +20,21 @@
  *                                                                         *
  ***************************************************************************/
 
+#include <limits>
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
-# include <limits>
-# include <BRepPrim_Cylinder.hxx>
-# include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
-# include <Mod/Part/App/FCBRepAlgoAPI_Fuse.h>
-# include <BRepBuilderAPI_GTransform.hxx>
-# include <BRepBuilderAPI_MakeFace.hxx>
-# include <BRepBuilderAPI_MakePolygon.hxx>
-# include <BRepBuilderAPI_MakeSolid.hxx>
-# include <BRepBuilderAPI_Transform.hxx>
-# include <BRepPrimAPI_MakeBox.hxx>
-# include <BRepPrimAPI_MakeCone.hxx>
-# include <BRepPrimAPI_MakeCylinder.hxx>
-# include <BRepPrimAPI_MakeSphere.hxx>
-# include <BRepPrimAPI_MakeTorus.hxx>
-#endif
+#include <BRepPrim_Cylinder.hxx>
+#include <Mod/Part/App/FCBRepAlgoAPI_Cut.h>
+#include <Mod/Part/App/FCBRepAlgoAPI_Fuse.h>
+#include <BRepBuilderAPI_GTransform.hxx>
+#include <BRepBuilderAPI_MakeFace.hxx>
+#include <BRepBuilderAPI_MakePolygon.hxx>
+#include <BRepBuilderAPI_MakeSolid.hxx>
+#include <BRepBuilderAPI_Transform.hxx>
+#include <BRepPrimAPI_MakeBox.hxx>
+#include <BRepPrimAPI_MakeCone.hxx>
+#include <BRepPrimAPI_MakeCylinder.hxx>
+#include <BRepPrimAPI_MakeSphere.hxx>
+#include <BRepPrimAPI_MakeTorus.hxx>
 
 #include <App/DocumentObject.h>
 #include <Base/Exception.h>

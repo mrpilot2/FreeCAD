@@ -25,8 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <cassert>
 #include <csignal>
@@ -52,9 +50,6 @@
 // STL
 #include <bitset>
 #include <chrono>
-#if defined(FC_OS_WIN32)
-#include <codecvt>
-#endif
 #include <exception>
 #include <functional>
 #include <iterator>
@@ -91,7 +86,5 @@
 #include <QProcessEnvironment>
 #include <QStandardPaths>
 #include <QString>
-
-#endif  //_PreComp_
 
 #endif  // APP_PRECOMPILED_H

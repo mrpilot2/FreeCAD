@@ -38,8 +38,6 @@
 #define PathGuiExport
 #endif
 
-#ifdef _PreComp_
-
 // boost
 #include <boost/algorithm/string/replace.hpp>
 
@@ -64,7 +62,5 @@
 #include <Inventor/nodes/SoSeparator.h>
 #include <Inventor/nodes/SoSwitch.h>
 #include <Inventor/nodes/SoTransform.h>
-
-#endif  //_PreComp_
 
 #endif  // PATHGUI_PRECOMPILED_H

@@ -22,10 +22,9 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QMessageBox>
-#endif
+
+#include <FCConfig.h>
 
 #include <Gui/Application.h>
 

@@ -18,8 +18,7 @@ SET(PathSimulator_SRCS
     PathSim.h
     VolSim.cpp
     VolSim.h
-    PreCompiled.cpp
-    PreCompiled.h
+        PreCompiled.h
     ${Python_SRCS}
 )
 

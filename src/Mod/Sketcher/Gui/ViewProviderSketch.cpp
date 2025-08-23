@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <boost/core/ignore_unused.hpp>
 #include <Inventor/SbBox3f.h>
 #include <Inventor/SbLine.h>
@@ -40,7 +38,6 @@
 #include <QTextStream>
 
 #include <limits>
-#endif
 
 #include <fmt/format.h>
 

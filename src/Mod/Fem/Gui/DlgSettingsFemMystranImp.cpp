@@ -22,10 +22,8 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QMessageBox>
-#endif
+
 
 #include "DlgSettingsFemMystranImp.h"
 #include "ui_DlgSettingsFemMystran.h"

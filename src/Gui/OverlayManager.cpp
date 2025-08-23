@@ -20,27 +20,24 @@
  *                                                                          *
  ****************************************************************************/
 
-#include "PreCompiled.h"
+#include <limits>
 
-#ifndef _PreComp_
-# include <limits>
-# include <QAction>
-# include <QApplication>
-# include <QComboBox>
-# include <QDockWidget>
-# include <QFile>
-# include <QGraphicsView>
-# include <QHeaderView>
-# include <QKeyEvent>
-# include <QMdiArea>
-# include <QMenu>
-# include <QPainter>
-# include <QPointer>
-# include <QTextStream>
-# include <QTimerEvent>
-# include <QToolTip>
-# include <QScrollBar>
-#endif
+#include <QAction>
+#include <QApplication>
+#include <QComboBox>
+#include <QDockWidget>
+#include <QFile>
+#include <QGraphicsView>
+#include <QHeaderView>
+#include <QKeyEvent>
+#include <QMdiArea>
+#include <QMenu>
+#include <QPainter>
+#include <QPointer>
+#include <QTextStream>
+#include <QTimerEvent>
+#include <QToolTip>
+#include <QScrollBar>
 
 #include <QPainterPath>
 #include <QPropertyAnimation>

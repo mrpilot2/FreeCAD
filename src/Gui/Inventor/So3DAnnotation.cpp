@@ -20,17 +20,19 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <FCConfig.h>
 
-#ifndef _PreComp_
 #ifdef FC_OS_MACOSX
 #include <OpenGL/gl.h>
 #else
+#ifdef FC_OS_WIN32
+#include <windows.h>
+#endif
 #include <GL/gl.h>
 #endif
+
 #include <Inventor/elements/SoCacheElement.h>
 #include <algorithm>
-#endif
 
 #include "So3DAnnotation.h"
 #include <Gui/Selection/Selection.h>
@@ -57,7 +59,7 @@ void SoDelayedAnnotationsElement::initClass()
 void SoDelayedAnnotationsElement::addDelayedPath(SoState* state, SoPath* path, int priority)
 {
     auto elt = static_cast<SoDelayedAnnotationsElement*>(state->getElementNoPush(classStackIndex));
-    
+
     // add to unified storage with specified priority (default = 0)
     elt->paths.emplace_back(path, priority);
 }
@@ -65,52 +67,52 @@ void SoDelayedAnnotationsElement::addDelayedPath(SoState* state, SoPath* path, i
 SoPathList SoDelayedAnnotationsElement::getDelayedPaths(SoState* state)
 {
     auto elt = static_cast<SoDelayedAnnotationsElement*>(state->getElementNoPush(classStackIndex));
-    
+
     if (elt->paths.empty()) {
         return {};
     }
-    
+
     // sort by priority (lower numbers render first)
     std::stable_sort(elt->paths.begin(), elt->paths.end(),
         [](const PriorityPath& a, const PriorityPath& b) {
             return a.priority < b.priority;
         });
-    
+
     SoPathList sortedPaths;
     for (const auto& priorityPath : elt->paths) {
         sortedPaths.append(priorityPath.path);
     }
-    
+
     // Clear storage
     elt->paths.clear();
-    
+
     return sortedPaths;
 }
 
 void SoDelayedAnnotationsElement::processDelayedPathsWithPriority(SoState* state, SoGLRenderAction* action)
 {
     auto elt = static_cast<SoDelayedAnnotationsElement*>(state->getElementNoPush(classStackIndex));
-    
+
     if (elt->paths.empty()) {
         return;
     }
-    
+
     std::stable_sort(elt->paths.begin(), elt->paths.end(),
         [](const PriorityPath& a, const PriorityPath& b) {
             return a.priority < b.priority;
         });
-    
+
     isProcessingDelayedPaths = true;
-    
+
     for (const auto& priorityPath : elt->paths) {
         SoPathList singlePath;
         singlePath.append(priorityPath.path);
-        
+
         action->apply(singlePath, TRUE);
     }
-    
+
     isProcessingDelayedPaths = false;
-    
+
     elt->paths.clear();
 }
 

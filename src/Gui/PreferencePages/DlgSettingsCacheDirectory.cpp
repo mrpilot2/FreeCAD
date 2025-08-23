@@ -20,21 +20,18 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
+#include <cmath>
+#include <limits>
+#include <vector>
 
-#ifndef _PreComp_
-# include <cmath>
-# include <limits>
-# include <vector>
-# include <QCoreApplication>
-# include <QDate>
-# include <QDesktopServices>
-# include <QDir>
-# include <QLocale>
-# include <QMessageBox>
-# include <QSettings>
-# include <QUrl>
-#endif
+#include <QCoreApplication>
+#include <QDate>
+#include <QDesktopServices>
+#include <QDir>
+#include <QLocale>
+#include <QMessageBox>
+#include <QSettings>
+#include <QUrl>
 
 #include <App/Application.h>
 #include <App/Document.h>

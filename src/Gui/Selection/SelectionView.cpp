@@ -20,8 +20,6 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QCheckBox>
 #include <QLabel>
 #include <QLineEdit>
@@ -32,7 +30,6 @@
 #include <QToolButton>
 #include <QVBoxLayout>
 #include <set>
-#endif
 
 #include <App/ComplexGeoData.h>
 #include <App/Document.h>
@@ -748,26 +745,26 @@ void SelectionMenu::processSelections(std::vector<PickData> &selections, std::ma
     std::map<App::DocumentObject*, QIcon> icons;
     std::set<std::string> createdElementTypes;
     std::set<std::string> processedItems;
-    
+
     for (int i = 0; i < (int)selections.size(); ++i) {
         const auto &sel = selections[i];
-        
+
         App::DocumentObject* sobj = getSubObject(sel);
         std::string elementType = extractElementType(sel);
         std::string objKey = createObjectKey(sel);
         std::string itemId = elementType + "|" + std::string(sobj->Label.getValue()) + "|" + sel.subName;
-        
+
         if (processedItems.find(itemId) != processedItems.end()) {
             continue;
         }
         processedItems.insert(itemId);
-        
+
         QIcon icon = getOrCreateIcon(sobj, icons);
-        
+
         auto &elementInfo = menus[elementType].items[sobj->Label.getValue()][objKey];
         elementInfo.icon = icon;
         elementInfo.indices.push_back(i);
-        
+
         addGeoFeatureTypes(sobj, menus, createdElementTypes);
         addWholeObjectSelection(sel, sobj, selections, menus, icon);
     }
@@ -778,24 +775,24 @@ void SelectionMenu::buildMenuStructure(std::map<std::string, SubMenuInfo> &menus
     std::vector<std::string> preferredOrder = {"Object", "Solid", "Face", "Edge", "Vertex", "Wire", "Shell", "Compound", "CompSolid"};
     std::vector<std::map<std::string, SubMenuInfo>::iterator> menuArray;
     menuArray.reserve(menus.size());
-    
+
     for (const auto& category : preferredOrder) {
         if (auto it = menus.find(category); it != menus.end()) {
             menuArray.push_back(it);
         }
     }
-    
+
     for (auto it = menus.begin(); it != menus.end(); ++it) {
         if (std::find(preferredOrder.begin(), preferredOrder.end(), it->first) == preferredOrder.end()) {
             menuArray.push_back(it);
         }
     }
-        
+
     for (auto elementTypeIterator : menuArray) {
         auto &elementTypeEntry = *elementTypeIterator;
         auto &subMenuInfo = elementTypeEntry.second;
         const std::string &elementType = elementTypeEntry.first;
-        
+
         if (subMenuInfo.items.empty()) {
             continue;
         }
@@ -810,7 +807,7 @@ void SelectionMenu::buildMenuStructure(std::map<std::string, SubMenuInfo> &menus
 
             for (auto &objectPathEntry : objectLabelEntry.second) {
                 auto &elementInfo = objectPathEntry.second;
-                
+
                 if (!groupMenu) {
                     createFlatMenu(elementInfo, subMenuInfo.menu, objectLabel, elementType, selections);
                 } else {
@@ -825,11 +822,11 @@ PickData SelectionMenu::onPicked(QAction *picked, const std::vector<PickData> &s
 {
     // Clear the ClarifySelection active flag when menu is done
     Gui::Selection().setClarifySelectionActive(false);
-    
+
     Gui::Selection().rmvPreselect();
     if (!picked)
         return PickData{};
-    
+
     int index = picked->data().toInt();
     if (index >= 0 && index < (int)sels.size()) {
         const auto &sel = sels[index];
@@ -847,7 +844,7 @@ void SelectionMenu::onHover(QAction *action)
 {
     if (!action || currentSelections.empty())
         return;
-    
+
     // Clear previous preselection
     Gui::Selection().rmvPreselect();
 
@@ -862,10 +859,10 @@ void SelectionMenu::onHover(QAction *action)
         return;
 
     // set preselection for both sub-objects and whole objects
-    Gui::Selection().setPreselect(sel.docName.c_str(), 
-                                    sel.objName.c_str(), 
+    Gui::Selection().setPreselect(sel.docName.c_str(),
+                                    sel.objName.c_str(),
                                     !sel.subName.empty() ? sel.subName.c_str() : "",
-                                    0, 0, 0, 
+                                    0, 0, 0,
                                     SelectionChanges::MsgSource::TreeView);
 }
 
@@ -895,7 +892,7 @@ App::DocumentObject* SelectionMenu::getSubObject(const PickData &sel)
 std::string SelectionMenu::extractElementType(const PickData &sel)
 {
     std::string actualElement;
-    
+
     if (!sel.element.empty()) {
         actualElement = sel.element;
     } else if (!sel.subName.empty()) {
@@ -911,7 +908,7 @@ std::string SelectionMenu::extractElementType(const PickData &sel)
             }
         }
     }
-    
+
     if (!actualElement.empty()) {
         std::size_t pos = actualElement.find_first_of("0123456789");
         if (pos != std::string::npos) {
@@ -919,7 +916,7 @@ std::string SelectionMenu::extractElementType(const PickData &sel)
         }
         return actualElement;
     }
-    
+
     return "Other";
 }
 
@@ -966,18 +963,18 @@ void SelectionMenu::addGeoFeatureTypes(App::DocumentObject* sobj, std::map<std::
     }
 }
 
-void SelectionMenu::addWholeObjectSelection(const PickData &sel, App::DocumentObject* sobj, 
+void SelectionMenu::addWholeObjectSelection(const PickData &sel, App::DocumentObject* sobj,
                                           std::vector<PickData> &selections, std::map<std::string, SubMenuInfo> &menus, const QIcon &icon)
 {
     if (sel.subName.empty()) return;
-    
+
     std::string actualElement = extractElementType(sel) != "Other" ? sel.element : "";
     if (actualElement.empty() && !sel.subName.empty()) {
         const char *elementName = Data::findElementName(sel.subName.c_str());
         if (elementName) actualElement = elementName;
     }
     if (actualElement.empty()) return;
-    
+
     bool shouldAdd = false;
     if (sobj) {
         if (sobj != sel.obj) {
@@ -1008,7 +1005,7 @@ void SelectionMenu::addWholeObjectSelection(const PickData &sel, App::DocumentOb
             }
         }
     }
-    
+
     if (shouldAdd) {
         std::string wholeObjKey;
         std::string wholeObjSubName;
@@ -1060,13 +1057,13 @@ bool SelectionMenu::shouldGroupMenu(const SubMenuInfo &info)
     if (info.items.size() > MAX_MENU_ITEMS_BEFORE_GROUPING) {
         return true;
     }
-    
+
     std::size_t objCount = 0;
     std::size_t count = 0;
     constexpr std::size_t MAX_SELECTION_COUNT_BEFORE_GROUPING = 5;
     for (auto &objectLabelEntry : info.items) {
         objCount += objectLabelEntry.second.size();
-        for (auto &objectPathEntry : objectLabelEntry.second) 
+        for (auto &objectPathEntry : objectLabelEntry.second)
             count += objectPathEntry.second.indices.size();
         if (count > MAX_SELECTION_COUNT_BEFORE_GROUPING && objCount > 1) {
             return true;
@@ -1075,7 +1072,7 @@ bool SelectionMenu::shouldGroupMenu(const SubMenuInfo &info)
     return false;
 }
 
-void SelectionMenu::createFlatMenu(ElementInfo &elementInfo, QMenu *parentMenu, const std::string &label, 
+void SelectionMenu::createFlatMenu(ElementInfo &elementInfo, QMenu *parentMenu, const std::string &label,
                                  const std::string &elementType, const std::vector<PickData> &selections)
 {
     for (int idx : elementInfo.indices) {
@@ -1102,13 +1099,13 @@ void SelectionMenu::createFlatMenu(ElementInfo &elementInfo, QMenu *parentMenu, 
     }
 }
 
-void SelectionMenu::createGroupedMenu(ElementInfo &elementInfo, QMenu *parentMenu, const std::string &label, 
+void SelectionMenu::createGroupedMenu(ElementInfo &elementInfo, QMenu *parentMenu, const std::string &label,
                                     const std::string &elementType, const std::vector<PickData> &selections)
 {
     if (!elementInfo.menu) {
         elementInfo.menu = parentMenu->addMenu(elementInfo.icon, QString::fromUtf8(label.c_str()));
     }
-    
+
     for (int idx : elementInfo.indices) {
         const auto &sel = selections[idx];
         QString text;

@@ -21,15 +21,12 @@
  *                                                                         *
  ***************************************************************************/
 
-#include "PreCompiled.h"
-#ifndef _PreComp_
 #include <QApplication>
 #include <QMenu>
 #include <QMouseEvent>
 #include <QPushButton>
 #include <QTreeWidget>
 #include <QStyledItemDelegate>
-#endif
 
 #include <fmt/format.h>
 
@@ -923,7 +920,7 @@ void DlgExpressionInput::resizeEvent(QResizeEvent *event)
     if (!this->message.empty() && event->size() != event->oldSize()) {
         setMsgText();
     }
-    QDialog::resizeEvent(event);  
+    QDialog::resizeEvent(event);
 }
 
 void DlgExpressionInput::setMsgText()
@@ -938,7 +935,7 @@ void DlgExpressionInput::setMsgText()
     // then insert newline to wrap it
     std::string wrappedMsg{};
     const int msgContentWidth = ui->msg->width() * 0.85; // 0.85 is a magic number for some padding
-    const int maxWordLength = msgContentWidth / msgFontMetrics.averageCharWidth(); 
+    const int maxWordLength = msgContentWidth / msgFontMetrics.averageCharWidth();
 
     const auto wrappableWordPattern = std::regex{ "\\S{" + std::to_string(maxWordLength) + "}" };
     auto it = std::sregex_iterator{ this->message.cbegin(), this->message.cend(), wrappableWordPattern };
@@ -953,8 +950,8 @@ void DlgExpressionInput::setMsgText()
     wrappedMsg += this->message.substr(lastPos);
 
     ui->msg->setText(QString::fromStdString(wrappedMsg));
-    
-    // elide text if it is going out of widget bounds 
+
+    // elide text if it is going out of widget bounds
     // note: this is only 'rough elide', as this text is usually not very long;
     const int msgLinesLimit = 3;
     if (wrappedMsg.size() > msgContentWidth / msgFontMetrics.averageCharWidth() * msgLinesLimit) {
