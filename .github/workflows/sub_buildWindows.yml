@@ -130,7 +130,7 @@ jobs:
           -DCMAKE_BUILD_TYPE=Release
           -DCMAKE_CXX_COMPILER=cl
           -DCMAKE_C_COMPILER=cl
-          -DFREECAD_USE_PCH=OFF
+          -DFREECAD_USE_PCH=ON
           -DFREECAD_RELEASE_PDB=OFF
           -DFREECAD_LIBPACK_DIR="${{ env.libpackdir }}"
           -DFREECAD_COPY_DEPEND_DIRS_TO_BUILD=ON
