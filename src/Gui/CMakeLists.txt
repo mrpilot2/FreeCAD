@@ -1512,6 +1512,11 @@ endif ()
 
 target_sources(FreeCADGui PRIVATE ${FreeCADGui_SRCS})
 target_link_libraries(FreeCADGui PUBLIC ${FreeCADGui_LIBS})
+
+if (MSVC)
+    target_compile_definitions(FreeCADGui PRIVATE WIN32_LEAN_AND_MEAN)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(FreeCADGui)
 endif()
