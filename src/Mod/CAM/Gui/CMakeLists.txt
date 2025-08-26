@@ -76,6 +76,11 @@ SET(PathGuiIcon_SVG
 
 add_library(PathGui SHARED ${PathGui_SRCS} ${PathGuiIcon_SVG})
 target_link_libraries(PathGui ${PathGui_LIBS})
+
+if (MSVC)
+    target_compile_options(PathGui PUBLIC /wd4273)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(PathGui)
 endif()

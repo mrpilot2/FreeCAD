@@ -119,6 +119,11 @@ SET(RobotGuiIcon_SVG
 
 add_library(RobotGui SHARED ${RobotGui_SRCS} ${RobotGuiIcon_SVG})
 target_link_libraries(RobotGui ${RobotGui_LIBS})
+
+if (MSVC)
+    target_compile_options(RobotGui PUBLIC /wd4273)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(RobotGui)
 endif()

@@ -308,6 +308,11 @@ endif(FREECAD_USE_PCH)
 add_library(TechDraw SHARED ${TechDraw_SRCS} ${Draw_SRCS} ${TechDrawAlgos_SRCS}
                            ${Geometry_SRCS} ${Python_SRCS})
 target_link_libraries(TechDraw ${TechDrawLIBS} ${TechDraw})
+
+if (MSVC)
+    target_compile_options(TechDraw PUBLIC /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(TechDraw)
 endif()

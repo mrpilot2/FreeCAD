@@ -422,6 +422,11 @@ endif ()
 
 target_sources(Mesh PRIVATE ${Core_SRCS} ${WildMagic4_SRCS} ${Mesh_SRCS})
 target_link_libraries(Mesh ${Mesh_LIBS})
+
+if (MSVC)
+    target_compile_options(Mesh PUBLIC /wd4251 /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Mesh)
 endif()

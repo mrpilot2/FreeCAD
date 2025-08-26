@@ -78,6 +78,11 @@ SET(MeasureGuiIcon_SVG
 
 add_library(MeasureGui SHARED ${MeasureGui_SRCS} ${MeasureGuiIcon_SVG})
 target_link_libraries(MeasureGui ${MeasureGui_LIBS})
+
+if (MSVC)
+    target_compile_options(MeasureGui PUBLIC /wd4251 /wd4273)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(MeasureGui)
 endif()

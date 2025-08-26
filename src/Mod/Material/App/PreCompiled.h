@@ -24,12 +24,6 @@
 
 #include <FCConfig.h>
 
-// point at which warnings of overly long specifiers disabled (needed for VC6)
-#ifdef _MSC_VER
-#pragma warning(disable : 4251)
-#pragma warning(disable : 4273)
-#endif
-
 #ifdef FC_OS_WIN32
 #include <windows.h>
 #endif

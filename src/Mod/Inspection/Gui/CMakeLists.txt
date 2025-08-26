@@ -50,6 +50,11 @@ SET(InspectionGuiIcon_SVG
 
 add_library(InspectionGui SHARED ${InspectionGui_SRCS} ${InspectionGui_Scripts} ${InspectionGuiIcon_SVG})
 target_link_libraries(InspectionGui ${InspectionGui_LIBS})
+
+if (MSVC)
+    target_compile_options(InspectionGui PUBLIC /wd4251)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(InspectionGui)
 endif()

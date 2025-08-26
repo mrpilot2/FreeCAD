@@ -63,6 +63,11 @@ endif(FREECAD_USE_PCH)
 
 add_library(ReverseEngineeringGui SHARED ${ReenGui_SRCS} ${ReverseEngineeringGuiIcon_SVG})
 target_link_libraries(ReverseEngineeringGui ${ReenGui_LIBS})
+
+if (MSVC)
+    target_compile_options(ReverseEngineeringGui PUBLIC /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(ReverseEngineeringGui)
 endif()

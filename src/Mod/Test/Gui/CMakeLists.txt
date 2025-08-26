@@ -58,6 +58,11 @@ add_library(QtUnitGui SHARED ${TestGui_SRCS} ${TestGuiPy_SRCS} ${TestGuiIcon_SVG
 
 target_link_libraries(QtUnitGui ${TestGui_LIBS})
 add_dependencies(QtUnitGui Test)
+
+if (MSVC)
+    target_compile_options(QtUnitGui PUBLIC /wd4251)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(QtUnitGui)
 endif()

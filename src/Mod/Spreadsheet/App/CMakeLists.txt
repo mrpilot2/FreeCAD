@@ -58,6 +58,11 @@ endif(FREECAD_USE_PCH)
 
 add_library(Spreadsheet SHARED ${Spreadsheet_SRCS})
 target_link_libraries(Spreadsheet ${Spreadsheet_LIBS})
+
+if (MSVC)
+    target_compile_options(Spreadsheet PUBLIC /wd4251 /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Spreadsheet)
 endif()
