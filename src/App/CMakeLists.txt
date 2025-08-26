@@ -350,7 +350,7 @@ target_link_libraries(FreeCADApp ${FreeCADApp_LIBS})
 
 if (MSVC)
     target_compile_definitions(FreeCADApp PRIVATE WIN32_LEAN_AND_MEAN)
-    target_compile_options(FreeCADApp PRIVATE /Wd4251;4273;4275;4482;4503;4786)
+    target_compile_options(FreeCADApp PRIVATE "/wd4251;4273;4275;4482;4503;4786")
 endif()
 
 if (FREECAD_WARN_ERROR)
