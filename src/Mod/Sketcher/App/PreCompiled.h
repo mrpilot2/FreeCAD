@@ -111,9 +111,6 @@
 #include <gp_Pnt.hxx>
 
 #elif defined(FC_OS_WIN32)
-#ifndef NOMINMAX
-#define NOMINMAX
-#endif
 #include <windows.h>
 #endif  // _PreComp_
 
