@@ -270,6 +270,11 @@ SET(PartGuiIcon_SVG
 
 add_library(PartGui SHARED ${PartGui_SRCS} ${PartGuiIcon_SVG})
 target_link_libraries(PartGui ${PartGui_LIBS})
+
+if (MSVC)
+    target_compile_options(PartGui PUBLIC /wd4251 /wd4273)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(PartGui)
 endif()

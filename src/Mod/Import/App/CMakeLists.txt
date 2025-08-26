@@ -81,6 +81,11 @@ generate_from_py_(StepShapePy)
 
 add_library(Import SHARED ${Import_SRCS})
 target_link_libraries(Import ${Import_LIBS})
+
+if (MSVC)
+    target_compile_options(Import PUBLIC /wd4251 /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Import)
 endif()

@@ -142,6 +142,11 @@ SET(PartDesign_SRCS
 
 add_library(PartDesign SHARED ${PartDesign_SRCS})
 target_link_libraries(PartDesign ${PartDesign_LIBS})
+
+if (MSVC)
+    target_compile_options(PartDesign PUBLIC /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(PartDesign)
 endif()

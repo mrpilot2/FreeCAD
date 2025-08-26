@@ -147,6 +147,11 @@ SET(Sketcher_PCH_SRCS
 
 target_sources(Sketcher PRIVATE ${Sketcher_SRCS})
 target_link_libraries(Sketcher ${Sketcher_LIBS})
+
+if (MSVC)
+    target_compile_options(Sketcher PUBLIC /wd4251)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Sketcher)
 endif()
