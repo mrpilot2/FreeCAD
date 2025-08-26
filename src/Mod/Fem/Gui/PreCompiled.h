@@ -56,7 +56,6 @@
 #include <boost/lexical_cast.hpp>
 
 #ifdef FC_OS_WIN32
-#define WIN32_LEAN_AND_MEAN
 #include <windows.h>
 #endif
 
