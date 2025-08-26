@@ -140,10 +140,7 @@ jobs:
 
     - name: CMake Configure
       run: |
-        pixi run configure-${{ env.config }} -DCMAKE_EXPORT_COMPILE_COMMANDS=1
-
-    - name: Setup tmate session
-      uses: mxschmitt/action-tmate@v3
+        pixi run configure-${{ env.config }}
 
     - name: CMake Build
       run: |
