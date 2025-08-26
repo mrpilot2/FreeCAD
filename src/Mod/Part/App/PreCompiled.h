@@ -75,7 +75,6 @@
 #include "OpenCascadeAll.h"
 
 #elif defined(FC_OS_WIN32)
-#define WIN32_LEAN_AND_MEAN
 #include <Windows.h>
 #include <io.h>
 #endif

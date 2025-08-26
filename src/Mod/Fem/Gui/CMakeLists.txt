@@ -405,6 +405,11 @@ SET(FemGuiSymbol_IV
 
 add_library(FemGui SHARED ${FemGui_SRCS} ${FemGuiIcon_SVG} ${FemGuiSymbol_IV})
 target_link_libraries(FemGui ${FemGui_LIBS} ${VTK_LIBRARIES})
+
+if (MSVC)
+    target_compile_definitions(FemGui PRIVATE WIN32_LEAN_AND_MEAN)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(FemGui)
 endif()

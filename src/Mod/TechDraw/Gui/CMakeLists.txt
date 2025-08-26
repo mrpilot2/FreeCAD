@@ -475,6 +475,11 @@ endif(FREECAD_USE_PCH)
 add_library(TechDrawGui SHARED ${TechDrawGui_SRCS} ${TechDrawGuiView_SRCS} ${TechDrawGuiViewProvider_SRCS}
                                ${TechDrawGuiNav_SRCS} ${TechDrawGuiIcon_SVG} ${TechDrawGuiFonts} ${MRTE_SRCS})
 target_link_libraries(TechDrawGui ${TechDrawGui_LIBS})
+
+if (MSVC)
+    target_compile_definitions(TechDrawGui PRIVATE WIN32_LEAN_AND_MEAN)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(TechDrawGui)
 endif()
