@@ -108,6 +108,11 @@ set(SpreadsheetGui_UIC_SRCS
 
 add_library(SpreadsheetGui SHARED ${SpreadsheetGui_SRCS} ${SpreadsheetGuiIcon_SVG})
 target_link_libraries(SpreadsheetGui ${SpreadsheetGui_LIBS})
+
+if (MSVC)
+    target_compile_options(SpreadsheetGui PUBLIC /wd4251)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(SpreadsheetGui)
 endif()

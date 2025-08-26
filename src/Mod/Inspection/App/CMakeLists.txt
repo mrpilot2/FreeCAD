@@ -31,6 +31,11 @@ endif(FREECAD_USE_PCH)
 
 add_library(Inspection SHARED ${Inspection_SRCS} ${Inspection_Scripts})
 target_link_libraries(Inspection ${Inspection_LIBS})
+
+if (MSVC)
+    target_compile_options(Inspection PUBLIC /wd4251)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Inspection)
 endif()

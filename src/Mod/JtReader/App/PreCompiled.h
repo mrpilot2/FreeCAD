@@ -20,13 +20,6 @@
 
 #ifdef _PreComp_
 
-/// point at which warnings of overly long specifiers disabled (needed for VC6)
-
-#ifdef _MSC_VER
-#pragma warning(disable : 4251)
-#pragma warning(disable : 4275)
-#endif
-
 // standard
 
 #include <cassert>

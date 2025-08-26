@@ -215,6 +215,11 @@ endif(FREECAD_USE_PCH)
 
 add_library(Fem SHARED ${Fem_SRCS})
 target_link_libraries(Fem ${Fem_LIBS} ${VTK_LIBRARIES})
+
+if (MSVC)
+    target_compile_options(Fem PUBLIC /wd4275)
+endif()
+
 if (FREECAD_WARN_ERROR)
     target_compile_warn_error(Fem)
 endif()
