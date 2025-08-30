@@ -25,10 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _MSC_VER
-# pragma warning(disable : 4005)
-#endif
-
 #ifdef FC_OS_WIN32
 #endif
 
