@@ -25,8 +25,6 @@
 
 #include <FCConfig.h>
 
-#ifdef _PreComp_
-
 // standard
 #include <algorithm>
 #include <bitset>
@@ -101,6 +99,8 @@
 #include <StdMeshers_UseExisting_1D2D.hxx>
 
 // Opencascade
+#include <Standard_Version.hxx>
+
 #include <Adaptor3d_IsoCurve.hxx>
 #include <BRepAdaptor_CompCurve.hxx>
 #include <BRepAdaptor_Curve.hxx>
@@ -133,7 +133,6 @@
 #include <ShapeAnalysis_ShapeTolerance.hxx>
 #include <ShapeAnalysis_Surface.hxx>
 #include <Standard_Real.hxx>
-#include <Standard_Version.hxx>
 #include <TColgp_Array2OfPnt.hxx>
 #include <TopoDS.hxx>
 #include <TopoDS_Edge.hxx>
@@ -208,5 +207,4 @@
 #include <NETGENPlugin_SimpleHypothesis_3D.hxx>
 #endif
 
-#endif  // _PreComp_
 #endif
