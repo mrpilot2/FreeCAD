@@ -140,10 +140,20 @@ jobs:
         pixi run ccache -C
         pixi run ccache -c
 
-    - name: Build Benchmark - Base App Gui
+    - name: Build Benchmark - Spreadsheet SpreadsheetGui
       shell: bash
       run: |
         ./build_benchmark.sh Spreadsheet SpreadsheetGui
+    
+    - name: Build Benchmark - TechDraw TechDrawGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh TechDraw TechDrawGui
+    
+    - name: Build Benchmark - Fem FemGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh Fem FemGui
 
     - name: Print ccache statistics after Build
       if: always()
