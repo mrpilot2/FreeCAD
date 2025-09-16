@@ -139,21 +139,14 @@ jobs:
         pixi run ccache -p
         pixi run ccache -C
         pixi run ccache -c
-
-    - name: Build Benchmark - Spreadsheet SpreadsheetGui
-      shell: bash
-      run: |
-        ./build_benchmark.sh Spreadsheet SpreadsheetGui
     
-    - name: Build Benchmark - TechDraw TechDrawGui
-      shell: bash
+    - name: CMake Configure
       run: |
-        ./build_benchmark.sh TechDraw TechDrawGui
+        pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
     
-    - name: Build Benchmark - Fem FemGui
-      shell: bash
+    - name: CMake Build
       run: |
-        ./build_benchmark.sh Fem FemGui
+        pixi run build-${{ env.config }}
 
     - name: Print ccache statistics after Build
       if: always()
