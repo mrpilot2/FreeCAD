@@ -105,6 +105,12 @@ add_library(SpreadsheetGui SHARED
     ${SpreadsheetGuiIcon_SVG}
 )
 
+if(FREECAD_USE_PCH)
+    add_definitions(-D_PreComp_)
+    GET_MSVC_PRECOMPILED_SOURCE("PreCompiled.cpp" PCH_SRCS ${SpreadsheetGui_SRCS})
+    ADD_MSVC_PRECOMPILED_HEADER(SpreadsheetGui PreCompiled.h PreCompiled.cpp PCH_SRCS)
+endif(FREECAD_USE_PCH)
+
 target_include_directories(
     SpreadsheetGui
     PRIVATE

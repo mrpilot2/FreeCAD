@@ -140,7 +140,7 @@ jobs:
 
     - name: CMake Configure
       run: |
-        pixi run configure-${{ env.config }}
+        pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON
 
     - name: CMake Build
       run: |
