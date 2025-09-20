@@ -25,6 +25,8 @@ delete_existing_target_build_dir() {
     fi
 }
 
+rm -rf $builddir/*
+
 pixi run configure-$config -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
 for target in $@
