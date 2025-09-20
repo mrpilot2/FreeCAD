@@ -2,6 +2,29 @@
 
 set -x
 
+delete_existing_target_build_dir() {
+    target=$1
+    
+    # remove just the target directory
+    base_target=${target//"Gui"/}
+
+    if [[ "$target" == "FreeCADBase" ]]
+    then
+        rm -rf $builddir/src/Base
+    elif [[ "$target" == "FreeCADApp" ]]
+    then
+        rm -rf $builddir/src/App
+    elif [[ "$target" == "FreeCADGui" ]]
+    then
+        rm -rf $builddir/src/Gui
+    elif [[ "$target" == *Gui ]]
+    then
+        rm -rf $builddir/src/Mod/$base_target/Gui
+    else
+        rm -rf $builddir/src/Mod/$base_target/App
+    fi
+}
+
 for target in $@
 do
     # build once to make sure all dependencies are built
@@ -9,15 +32,7 @@ do
 
     pixi run build-$config --target $target
 
-    # remove just the target directory
-    base_target=${target//"Gui"/}
-
-    if [[ "$target" == *Gui ]]
-    then
-      rm -rf $builddir/src/Mod/$base_target/Gui
-    else
-      rm -rf $builddir/src/Mod/$base_target/App
-    fi
+    delete_existing_target_build_dir $target
 
     for i in $(seq 1 3);
     do
@@ -29,12 +44,7 @@ do
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
     
-        if [[ "$target" == *Gui ]]
-        then
-          rm -rf $builddir/src/Mod/$base_target/Gui
-        else
-          rm -rf $builddir/src/Mod/$base_target/App
-        fi
+        delete_existing_target_build_dir $target
     done
 done
 
@@ -45,15 +55,7 @@ do
 
     pixi run build-$config --target $target
 
-    # remove just the target directory
-    base_target=${target//"Gui"/}
-
-    if [[ "$target" == *Gui ]]
-    then
-      rm -rf $builddir/src/Mod/$base_target/Gui
-    else
-      rm -rf $builddir/src/Mod/$base_target/App
-    fi
+    delete_existing_target_build_dir $target
 
     for i in $(seq 1 3);
     do
@@ -65,12 +67,7 @@ do
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
     
-        if [[ "$target" == *Gui ]]
-        then
-          rm -rf $builddir/src/Mod/$base_target/Gui
-        else
-          rm -rf $builddir/src/Mod/$base_target/App
-        fi
+        delete_existing_target_build_dir $target
     done
 
 done
