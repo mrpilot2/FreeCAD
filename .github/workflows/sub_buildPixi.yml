@@ -144,9 +144,10 @@ jobs:
       run: |
         pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
     
-    - name: CMake Build
+    - name: Build Benchmark - Spreadsheet SpreadsheetGui
+      shell: bash
       run: |
-        pixi run build-${{ env.config }}
+        ./build_benchmark.sh Spreadsheet SpreadsheetGui
 
     - name: Print ccache statistics after Build
       if: always()
