@@ -144,35 +144,10 @@ jobs:
       run: |
         pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 
-    - name: Build Benchmark - FreeCADBase FreeCADApp FreeCADGui
+    - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
-
-    - name: Build Benchmark - Materials Start Points Mesh Web
-      shell: bash
-      run: |
-        ./build_benchmark.sh Materials MaterialsGui Start StartGui Points PointsGui Mesh MeshGui Web
-
-    - name: Build Benchmark - Fem
-      shell: bash
-      run: |
-        ./build_benchmark.sh Fem FemGui
-
-    - name: Build Benchmark - Spreadsheet SpreadsheetGui
-      shell: bash
-      run: |
-        ./build_benchmark.sh Spreadsheet SpreadsheetGui
-
-    - name: Build Benchmark - TechDraw
-      shell: bash
-      run: |
-        ./build_benchmark.sh TechDraw TechDrawGui
-
-    - name: Build Benchmark - Sketcher
-      shell: bash
-      run: |
-        ./build_benchmark.sh Sketcher SketcherGui
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui Materials MaterialsGui Start StartGui Points PointsGui Mesh MeshGui Web Fem FemGui Spreadsheet SpreadsheetGui TechDraw TechDrawGui Sketcher SketcherGui
 
     - name: Print ccache statistics after Build
       if: always()
