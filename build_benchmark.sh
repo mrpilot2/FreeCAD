@@ -1,3 +1,7 @@
+#!/bin/bash
+
+set -x
+
 for target in $@
 do
     # build once to make sure all dependencies are built
@@ -8,7 +12,12 @@ do
     # remove just the target directory
     base_target=${target//"Gui"/}
 
-    rm -rf $builddir/src/Mod/$base_target
+    if [[ "$target" == *Gui ]]
+    then
+      rm -rf $builddir/src/Mod/$base_target/Gui
+    else
+      rm -rf $builddir/src/Mod/$base_target/App
+    fi
 
     for i in $(seq 1 3);
     do
@@ -20,9 +29,17 @@ do
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
     
-        rm -rf $builddir/src/Mod/$base_target
+        if [[ "$target" == *Gui ]]
+        then
+          rm -rf $builddir/src/Mod/$base_target/Gui
+        else
+          rm -rf $builddir/src/Mod/$base_target/App
+        fi
     done
+done
 
+for target in $@
+do
     # build once to make sure all dependencies are built
     pixi run configure-$config -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 
@@ -31,7 +48,12 @@ do
     # remove just the target directory
     base_target=${target//"Gui"/}
 
-    rm -rf $builddir/src/Mod/$base_target
+    if [[ "$target" == *Gui ]]
+    then
+      rm -rf $builddir/src/Mod/$base_target/Gui
+    else
+      rm -rf $builddir/src/Mod/$base_target/App
+    fi
 
     for i in $(seq 1 3);
     do
@@ -43,7 +65,12 @@ do
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
     
-        rm -rf $builddir/src/Mod/$base_target
+        if [[ "$target" == *Gui ]]
+        then
+          rm -rf $builddir/src/Mod/$base_target/Gui
+        else
+          rm -rf $builddir/src/Mod/$base_target/App
+        fi
     done
 
 done
