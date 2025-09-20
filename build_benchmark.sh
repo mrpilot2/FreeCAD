@@ -25,10 +25,11 @@ delete_existing_target_build_dir() {
     fi
 }
 
+pixi run configure-$config -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
+
 for target in $@
 do
     # build once to make sure all dependencies are built
-    pixi run configure-$config -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
     pixi run build-$config --target $target
 
@@ -43,16 +44,18 @@ do
         echo "Building $target - PCH OFF" >> $logdir/build_timings.log
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
-    
-        delete_existing_target_build_dir $target
+   
+        if [[ $i -ne 3 ]]
+        then 
+            delete_existing_target_build_dir $target
+        fi
     done
 done
 
+pixi run configure-$config -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 for target in $@
 do
     # build once to make sure all dependencies are built
-    pixi run configure-$config -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
-
     pixi run build-$config --target $target
 
     delete_existing_target_build_dir $target
@@ -67,7 +70,10 @@ do
 
         (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
     
-        delete_existing_target_build_dir $target
+        if [[ $i -ne 3 ]]
+        then 
+            delete_existing_target_build_dir $target
+        fi
     done
 
 done
