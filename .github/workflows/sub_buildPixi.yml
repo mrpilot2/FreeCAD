@@ -139,15 +139,40 @@ jobs:
         pixi run ccache -p
         pixi run ccache -C
         pixi run ccache -c
-    
+
     - name: CMake Configure
       run: |
         pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
-    
+
+    - name: Build Benchmark - FreeCADBase FreeCADApp FreeCADGui
+      shell: bash
+      run: |
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui
+
+    - name: Build Benchmark - Materials Start Points Mesh Web
+      shell: bash
+      run: |
+        ./build_benchmark.sh Materials MaterialsGui Start StartGui Points PointsGui Mesh MeshGui Web
+
+    - name: Build Benchmark - Fem
+      shell: bash
+      run: |
+        ./build_benchmark.sh Fem FemGui
+
     - name: Build Benchmark - Spreadsheet SpreadsheetGui
       shell: bash
       run: |
         ./build_benchmark.sh Spreadsheet SpreadsheetGui
+
+    - name: Build Benchmark - TechDraw
+      shell: bash
+      run: |
+        ./build_benchmark.sh TechDraw TechDrawGui
+
+    - name: Build Benchmark - Sketcher
+      shell: bash
+      run: |
+        ./build_benchmark.sh Sketcher SketcherGui
 
     - name: Print ccache statistics after Build
       if: always()
