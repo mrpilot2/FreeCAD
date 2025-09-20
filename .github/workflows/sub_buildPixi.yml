@@ -147,7 +147,8 @@ jobs:
     - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui Materials MaterialsGui Start StartGui Points PointsGui Mesh MeshGui Web Fem FemGui Spreadsheet SpreadsheetGui TechDraw TechDrawGui Sketcher SketcherGui
+        ./build_benchmark.sh FreeCADBase FreeCADApp FreeCADGui Materials MaterialsGui Start StartGui Points PointsGui 
+       # Mesh MeshGui Web Fem FemGui Spreadsheet SpreadsheetGui TechDraw TechDrawGui Sketcher SketcherGui
 
     - name: Print ccache statistics after Build
       if: always()
