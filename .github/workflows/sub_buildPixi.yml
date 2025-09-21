@@ -145,9 +145,8 @@ jobs:
         pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 
     - name: Build Benchmark - All updated Mods
-      shell: bash
       run: |
-        ./build_benchmark.sh TechDraw TechDrawGui Sketcher SketcherGui
+        pixi run build-${{ env.config }}
 
     - name: Print ccache statistics after Build
       if: always()
