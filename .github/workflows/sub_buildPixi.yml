@@ -147,7 +147,7 @@ jobs:
     - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh Fem FemGui Spreadsheet SpreadsheetGui
+        ./build_benchmark.sh TechDraw TechDrawGui Sketcher SketcherGui
 
     - name: Print ccache statistics after Build
       if: always()
