@@ -28,6 +28,8 @@
 #include <App/DocumentObject.h>
 #include <App/PropertyLinks.h>
 
+#include <Mod/Spreadsheet/SpreadsheetGlobal.h>
+
 #include "Cell.h"
 
 
