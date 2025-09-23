@@ -142,12 +142,12 @@ jobs:
 
     - name: CMake Configure
       run: |
-        pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
+        pixi run configure-${{ env.config }} -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
     - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh TechDraw TechDrawGui Sketcher SketcherGui
+        ./build_benchmark.sh Assembly AssemblyGui Import ImportGui Inspection InspectionGui Measure MeasureGui ReverseEngineering ReverseEngineerGui Surface SurfaceGui 
 
     - name: Print ccache statistics after Build
       if: always()
