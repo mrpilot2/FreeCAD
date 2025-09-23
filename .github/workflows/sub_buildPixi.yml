@@ -147,7 +147,7 @@ jobs:
     - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh Assembly AssemblyGui Import ImportGui Inspection InspectionGui Measure MeasureGui ReverseEngineering ReverseEngineerGui Surface SurfaceGui 
+        ./build_benchmark.sh PartDesign PartDesignGui MeshPart MeshPartGui 
 
     - name: Print ccache statistics after Build
       if: always()
