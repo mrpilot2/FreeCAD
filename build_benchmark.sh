@@ -27,7 +27,7 @@ delete_existing_target_build_dir() {
 
 rm -rf $builddir/*
 
-pixi run configure-$config -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
+pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
 for target in $@
 do
@@ -39,7 +39,7 @@ do
 
     for i in $(seq 1 3);
     do
-        pixi run configure-$config -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
+        pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
         echo "Building $target run $i - PCH OFF"
 
@@ -54,7 +54,7 @@ do
     done
 done
 
-pixi run configure-$config -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
+pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 for target in $@
 do
     # build once to make sure all dependencies are built
@@ -64,7 +64,7 @@ do
 
     for i in $(seq 1 3);
     do
-        pixi run configure-$config -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
+        pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
 
         echo "Building $target run $i - PCH ON"
 
