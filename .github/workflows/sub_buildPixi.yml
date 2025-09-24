@@ -147,7 +147,7 @@ jobs:
     - name: Build Benchmark - All updated Mods
       shell: bash
       run: |
-        ./build_benchmark.sh Draft JtReader Part PartGui 
+        ./build_benchmark.sh Robot RobotGui Path PathGui 
 
     - name: Print ccache statistics after Build
       if: always()
