@@ -29,53 +29,28 @@ rm -rf $builddir/*
 
 pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
 
-for target in $@
+for i in $(seq 1 3);
 do
-    # build once to make sure all dependencies are built
+    pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
+    echo "Building All run $i - PCH OFF"
 
-    pixi run build-$config --target $target
+    echo "Building All - PCH OFF" >> $logdir/build_timings.log
 
-    delete_existing_target_build_dir $target
+    (time pixi run build-$config) 2>> $logdir/build_timings.log
 
-    for i in $(seq 1 3);
-    do
-        pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=OFF -DFREECAD_USE_CCACHE=OFF
-
-        echo "Building $target run $i - PCH OFF"
-
-        echo "Building $target - PCH OFF" >> $logdir/build_timings.log
-
-        (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
-   
-        if [[ $i -ne 3 ]]
-        then 
-            delete_existing_target_build_dir $target
-        fi
-    done
+    rm -rf $builddir/*   
 done
 
 pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
-for target in $@
+
+for i in $(seq 1 3);
 do
-    # build once to make sure all dependencies are built
-    pixi run build-$config --target $target
+    pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
+    echo "Building All run $i - PCH ON"
 
-    delete_existing_target_build_dir $target
+    echo "Building All - PCH ON" >> $logdir/build_timings.log
 
-    for i in $(seq 1 3);
-    do
-        pixi run configure-$config -DBUILD_JTREADER=ON -DFREECAD_USE_PCH=ON -DFREECAD_USE_CCACHE=OFF
+    (time pixi run build-$config) 2>> $logdir/build_timings.log
 
-        echo "Building $target run $i - PCH ON"
-
-        echo "Building $target - PCH ON" >> $logdir/build_timings.log
-
-        (time pixi run build-$config --target $target) 2>> $logdir/build_timings.log
-    
-        if [[ $i -ne 3 ]]
-        then 
-            delete_existing_target_build_dir $target
-        fi
-    done
-
+    rm -rf $builddir/*   
 done
