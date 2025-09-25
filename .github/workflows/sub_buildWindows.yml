@@ -124,7 +124,7 @@ jobs:
           --preset ${{ env.config }}
           -DCMAKE_VS_NO_COMPILE_BATCHING=ON
           -DCMAKE_BUILD_TYPE=Release
-          -DFREECAD_USE_PCH=OFF
+          -DFREECAD_USE_PCH=ON
           -DFREECAD_RELEASE_PDB=OFF
           -DFREECAD_LIBPACK_DIR="${{ env.libpackdir }}"
           -DFREECAD_COPY_DEPEND_DIRS_TO_BUILD=ON
