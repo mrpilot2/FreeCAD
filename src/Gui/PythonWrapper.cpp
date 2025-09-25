@@ -82,9 +82,6 @@
 // Do not use SHIBOKEN_MICRO_VERSION; it might contain a dot
 #  define SHIBOKEN_FULL_VERSION QT_VERSION_CHECK(SHIBOKEN_MAJOR_VERSION, SHIBOKEN_MINOR_VERSION, 0)
 
-#  include <pyside2_qtcore_python.h>
-#  include <pyside2_qtgui_python.h>
-#  include <pyside2_qtwidgets_python.h>
 # endif // HAVE_PYSIDE2
 #endif // HAVE_SHIBOKEN2
 
